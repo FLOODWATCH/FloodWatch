@@ -23,6 +23,22 @@
       "address": "Tanza",
       "password": "123456",
       "id": 3
+    },
+    {
+      "name": "dddfs",
+      "email": "sdfsdf",
+      "mobile": "dsfsdf",
+      "address": "dfdddf",
+      "password": "ddfdfdfdf",
+      "id": 4
+    },
+    {
+      "name": "Testing",
+      "email": "testing@gmail.com",
+      "mobile": "09305193102",
+      "address": "Amaya 2 Tanza Cavite",
+      "password": "kc123",
+      "id": 5
     }
   ]
 }

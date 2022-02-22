@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
     this.userObj.getUserFromService().subscribe((u) => (this.userVariable = u));
   }
 
-  onSubmit() {
+  addUser() {
     const newUser = {
       name: this.name,
       email: this.email,
