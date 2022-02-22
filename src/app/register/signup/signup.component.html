@@ -1,1 +1,63 @@
-<p>signup works!</p>
+<div class="signup-main-con">
+  <form class="signup-form" (ngSubmit)="onSubmit()">
+    <div>
+      <input
+        type="text"
+        placeholder="Enter Name"
+        name="name"
+        [(ngModel)]="name"
+        id="name"
+      />
+    </div>
+    <div>
+      <input
+        type="text"
+        placeholder="Enter Email"
+        name="email"
+        [(ngModel)]="email"
+        id="email"
+      />
+    </div>
+    <div>
+      <input
+        type="text"
+        placeholder="Mobile Number"
+        name="mobile"
+        [(ngModel)]="mobile"
+        id="mobile"
+      />
+    </div>
+    <div>
+      <input
+        type="text"
+        placeholder="Address"
+        name="address"
+        [(ngModel)]="address"
+        id="address"
+      />
+    </div>
+    <div>
+      <input
+        type="text"
+        placeholder="Password"
+        name="password"
+        [(ngModel)]="password"
+        id="pssword"
+      />
+    </div>
+    <section><input type="submit" value="Sign up" /></section>
+  </form>
+</div>
+<div>
+  <p>{{ name }}</p>
+  <p>{{ email }}</p>
+</div>
+
+<div style="margin-top: 50px"></div>
+<div *ngFor="let user of userVariable" style="margin-bottom: 20px">
+  <p>Name: {{ user.name }}</p>
+  <p>Email: {{ user.email }}</p>
+  <p>Mobile: {{ user.mobile }}</p>
+  <p>Address: {{ user.address }}</p>
+  <p>Password: {{ user.password }}</p>
+</div>
