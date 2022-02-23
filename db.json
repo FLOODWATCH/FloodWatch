@@ -39,6 +39,14 @@
       "address": "Amaya 2 Tanza Cavite",
       "password": "kc123",
       "id": 5
+    },
+    {
+      "name": "Test again",
+      "email": "yes naman",
+      "mobile": "09305193102",
+      "address": "romblon",
+      "password": "123456keemchard",
+      "id": 6
     }
   ]
 }
