@@ -47,6 +47,14 @@
       "address": "12312",
       "password": "helloworld",
       "id": 6
+    },
+    {
+      "name": "Janeki",
+      "email": "janeki@gmail.com",
+      "mobile": "12345678901",
+      "address": "janeki",
+      "password": "janeki",
+      "id": 7
     }
   ]
 }

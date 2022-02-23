@@ -36,12 +36,16 @@ export class SignupComponent implements OnInit {
     //  onkeypress="if(this.value.match(/\D/)) this.value=this.value.replace(/\D/g,'')"
     //     onkeyup="if(this.value.match(/\D/)) this.value=this.value.replace(/\D/g,'')"
   }
+  // DOM manipulation
   validateForm() {
     var x = document.forms["myForm"]["fname"].value;
     if (x == "") {
       alert("Name must be filled out");
       return false;
     }
+  }
+  randomForm() {
+    let nameVar: HTMLInputElement = document.querySelector('#name');
   }
   addUser() {
     const newUser = {
