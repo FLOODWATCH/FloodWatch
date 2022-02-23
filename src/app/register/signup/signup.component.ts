@@ -8,8 +8,10 @@ import { userArray } from 'src/app/mock-user';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
 })
+
 export class SignupComponent implements OnInit {
   userVariable: userInterface[] = [];
+  random: string = 'samp';
 
   name: string;
   email: string;
@@ -17,12 +19,30 @@ export class SignupComponent implements OnInit {
   address: string;
   password: string;
 
-  constructor(private userObj: UserCredService) {}
+  constructor(private userObj: UserCredService) { }
 
   ngOnInit(): void {
     this.userObj.getUserFromService().subscribe((u) => (this.userVariable = u));
   }
 
+  // clears all input fields
+  clearField() {
+
+    // var inputs = document.querySelectorAll('input');
+    // inputs.forEach(input => input.value = '');
+    // var inputs = document.getElementsByTagName("input");
+    // for (var i = 0; i < inputs.length; i++)
+    //   inputs[i].value = '';
+    //  onkeypress="if(this.value.match(/\D/)) this.value=this.value.replace(/\D/g,'')"
+    //     onkeyup="if(this.value.match(/\D/)) this.value=this.value.replace(/\D/g,'')"
+  }
+  validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == "") {
+      alert("Name must be filled out");
+      return false;
+    }
+  }
   addUser() {
     const newUser = {
       name: this.name,
@@ -31,10 +51,30 @@ export class SignupComponent implements OnInit {
       address: this.address,
       password: this.password,
     };
-
-    console.log(newUser);
-    this.userObj
-      .addUserFromService(newUser)
-      .subscribe((u) => this.userVariable.push(newUser));
+    // Checks input
+    if (!newUser.name || !newUser.email || !newUser.mobile || !newUser.address || !newUser.password) {
+      alert("Fill everything");
+    }
+    else if (this.mobile.length < 11) {
+      alert('Must be 11 numbers');
+      this.clearField();
+      // var inputs = document.getElementsByTagName("input");
+      // for (var i = 0; i < inputs.length; i++)
+      //   inputs[i].value = '';
+    }
+    else if (isNaN(Number(this.mobile))) {
+      alert('numbers only');
+      this.clearField();
+    }
+    else {
+      alert('Successfull!')
+      this.userObj
+        .addUserFromService(newUser)
+        .subscribe((u) => this.userVariable.push(newUser));
+    }
+    // this.userObj
+    //   .addUserFromService(newUser)
+    //   .subscribe((u) => this.userVariable.push(newUser));
   }
+
 }

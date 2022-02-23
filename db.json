@@ -39,6 +39,14 @@
       "address": "Amaya 2 Tanza Cavite",
       "password": "kc123",
       "id": 5
+    },
+    {
+      "name": "Janeki",
+      "email": "janeki@gmail.com",
+      "mobile": "1234",
+      "address": "12312",
+      "password": "helloworld",
+      "id": 6
     }
   ]
 }
