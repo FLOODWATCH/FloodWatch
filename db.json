@@ -1,0 +1,52 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "Ella Berroya",
+      "email": " ella.nerroya@gmail.com",
+      "mobile": "09305193102",
+      "address": "santol,tanza,cavite",
+      "password": "kcpogi"
+    },
+    {
+      "name": "Try User",
+      "email": "try.user@gmail.com",
+      "mobile": "09222485456",
+      "address": "Romblon",
+      "password": "yay",
+      "id": 2
+    },
+    {
+      "name": "Test 3",
+      "email": "test@gmail.com",
+      "mobile": "09305193102",
+      "address": "Tanza",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "name": "dddfs",
+      "email": "sdfsdf",
+      "mobile": "dsfsdf",
+      "address": "dfdddf",
+      "password": "ddfdfdfdf",
+      "id": 4
+    },
+    {
+      "name": "Testing",
+      "email": "testing@gmail.com",
+      "mobile": "09305193102",
+      "address": "Amaya 2 Tanza Cavite",
+      "password": "kc123",
+      "id": 5
+    },
+    {
+      "name": "Test again",
+      "email": "yes naman",
+      "mobile": "09305193102",
+      "address": "romblon",
+      "password": "123456keemchard",
+      "id": 6
+    }
+  ]
+}
