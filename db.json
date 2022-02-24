@@ -25,36 +25,12 @@
       "id": 3
     },
     {
-      "name": "dddfs",
-      "email": "sdfsdf",
-      "mobile": "dsfsdf",
-      "address": "dfdddf",
-      "password": "ddfdfdfdf",
+      "name": "jannel",
+      "email": "jannelrevilla@gmail.com",
+      "mobile": "09260722719",
+      "address": "Imus, Cavite",
+      "password": "janeki13",
       "id": 4
-    },
-    {
-      "name": "Testing",
-      "email": "testing@gmail.com",
-      "mobile": "09305193102",
-      "address": "Amaya 2 Tanza Cavite",
-      "password": "kc123",
-      "id": 5
-    },
-    {
-      "name": "Janeki",
-      "email": "janeki@gmail.com",
-      "mobile": "1234",
-      "address": "12312",
-      "password": "helloworld",
-      "id": 6
-    },
-    {
-      "name": "Janeki",
-      "email": "janeki@gmail.com",
-      "mobile": "12345678901",
-      "address": "janeki",
-      "password": "janeki",
-      "id": 7
     }
   ]
 }

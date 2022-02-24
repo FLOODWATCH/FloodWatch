@@ -1,5 +1,5 @@
 <div class="signup-main-con">
-  <form class="signup-form" (ngSubmit)="addUser()">
+  <form id="form" class="signup-form" (ngSubmit)="addUser()">
     <h2>Sign Up</h2>
     <div>
       <!-- Name -->
@@ -18,8 +18,9 @@
         placeholder="Enter Email"
         name="email"
         [(ngModel)]="email"
-        id="email"
+        id="em"
       />
+      <span id="text"></span>
     </div>
     <!-- Mobile No. -->
     <div>
@@ -48,7 +49,7 @@
         placeholder="Password"
         name="password"
         [(ngModel)]="password"
-        id="pssword"
+        id="pw"
       />
     </div>
     <section>

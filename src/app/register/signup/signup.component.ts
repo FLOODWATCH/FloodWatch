@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { userInterface } from 'src/app/user-interface';
 import { UserCredService } from 'src/app/register-services/user-cred.service';
 import { userArray } from 'src/app/mock-user';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +12,6 @@ import { userArray } from 'src/app/mock-user';
 
 export class SignupComponent implements OnInit {
   userVariable: userInterface[] = [];
-  random: string = 'samp';
 
   name: string;
   email: string;
@@ -24,28 +24,94 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     this.userObj.getUserFromService().subscribe((u) => (this.userVariable = u));
   }
-
-  // clears all input fields
-  clearField() {
-
-    // var inputs = document.querySelectorAll('input');
-    // inputs.forEach(input => input.value = '');
-    // var inputs = document.getElementsByTagName("input");
-    // for (var i = 0; i < inputs.length; i++)
-    //   inputs[i].value = '';
-    //  onkeypress="if(this.value.match(/\D/)) this.value=this.value.replace(/\D/g,'')"
-    //     onkeyup="if(this.value.match(/\D/)) this.value=this.value.replace(/\D/g,'')"
-  }
-  // DOM manipulation
-  validateForm() {
-    var x = document.forms["myForm"]["fname"].value;
-    if (x == "") {
-      alert("Name must be filled out");
-      return false;
+  // Error Indicator
+  changeColor(element, bool) {
+    if (bool) {
+      // bool is true if error is found
+      element.style.borderColor = "red"
+    } else {
+      element.style.borderColor = "black"
     }
   }
-  randomForm() {
-    let nameVar: HTMLInputElement = document.querySelector('#name');
+  // Validates the email address
+  emailValidation() {
+    var email: HTMLInputElement = document.querySelector("#em");
+    var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (email.value.match(pattern)) {
+      return true
+    } else {
+      return false
+    }
+  }
+  // Validates the phone no.
+  phoneValidation(num) {
+    if (num.match(/[a-z]/g) || num.match(/[A_Z]/g)) {
+      return false
+    } else {
+      // checks if it's all numbers with max length of 11
+      if (num.match(/\d/g).length === 11) {
+        return true
+      }
+    }
+  }
+  // checks if password contains both characters & numbers
+  passwordValidation(pass) {
+    if ((pass.match(/[a-z]/g) || pass.match(/[A_Z]/g)) && pass.match(/[0-9]/g)) {
+      return true
+    } else {
+      return false
+    }
+  }
+  // Checks all textfields if valid
+  checkFields(name, email, mobile, address, password) {
+    var thisField = [
+      name,
+      email,
+      mobile,
+      address,
+      password,
+    ]
+    var thisID = [
+      "#name",
+      "#em",
+      "#mobile",
+      "#address",
+      "#pw"
+    ]
+    for (let i = 0; i <= thisID.length; i++) {
+      const first = document.querySelector(`${thisID[i]}`)
+
+      // changeColor is true if error is found
+      if (!thisField[i]) {
+        this.changeColor(first, true)
+      }
+      else if (thisField[i] == email) {
+        if (this.emailValidation()) {
+          this.changeColor(first, false)
+        } else {
+          this.emailValidation()
+          this.changeColor(first, true)
+        }
+      }
+      else if (thisField[i] == mobile) {
+        if (this.phoneValidation(thisField[i])) {
+          this.changeColor(first, false)
+        } else {
+          this.changeColor(first, true)
+        }
+      }
+      else if (thisField[i] == password) {
+        if (this.passwordValidation(thisField[i])) {
+          this.changeColor(first, false)
+        } else {
+          this.changeColor(first, true)
+        }
+      }
+      else {
+        this.changeColor(first, false)
+      }
+    }
   }
   addUser() {
     const newUser = {
@@ -53,22 +119,20 @@ export class SignupComponent implements OnInit {
       email: this.email,
       mobile: this.mobile,
       address: this.address,
-      password: this.password,
+      password: this.password
     };
-    // Checks input
+    // Checks inputs
     if (!newUser.name || !newUser.email || !newUser.mobile || !newUser.address || !newUser.password) {
-      alert("Fill everything");
+      this.checkFields(newUser.name, newUser.email, newUser.mobile, newUser.address, newUser.password)
     }
-    else if (this.mobile.length < 11) {
-      alert('Must be 11 numbers');
-      this.clearField();
-      // var inputs = document.getElementsByTagName("input");
-      // for (var i = 0; i < inputs.length; i++)
-      //   inputs[i].value = '';
+    else if (!this.emailValidation) {
+      this.checkFields(newUser.name, newUser.email, newUser.mobile, newUser.address, newUser.password)
     }
-    else if (isNaN(Number(this.mobile))) {
-      alert('numbers only');
-      this.clearField();
+    else if (!this.phoneValidation(newUser.mobile)) {
+      this.checkFields(newUser.name, newUser.email, newUser.mobile, newUser.address, newUser.password)
+    }
+    else if (!this.passwordValidation(newUser.password)) {
+      this.checkFields(newUser.name, newUser.email, newUser.mobile, newUser.address, newUser.password)
     }
     else {
       alert('Successfull!')
@@ -76,9 +140,6 @@ export class SignupComponent implements OnInit {
         .addUserFromService(newUser)
         .subscribe((u) => this.userVariable.push(newUser));
     }
-    // this.userObj
-    //   .addUserFromService(newUser)
-    //   .subscribe((u) => this.userVariable.push(newUser));
   }
 
 }

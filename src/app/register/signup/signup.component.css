@@ -34,3 +34,6 @@
 .signup-form section input {
   padding: 8px;
 }
+input:focus {
+  color: black;
+}
