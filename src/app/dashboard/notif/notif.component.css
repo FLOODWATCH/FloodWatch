@@ -1,0 +1,39 @@
+.notif-main {
+  width: 300px;
+  background-color: brown;
+  padding: 5px;
+}
+.notif-con {
+  background-color: rgb(124, 128, 131);
+  padding: 5px;
+}
+.notif-con h2 {
+  background-color: aqua;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+.notif-list {
+  background-color: aquamarine;
+  height: 300px;
+  padding: 5px;
+  overflow-y: scroll;
+}
+.notif {
+  background-color: aliceblue;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.notif h4 {
+  margin-bottom: 5px;
+}
+.notif p {
+  font-size: 15px;
+}
+
+/* shortcut container */
+
+.shortcut-con {
+  margin-top: 20px;
+  height: 300px;
+  background-color: beige;
+}

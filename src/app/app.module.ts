@@ -10,9 +10,10 @@ import { SignupComponent } from './register/signup/signup.component';
 import { PostComponent } from './dashboard/post/post.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
 import { NotifComponent } from './dashboard/notif/notif.component';
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, SignupComponent, PostComponent, ProfileComponent, NotifComponent],
+  declarations: [AppComponent, LoginComponent, SignupComponent, PostComponent, ProfileComponent, NotifComponent, DashboardComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
