@@ -1,63 +1,82 @@
 .post-main {
   height: 99vh;
   /* display: flex; */
-  background-color: rebeccapurple;
+  /* background-color: rebeccapurple; */
+  background-color: #242526;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
   margin: 0px 10px;
   padding: 10px;
+  border-radius: 5px;
 }
 .post-category {
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
+  background-color: #242526;
   display: flex;
   padding: 20px 10px;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
 }
 .post-category > div {
   margin-right: 25px;
 }
 .post-con {
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
   height: 90vh;
   overflow-y: scroll;
-  padding: 10px;
+  padding: 5px;
 }
 .post-list {
   display: flex;
   flex-direction: column;
-  background-color: blueviolet;
-  padding: 5px 5px 20px 5px;
-  margin-bottom: 10px;
+  /* background-color: blueviolet; */
+  background-color: #3a3b3c;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px 10px 17px 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
 }
 .post-list .post-profile {
-  background-color: aqua;
-  padding: 10px;
+  /* background-color: aqua; */
+  background-color: #242526;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 3px 10px;
   display: flex;
   align-items: center;
+  border-radius: 10px;
 }
 .post-profile > div {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 .post-profile .post-prof-img {
+  width: 55px;
+  height: 53px;
+}
+.prof-img-con {
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-color: green;
-  margin-right: 10px;
+  /* background-color: green; */
+  background-color: #2e89ff;
 }
 .post-profile .post-prof-name {
-  display: flex;
-}
-.post-prof-name h4 {
-  display: flex;
-}
-.post-prof-name h4 p {
   margin-left: 8px;
+}
+
+.post-prof-name h4 span {
+  margin-left: 2px;
   font-weight: 100;
+  font-size: 15px;
+  color: gray;
 }
 .post-txt {
   margin-top: 10px;
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
+  margin-left: 80px;
+  padding: 3px;
 }
 .post-txt p {
-  margin-left: 60px;
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
+}
+
+.post-tab {
+  border-bottom: 7px solid #2e89ff;
 }

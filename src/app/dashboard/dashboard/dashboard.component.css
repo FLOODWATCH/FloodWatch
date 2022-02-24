@@ -1,9 +1,10 @@
 .dash-main {
-  background-color: beige;
+  background-color: #18191a;
   height: 100vh;
 }
 .dashboard {
-  background-color: wheat;
+  /* background-color: wheat; */
+  background-color: #18191a;
   width: 1366px;
   padding: 10px;
   margin: auto;
