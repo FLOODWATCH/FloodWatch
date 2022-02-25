@@ -39,6 +39,14 @@
       "address": "Amaya 2 Tanza Cavite",
       "password": "kc123",
       "id": 5
+    },
+    {
+      "name": "kc",
+      "email": "kc@gmail.com",
+      "mobile": "09305193102",
+      "address": "Tanza, Cavite",
+      "password": "bosskc123",
+      "id": 6
     }
   ]
 }
