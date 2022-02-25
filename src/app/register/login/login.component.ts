@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { userInterface } from 'src/app/user-interface';
 import { UserCredService } from 'src/app/register-services/user-cred.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { UserCredService } from 'src/app/register-services/user-cred.service';
 })
 export class LoginComponent implements OnInit {
   userVariable: userInterface[] = [];
-  constructor(private userObj: UserCredService) {}
+  constructor(private userObj: UserCredService, private router: Router) {}
 
   email: string;
   password: string;
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
       });
       if (theUser) {
         alert('Login Success');
+        this.router.navigate(['dashboard']);
       } else {
         alert('User Not Found');
       }

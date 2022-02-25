@@ -12,12 +12,18 @@
   /* background-color: aliceblue; */
   background-color: #242526;
   display: flex;
-  padding: 20px 10px;
-  margin-bottom: 1px;
+  padding: 5px 10px 15px 10px;
+  margin-bottom: 15px;
 }
 .post-category > div {
   margin-right: 25px;
 }
+.post-tab {
+  border-radius: 5px;
+  padding: 0 2px;
+  border-bottom: 5px solid #2e89ff;
+}
+
 .post-con {
   /* background-color: antiquewhite; */
   height: 90vh;
@@ -75,8 +81,5 @@
 }
 .post-txt p {
   /* background-color: antiquewhite; */
-}
-
-.post-tab {
-  border-bottom: 7px solid #2e89ff;
+  font-size: 15.5px;
 }

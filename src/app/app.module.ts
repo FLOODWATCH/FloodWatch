@@ -11,9 +11,10 @@ import { PostComponent } from './dashboard/post/post.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
 import { NotifComponent } from './dashboard/notif/notif.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import { RegisterDashComponent } from './register/register-dash/register-dash.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, SignupComponent, PostComponent, ProfileComponent, NotifComponent, DashboardComponent],
+  declarations: [AppComponent, LoginComponent, SignupComponent, PostComponent, ProfileComponent, NotifComponent, DashboardComponent, RegisterDashComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
