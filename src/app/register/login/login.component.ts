@@ -32,4 +32,11 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+
+  toggleSignUpForm() {
+    let loginDiv: HTMLDivElement = document.querySelector('.login-div');
+    loginDiv.style.display = 'none';
+    let signupDiv: HTMLDivElement = document.querySelector('.signup-div');
+    signupDiv.style.display = 'block';
+  }
 }

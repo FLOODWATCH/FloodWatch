@@ -1,0 +1,47 @@
+* {
+  color: black;
+}
+.register-main {
+  height: 100vh;
+  background-image: url(src/assets/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-con {
+  height: 590px;
+  width: 900px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.7);
+  background-color: transparent;
+  display: flex;
+}
+
+.register-con > div {
+  width: 50%;
+}
+.first {
+  /* background-color: aliceblue; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.intro-con {
+  /* background-color: red; */
+  padding-bottom: 200px;
+}
+.intro-con .reg-title {
+  font-size: 50px;
+}
+.intro-con .reg-title span {
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+.second {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 5px 30px;
+}

@@ -1,72 +1,62 @@
-<div class="signup-main-con">
-  <form id="form" class="signup-form" (ngSubmit)="addUser()">
-    <h2>Sign Up</h2>
-    <div>
-      <!-- Name -->
-      <input
-        type="text"
-        placeholder="Enter Name"
-        name="name"
-        [(ngModel)]="name"
-        id="name"
-      />
-    </div>
-    <div>
-      <!-- Email -->
-      <input
-        type="text"
-        placeholder="Enter Email"
-        name="email"
-        [(ngModel)]="email"
-        id="em"
-      />
-      <span id="text"></span>
-    </div>
-    <!-- Mobile No. -->
-    <div>
-      <input
-        type="text"
-        placeholder="Mobile Number"
-        name="mobile"
-        [(ngModel)]="mobile"
-        id="mobile"
-      />
-    </div>
-    <!-- Address -->
-    <div>
-      <input
-        type="text"
-        placeholder="Address"
-        name="address"
-        [(ngModel)]="address"
-        id="address"
-      />
-    </div>
-    <!-- Password -->
-    <div>
-      <input
-        type="text"
-        placeholder="Password"
-        name="password"
-        [(ngModel)]="password"
-        id="pw"
-      />
-    </div>
-    <section>
-      <input type="submit" value="Sign up" />
-    </section>
-  </form>
-</div>
-<div>
-  <p>{{ name }}</p>
-  <p>{{ email }}</p>
-</div>
-
-<div style="margin-top: 50px"></div>
-<div *ngFor="let user of userVariable" style="margin-bottom: 20px">
-  <p>Name: {{ user.name }}</p>
-  <p>Email: {{ user.email }}</p>
-  <p>Mobile: {{ user.mobile }}</p>
-  <p>Address: {{ user.address }}</p>
-  <p>Password: {{ user.password }}</p>
-</div>
+<form id="form" class="signup-form" (ngSubmit)="addUser()">
+  <p>SIGN UP</p>
+  <div>
+    <!-- Name -->
+    <input
+      type="text"
+      placeholder="Enter Name"
+      name="name"
+      [(ngModel)]="name"
+      id="name"
+    />
+  </div>
+  <div>
+    <!-- Email -->
+    <input
+      type="text"
+      placeholder="Enter Email"
+      name="email"
+      [(ngModel)]="email"
+      id="em"
+    />
+    <span id="text"></span>
+  </div>
+  <!-- Mobile No. -->
+  <div>
+    <input
+      type="text"
+      placeholder="Mobile Number"
+      name="mobile"
+      [(ngModel)]="mobile"
+      id="mobile"
+    />
+  </div>
+  <!-- Address -->
+  <div>
+    <input
+      type="text"
+      placeholder="Address"
+      name="address"
+      [(ngModel)]="address"
+      id="address"
+    />
+  </div>
+  <!-- Password -->
+  <div>
+    <input
+      type="text"
+      placeholder="Password"
+      name="password"
+      [(ngModel)]="password"
+      id="pw"
+    />
+  </div>
+  <section>
+    <input type="submit" value="Sign up" />
+  </section>
+  <article>
+    <a (click)="toggleLoginForm()" class="toggle-login"
+      >Already have an account?</a
+    >
+  </article>
+</form>
