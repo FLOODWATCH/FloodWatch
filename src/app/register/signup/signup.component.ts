@@ -24,6 +24,14 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     this.userObj.getUserFromService().subscribe((u) => (this.userVariable = u));
   }
+  resetFields() {
+    var fieldID = ['#name', '#em', '#mobile', '#address', '#pw'];
+    for (let x = 0; x <= fieldID.length; x++) {
+      const change: HTMLInputElement = document.querySelector(`${fieldID[x]}`);
+      change.value = "";
+      this.changeColor(change, false);
+    }
+  }
   // Error Indicator
   changeColor(element, bool) {
     if (bool) {
@@ -161,5 +169,6 @@ export class SignupComponent implements OnInit {
     loginDiv.style.display = 'block';
     let signupDiv: HTMLDivElement = document.querySelector('.signup-div');
     signupDiv.style.display = 'none';
+    this.resetFields();
   }
 }

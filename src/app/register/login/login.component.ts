@@ -16,9 +16,16 @@ export class LoginComponent implements OnInit {
   password: string;
   ngOnInit(): void { }
 
+  resetFields() {
+    var fieldID = ['#email', '#password'];
+    for (let x = 0; x <= fieldID.length; x++) {
+      const change: HTMLInputElement = document.querySelector(`${fieldID[x]}`);
+      change.value = "";
+      change.style.borderColor = 'white';
+    }
+  }
+
   login() {
-    // let emailVar: HTMLInputElement = document.querySelector('#email');
-    // let passVar: HTMLInputElement = document.querySelector('#password');
     const first: HTMLInputElement = document.querySelector("#email")
     const second: HTMLInputElement = document.querySelector("#password")
 
@@ -44,5 +51,6 @@ export class LoginComponent implements OnInit {
     loginDiv.style.display = 'none';
     let signupDiv: HTMLDivElement = document.querySelector('.signup-div');
     signupDiv.style.display = 'block';
+    this.resetFields();
   }
 }
