@@ -53,3 +53,17 @@ article a {
   color: rgb(187, 198, 207);
   text-decoration: underline;
 }
+#name,
+#em,
+#mobile,
+#address,
+#pw {
+  transition: 0.25s;
+}
+#name:hover,
+#em:hover,
+#mobile:hover,
+#address:hover,
+#pw:hover {
+  transform: scale(1.1);
+}

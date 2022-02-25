@@ -48,3 +48,11 @@ article a {
   color: rgb(187, 198, 207);
   text-decoration: underline;
 }
+#email,
+#password {
+  transition: 0.25s;
+}
+#email:hover,
+#password:hover {
+  transform: scale(1.1);
+}
