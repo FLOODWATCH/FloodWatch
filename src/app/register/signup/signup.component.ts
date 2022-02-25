@@ -11,6 +11,7 @@ import { element } from 'protractor';
 })
 export class SignupComponent implements OnInit {
   userVariable: userInterface[] = [];
+  focus: boolean;
 
   name: string;
   email: string;
@@ -18,7 +19,7 @@ export class SignupComponent implements OnInit {
   address: string;
   password: string;
 
-  constructor(private userObj: UserCredService) {}
+  constructor(private userObj: UserCredService) { }
 
   ngOnInit(): void {
     this.userObj.getUserFromService().subscribe((u) => (this.userVariable = u));
@@ -29,7 +30,7 @@ export class SignupComponent implements OnInit {
       // bool is true if error is found
       element.style.borderColor = 'red';
     } else {
-      element.style.borderColor = 'black';
+      element.style.borderColor = 'white';
     }
   }
   // Validates the email address

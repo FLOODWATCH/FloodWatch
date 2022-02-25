@@ -3,6 +3,7 @@
   <div>
     <!-- Name -->
     <input
+      [ngStyle]="{ outline: 'none' }"
       type="text"
       placeholder="Enter Name"
       name="name"
@@ -13,6 +14,7 @@
   <div>
     <!-- Email -->
     <input
+      [ngStyle]="{ outline: 'none' }"
       type="text"
       placeholder="Enter Email"
       name="email"
@@ -24,6 +26,7 @@
   <!-- Mobile No. -->
   <div>
     <input
+      [ngStyle]="{ outline: 'none' }"
       type="text"
       placeholder="Mobile Number"
       name="mobile"
@@ -34,6 +37,7 @@
   <!-- Address -->
   <div>
     <input
+      [ngStyle]="{ outline: 'none' }"
       type="text"
       placeholder="Address"
       name="address"
@@ -44,6 +48,7 @@
   <!-- Password -->
   <div>
     <input
+      [ngStyle]="{ outline: 'none' }"
       type="text"
       placeholder="Password"
       name="password"
@@ -52,10 +57,13 @@
     />
   </div>
   <section>
-    <input type="submit" value="Sign up" />
+    <input [ngStyle]="{ cursor: 'grab' }" type="submit" value="Sign up" />
   </section>
   <article>
-    <a (click)="toggleLoginForm()" class="toggle-login"
+    <a
+      [ngStyle]="{ cursor: 'grab' }"
+      (click)="toggleLoginForm()"
+      class="toggle-login"
       >Already have an account?</a
     >
   </article>

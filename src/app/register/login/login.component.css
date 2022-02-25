@@ -34,6 +34,11 @@
   transition: 0.25s;
   margin-bottom: 20px;
 }
+.log-form section input:active {
+  font-size: 15px;
+  width: 90%;
+  transition: 0.25s;
+}
 .log-form section input:hover {
   transform: scale(1.1);
 }

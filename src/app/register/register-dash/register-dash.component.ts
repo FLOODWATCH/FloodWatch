@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register-dash.component.css'],
 })
 export class RegisterDashComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     let signupDiv: HTMLDivElement = document.querySelector('.signup-div');

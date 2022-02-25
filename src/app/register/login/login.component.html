@@ -2,6 +2,7 @@
   <p>LOG IN</p>
   <div>
     <input
+      [ngStyle]="{ outline: 'none' }"
       type="text"
       name="email"
       [(ngModel)]="email"
@@ -11,6 +12,7 @@
   </div>
   <div>
     <input
+      [ngStyle]="{ outline: 'none' }"
       type="password"
       name="password"
       [(ngModel)]="password"
@@ -19,10 +21,15 @@
     />
   </div>
   <section>
-    <input type="submit" value="Continue" />
+    <input [ngStyle]="{ cursor: 'grab' }" type="submit" value="Continue" />
   </section>
   <!-- <article><a routerLink="/signup">Already have an account?</a></article> -->
   <article>
-    <a (click)="toggleSignUpForm()" class="toggle-signup">Create an Account</a>
+    <a
+      [ngStyle]="{ cursor: 'grab' }"
+      (click)="toggleSignUpForm()"
+      class="toggle-signup"
+      >Create an Account</a
+    >
   </article>
 </form>

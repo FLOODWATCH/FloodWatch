@@ -13,14 +13,17 @@
   width: 100%;
   padding: 10px;
   border: transparent;
-  font-size: 16px;
-  background-color: transparent;
-}
-.signup-form > div {
   border-bottom: 3.5px solid rgb(240, 240, 240);
   margin-bottom: 20px;
   border-radius: 5px;
+  font-size: 16px;
+  background-color: transparent;
 }
+/* .signup-form > div {
+  border-bottom: 3.5px solid rgb(240, 240, 240);
+  margin-bottom: 20px;
+  border-radius: 5px;
+} */
 .signup-form section {
   display: flex;
   justify-content: center;
@@ -37,10 +40,14 @@
   transition: 0.25s;
   margin-bottom: 20px;
 }
+.signup-form section input:active {
+  font-size: 15px;
+  width: 90%;
+  transition: 0.25s;
+}
 .signup-form section input:hover {
   transform: scale(1.1);
 }
-
 article a {
   font-size: 15px;
   color: rgb(187, 198, 207);
