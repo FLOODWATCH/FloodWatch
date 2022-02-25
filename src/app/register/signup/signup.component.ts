@@ -152,6 +152,7 @@ export class SignupComponent implements OnInit {
       this.userObj
         .addUserFromService(newUser)
         .subscribe((u) => this.userVariable.push(newUser));
+      this.toggleLoginForm()
     }
   }
 

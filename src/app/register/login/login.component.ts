@@ -10,24 +10,30 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   userVariable: userInterface[] = [];
-  constructor(private userObj: UserCredService, private router: Router) {}
+  constructor(private userObj: UserCredService, private router: Router) { }
 
   email: string;
   password: string;
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   login() {
     // let emailVar: HTMLInputElement = document.querySelector('#email');
     // let passVar: HTMLInputElement = document.querySelector('#password');
+    const first: HTMLInputElement = document.querySelector("#email")
+    const second: HTMLInputElement = document.querySelector("#password")
 
     this.userObj.getUserFromService().subscribe((u) => {
       const theUser = u.find((a: any) => {
         return a.email === this.email && a.password === this.password;
       });
       if (theUser) {
+        first.style.borderBottomColor = 'white';
+        second.style.borderBottomColor = 'white';
         alert('Login Success');
         this.router.navigate(['dashboard']);
       } else {
+        first.style.borderBottomColor = 'red';
+        second.style.borderBottomColor = 'red';
         alert('User Not Found');
       }
     });

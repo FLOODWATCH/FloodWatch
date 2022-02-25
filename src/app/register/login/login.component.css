@@ -11,13 +11,16 @@
   border: transparent;
   font-size: 20px;
   background-color: transparent;
-}
-
-.log-form > div {
-  border-bottom: 4px solid white;
+  border-bottom: 3.5px solid rgb(240, 240, 240);
   margin-bottom: 20px;
   border-radius: 5px;
 }
+
+/* .log-form > div {
+  border-bottom: 4px solid white;
+  margin-bottom: 20px;
+  border-radius: 5px;
+} */
 .log-form section {
   display: flex;
   justify-content: center;
