@@ -2,11 +2,18 @@
   (click)="closeButton()"
   class="modal"
   id="myModal"
-  [ngStyle]="{ display: 'none' }"
+  [ngStyle]="{ display: 'flex' }"
 >
   <div class="modal-content">
-    <h2 [ngStyle]="{ color: 'red' }">{{ errorMessage }}</h2>
-    <button class="closeButton" id="closeButton">Close</button>
+    <span [ngStyle]="{ cursor: 'pointer' }" class="close">&times;</span>
+    <h2 [ngStyle]="{ color: 'red' }">{{ modalMessage }}</h2>
+    <button
+      [ngStyle]="{ cursor: 'pointer' }"
+      class="closeButton"
+      id="closeButton"
+    >
+      Okay
+    </button>
   </div>
 </div>
 <!-- FORM -->

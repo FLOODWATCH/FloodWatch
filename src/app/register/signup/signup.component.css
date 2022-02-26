@@ -93,14 +93,27 @@ article a {
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
+  position: relative;
 }
 .modal-content > h2 {
   color: black;
   /* justify-content: center; */
 }
-#thisText {
+/* #thisText {
   color: black;
   font-size: 18px;
+} */
+.close {
+  top: -5px;
+  right: 5px;
+  /* background-color: blue; */
+  font-size: 40px;
+  color: rgb(61, 62, 63);
+  position: absolute;
+  /* background-color: blue; */
+}
+.close:hover {
+  color: rgb(25, 25, 26);
 }
 .closeButton {
   border: transparent;

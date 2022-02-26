@@ -12,7 +12,7 @@ import { element } from 'protractor';
 export class SignupComponent implements OnInit {
   userVariable: userInterface[] = [];
   focus: boolean;
-  errorMessage: string;
+  modalMessage: string;
 
   name: string;
   email: string;
@@ -81,13 +81,13 @@ export class SignupComponent implements OnInit {
     var thisID = ['#name', '#em', '#mobile', '#address', '#pw'];
     for (let i = 0; i <= thisID.length; i++) {
       const first = document.querySelector(`${thisID[i]}`);
-
+      const closeBtn: HTMLDivElement = document.querySelector("#myModal");
       // changeColor is true if error is found
       if (!thisField[i]) {
         this.changeColor(first, true);
 
-        var closeBtn: HTMLDivElement = document.querySelector("#myModal");
-        this.errorMessage = 'Please fill everything'
+        // Shows Modal
+        this.modalMessage = 'Please fill everything'
         closeBtn.style.display = 'flex';
       } else if (thisField[i] == email) {
         if (this.emailValidation()) {
@@ -161,7 +161,7 @@ export class SignupComponent implements OnInit {
         newUser.password
       );
     } else {
-      alert('Successfull!');
+      this.modalMessage = 'Successful!'
       this.userObj
         .addUserFromService(newUser)
         .subscribe((u) => this.userVariable.push(newUser));
