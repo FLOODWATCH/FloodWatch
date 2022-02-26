@@ -1,9 +1,10 @@
-* {
+/* * {
   color: white;
-}
+} */
 
 .signup-form {
   padding: 8px;
+  color: white;
 }
 .signup-form P {
   margin: 10px 0 20px 0;
@@ -53,12 +54,16 @@ article a {
   color: rgb(187, 198, 207);
   text-decoration: underline;
 }
+.toggle-login {
+  color: black;
+}
 #name,
 #em,
 #mobile,
 #address,
 #closeButton,
 #pw {
+  color: white;
   transition: 0.25s;
 }
 #name:hover,
@@ -76,8 +81,7 @@ article a {
   height: 50vh;
   top: 0;
   left: 0;
-  background: transparent;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -85,7 +89,8 @@ article a {
   border-radius: 10px;
   /* border: solid rgb(7, 7, 7); */
   /* background-color: rgba(80, 124, 182, 0.479); */
-  background-color: rgb(247, 247, 247);
+  /* background-color: rgb(247, 247, 247); */
+  background-color: #053c5e;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 500px;
   height: 20rem;
@@ -103,24 +108,37 @@ article a {
   color: black;
   font-size: 18px;
 } */
-.close {
-  top: -5px;
-  right: 5px;
-  /* background-color: blue; */
-  font-size: 40px;
-  color: rgb(61, 62, 63);
+.closeMod {
+  /* border-radius: 10px; */
+  /* background-color: rgba(0, 0, 0, 0.19); */
+  /* color: black; */
+  /* color: inherit; */
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  text-align: center;
+  /* align-items: center; */
+  padding: 10px;
+  /* background-color: rgba(0, 0, 0, 0.19); */
+  background-color: #bfdbf7;
+  border-radius: 50%;
+  top: 10px;
+  right: 20px;
+  /* font-size: 40px; */
+  /* color: rgb(61, 62, 63); */
   position: absolute;
-  /* background-color: blue; */
 }
-.close:hover {
-  color: rgb(25, 25, 26);
+.closeMod:hover {
+  /* color: rgb(51, 51, 54); */
+  cursor: pointer;
 }
 .closeButton {
+  font-size: 18px;
   border: transparent;
   border-radius: 5px;
-  background: rgba(187, 198, 207, 0.5);
+  /* background: rgba(27, 81, 126, 0.582); */
+  background-color: #1f7a8c;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  color: black;
   text-align: center;
   padding: 1rem 3rem 1rem 3rem;
 }

@@ -1,12 +1,14 @@
-<div
-  (click)="closeButton()"
-  class="modal"
-  id="myModal"
-  [ngStyle]="{ display: 'flex' }"
->
-  <div class="modal-content">
-    <span [ngStyle]="{ cursor: 'pointer' }" class="close">&times;</span>
-    <h2 [ngStyle]="{ color: 'red' }">{{ modalMessage }}</h2>
+<div (click)="closeButton()" class="modal" id="myModal">
+  <div class="modal-content" id="modal-content">
+    <h2 id="closeMod" class="closeMod">
+      <fa-icon class="thisMod" [ngStyle]="{ color: '#393a3b' }" [icon]="faTimes"
+        >THIS</fa-icon
+      >
+    </h2>
+    <h2 [ngStyle]="{ color: '#ad3939', 'font-size': '25px' }">
+      <fa-icon [icon]="faExclamation"></fa-icon>
+      {{ modalMessage }}
+    </h2>
     <button
       [ngStyle]="{ cursor: 'pointer' }"
       class="closeButton"
@@ -40,7 +42,7 @@
       [(ngModel)]="email"
       id="em"
     />
-    <span id="text"></span>
+    <h2 id="text"></h2>
   </div>
   <!-- Mobile No. -->
   <div>
@@ -76,7 +78,11 @@
     />
   </div>
   <section>
-    <input [ngStyle]="{ cursor: 'pointer' }" type="submit" value="Sign up" />
+    <input
+      [ngStyle]="{ cursor: 'pointer', color: 'white' }"
+      type="submit"
+      value="Sign up"
+    />
   </section>
   <article>
     <a

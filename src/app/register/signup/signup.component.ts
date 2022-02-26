@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { userInterface } from 'src/app/user-interface';
 import { UserCredService } from 'src/app/register-services/user-cred.service';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faExclamation } from '@fortawesome/free-solid-svg-icons';
 import { userArray } from 'src/app/mock-user';
 import { element } from 'protractor';
 
@@ -10,6 +12,8 @@ import { element } from 'protractor';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
+  faTimes = faTimes;
+  faExclamation = faExclamation;
   userVariable: userInterface[] = [];
   focus: boolean;
   modalMessage: string;
@@ -24,6 +28,9 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.userObj.getUserFromService().subscribe((u) => (this.userVariable = u));
+
+    // const closeMod = document.getElementById("closeMod");
+    // closeMod.style.color = 'black';
   }
   resetFields() {
     var fieldID = ['#name', '#em', '#mobile', '#address', '#pw'];
@@ -85,7 +92,6 @@ export class SignupComponent implements OnInit {
       // changeColor is true if error is found
       if (!thisField[i]) {
         this.changeColor(first, true);
-
         // Shows Modal
         this.modalMessage = 'Please fill everything'
         closeBtn.style.display = 'flex';
