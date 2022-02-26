@@ -57,6 +57,7 @@ article a {
 #em,
 #mobile,
 #address,
+#closeButton,
 #pw {
   transition: 0.25s;
 }
@@ -64,48 +65,49 @@ article a {
 #em:hover,
 #mobile:hover,
 #address:hover,
+#closeButton:hover,
 #pw:hover {
   transform: scale(1.1);
 }
 /* Modal Background */
 .modal {
-  height: 30vh;
-  width: 280px;
-  /* overflow: auto; */
-  border: 5px solid rgb(46, 46, 46);
-  border-radius: 10px;
-  /* padding: 0 0.5rem 0 0.5rem; */
-  background-color: #704f9c;
+  position: fixed;
+  width: 100%;
+  height: 50vh;
+  top: 0;
+  left: 0;
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: black; */
 }
-/* Modal Content Box */
 .modal-content {
-  /* align-items: center;
-  justify-content: center; */
-  display: flex;
-  width: 250px;
-  height: 10vh;
-  /* position: bottom; */
-  background-color: #817294;
   border-radius: 10px;
-  margin: 15% auto;
-  /* padding: 20px 10px 20px 10px; */
+  /* border: solid rgb(7, 7, 7); */
+  /* background-color: rgba(80, 124, 182, 0.479); */
+  background-color: rgb(247, 247, 247);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 500px;
+  height: 20rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
 }
-.modal-content > p {
+.modal-content > h2 {
+  color: black;
+  /* justify-content: center; */
+}
+#thisText {
+  color: black;
+  font-size: 18px;
+}
+.closeButton {
+  border: transparent;
+  border-radius: 5px;
+  background: rgba(187, 198, 207, 0.5);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: black;
   text-align: center;
-}
-.close {
-  float: right;
-  color: rgba(0, 0, 0, 0.699);
-  font-size: 40px;
-  font-weight: bold;
-}
-.close:hover,
-close:focus {
-  color: rgba(46, 46, 46);
-  text-decoration: none;
-  cursor: pointer;
+  padding: 1rem 3rem 1rem 3rem;
 }

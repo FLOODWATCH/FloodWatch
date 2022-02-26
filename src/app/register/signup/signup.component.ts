@@ -12,6 +12,7 @@ import { element } from 'protractor';
 export class SignupComponent implements OnInit {
   userVariable: userInterface[] = [];
   focus: boolean;
+  errorMessage: string;
 
   name: string;
   email: string;
@@ -84,6 +85,10 @@ export class SignupComponent implements OnInit {
       // changeColor is true if error is found
       if (!thisField[i]) {
         this.changeColor(first, true);
+
+        var closeBtn: HTMLDivElement = document.querySelector("#myModal");
+        this.errorMessage = 'Please fill everything'
+        closeBtn.style.display = 'flex';
       } else if (thisField[i] == email) {
         if (this.emailValidation()) {
           this.changeColor(first, false);
@@ -170,5 +175,9 @@ export class SignupComponent implements OnInit {
     let signupDiv: HTMLDivElement = document.querySelector('.signup-div');
     signupDiv.style.display = 'none';
     this.resetFields();
+  }
+  closeButton() {
+    var closeBtn: HTMLDivElement = document.querySelector("#myModal");
+    closeBtn.style.display = 'none';
   }
 }
