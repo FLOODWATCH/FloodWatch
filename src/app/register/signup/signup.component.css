@@ -67,3 +67,45 @@ article a {
 #pw:hover {
   transform: scale(1.1);
 }
+/* Modal Background */
+.modal {
+  height: 30vh;
+  width: 280px;
+  /* overflow: auto; */
+  border: 5px solid rgb(46, 46, 46);
+  border-radius: 10px;
+  /* padding: 0 0.5rem 0 0.5rem; */
+  background-color: #704f9c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: black; */
+}
+/* Modal Content Box */
+.modal-content {
+  /* align-items: center;
+  justify-content: center; */
+  display: flex;
+  width: 250px;
+  height: 10vh;
+  /* position: bottom; */
+  background-color: #817294;
+  border-radius: 10px;
+  margin: 15% auto;
+  /* padding: 20px 10px 20px 10px; */
+}
+.modal-content > p {
+  text-align: center;
+}
+.close {
+  float: right;
+  color: rgba(0, 0, 0, 0.699);
+  font-size: 40px;
+  font-weight: bold;
+}
+.close:hover,
+close:focus {
+  color: rgba(46, 46, 46);
+  text-decoration: none;
+  cursor: pointer;
+}
