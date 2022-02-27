@@ -100,10 +100,10 @@ article a {
   justify-content: space-around;
   position: relative;
 }
-.modal-content > h2 {
+/* .modal-content > h2 {
   color: black;
-  /* justify-content: center; */
-}
+  justify-content: center;
+} */
 /* #thisText {
   color: black;
   font-size: 18px;
@@ -129,7 +129,8 @@ article a {
   position: absolute;
 }
 .closeMod:hover {
-  /* color: rgb(51, 51, 54); */
+  color: rgb(51, 51, 54);
+  /* color: red; */
   cursor: pointer;
 }
 .closeButton {
