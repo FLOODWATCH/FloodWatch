@@ -84,6 +84,7 @@ export class SignupComponent implements OnInit {
   }
   // Checks all textfields if valid
   checkFields(name, email, mobile, address, password) {
+    // var checkError = true;
     var thisField = [name, email, mobile, address, password];
     var thisID = ['#name', '#em', '#mobile', '#address', '#pw'];
     for (let i = 0; i <= thisID.length; i++) {
@@ -99,7 +100,8 @@ export class SignupComponent implements OnInit {
         if (this.emailValidation()) {
           this.changeColor(first, false);
         } else {
-          this.emailValidation();
+          // alert('incorrect')
+          // this.emailValidation();
           this.changeColor(first, true);
         }
       } else if (thisField[i] == mobile) {
@@ -120,6 +122,7 @@ export class SignupComponent implements OnInit {
     }
   }
   addUser() {
+    const openModal: HTMLDivElement = document.querySelector("#myModal");
     const newUser = {
       name: this.name,
       email: this.email,
@@ -142,7 +145,7 @@ export class SignupComponent implements OnInit {
         newUser.address,
         newUser.password
       );
-    } else if (!this.emailValidation) {
+    } else if (!this.emailValidation()) {
       this.checkFields(
         newUser.name,
         newUser.email,
@@ -167,11 +170,17 @@ export class SignupComponent implements OnInit {
         newUser.password
       );
     } else {
+      // var delayMessage = 1000;
+      setTimeout(this.toggleLoginForm, 500);
+      // setTimeout(function () {
+      //   this.toggleLoginForm()
+      // }, delayMessage)
       this.modalMessage = 'Successful!'
+      openModal.style.display = 'flex';
       this.userObj
         .addUserFromService(newUser)
         .subscribe((u) => this.userVariable.push(newUser));
-      this.toggleLoginForm()
+      // this.toggleLoginForm()
     }
   }
 
@@ -182,6 +191,7 @@ export class SignupComponent implements OnInit {
     signupDiv.style.display = 'none';
     this.resetFields();
   }
+
   closeButton() {
     var closeBtn: HTMLDivElement = document.querySelector("#myModal");
     closeBtn.style.display = 'none';

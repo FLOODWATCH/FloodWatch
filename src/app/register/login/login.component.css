@@ -60,6 +60,8 @@ article a {
   transition: 0.25s;
 }
 #email:hover,
-#password:hover {
+#password:hover,
+#email:focus,
+#password:focus {
   transform: scale(1.1);
 }

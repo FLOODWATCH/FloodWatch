@@ -1,19 +1,22 @@
 <div (click)="closeButton()" class="modal" id="myModal">
   <div class="modal-content" id="modal-content">
     <h2 id="closeMod" class="closeMod">
-      <fa-icon class="thisMod" [icon]="faTimes">THIS</fa-icon>
+      <fa-icon class="thisMod" [icon]="faTimes"></fa-icon>
     </h2>
+    <fa-icon id="icon-modal" [icon]="faExclamation"></fa-icon>
     <h2 [ngStyle]="{ color: '#ad3939', 'font-size': '25px' }">
-      <fa-icon [icon]="faExclamation"></fa-icon>
-      {{ modalMessage }}
+      <!-- <fa-icon id="icon-modal" [icon]="faExclamation"></fa-icon> -->
+      <span id="modal-message">
+        {{ modalMessage }}
+      </span>
     </h2>
-    <button
+    <!-- <button
       [ngStyle]="{ cursor: 'pointer' }"
       class="closeButton"
       id="closeButton"
     >
       Okay
-    </button>
+    </button> -->
   </div>
 </div>
 <!-- FORM -->
