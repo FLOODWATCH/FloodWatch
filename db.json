@@ -1,68 +1,92 @@
 {
   "user": [
     {
-      "id": 1,
-      "name": "Ella Berroya",
-      "email": " ella.nerroya@gmail.com",
-      "mobile": "09305193102",
-      "address": "santol,tanza,cavite",
-      "password": "kcpogi"
+      "name": "janeki",
+      "email": "revillazjannelz@gmail.com",
+      "mobile": "09260722719",
+      "address": "Imus, Cavite",
+      "password": "janeki21",
+      "id": 1
     },
     {
-      "name": "Try User",
-      "email": "try.user@gmail.com",
-      "mobile": "09222485456",
-      "address": "Romblon",
-      "password": "yay",
+      "name": "Keemchard De Guzman Tamio",
+      "email": "keemchard.tamio@cvsu.edu.ph",
+      "mobile": "09305193102",
+      "address": "Purok III, 0129 Santol, Tanza, Cavite",
+      "password": "bosskc03",
       "id": 2
+    }
+  ],
+  "post": [
+    {
+      "id": 1,
+      "profName": "Keemchard Tamio",
+      "profEmail": "keemchardtamio@gmail.com",
+      "profTextPost": "you know what know you yeah tenenen tenen ten ten tenenewwwww",
+      "profPostTime": ""
     },
     {
-      "name": "Test 3",
-      "email": "test@gmail.com",
-      "mobile": "09305193102",
-      "address": "Tanza",
-      "password": "123456",
-      "id": 3
+      "id": 2,
+      "profName": "try",
+      "profEmail": "try@gmail.com",
+      "profTextPost": "ogadjsfnakj ajlksdnf lkaslkd fld laks ls  ako intsik ksadfl laskdf kdk askwepoiqwe qpwieooiter uo kajsnd",
+      "profPostTime": ""
     },
     {
-      "name": "dddfs",
-      "email": "sdfsdf",
-      "mobile": "dsfsdf",
-      "address": "dfdddf",
-      "password": "ddfdfdfdf",
-      "id": 4
+      "id": 3,
+      "profName": "Keemchard Tamio",
+      "profEmail": "keemchardtamio@gmail.com",
+      "profTextPost": "you know what know you yeah tenenen tenen ten ten tenenewwwww",
+      "profPostTime": ""
     },
     {
-      "name": "Testing",
-      "email": "testing@gmail.com",
-      "mobile": "09305193102",
-      "address": "Amaya 2 Tanza Cavite",
-      "password": "kc123",
-      "id": 5
+      "id": 4,
+      "profName": "try",
+      "profEmail": "try@gmail.com",
+      "profTextPost": "ogadjsfnakj ajlksdnf lkaslkd fld laks ls  ako intsik ksadfl laskdf kdk askwepoiqwe qpwieooiter uo kajsnd",
+      "profPostTime": ""
     },
     {
-      "name": "kc",
-      "email": "kc@gmail.com",
-      "mobile": "09305193102",
-      "address": "Tanza, Cavite",
-      "password": "bosskc123",
-      "id": 6
+      "id": 5,
+      "profName": "try",
+      "profEmail": "try@gmail.com",
+      "profTextPost": "ogadjsfnakj ajlksdnf lkaslkd fld laks ls  ako intsik ksadfl laskdf kdk askwepoiqwe qpwieooiter uo kajsnd",
+      "profPostTime": ""
     },
     {
-      "name": "janeki",
-      "email": "revillazjannelz@gmail.com",
-      "mobile": "09260722719",
-      "address": "Imus, Cavite",
-      "password": "janeki21",
-      "id": 7
+      "id": 6,
+      "profName": "Keemchard Tamio",
+      "profEmail": "keemchardtamio@gmail.com",
+      "profTextPost": "you know what know you yeah tenenen tenen ten ten tenenewwwww",
+      "profPostTime": ""
     },
     {
-      "name": "janeki",
-      "email": "revillazjannelz@gmail.com",
-      "mobile": "09260722719",
-      "address": "Imus, Cavite",
-      "password": "janeki21",
-      "id": 8
+      "id": 7,
+      "profName": "try",
+      "profEmail": "try@gmail.com",
+      "profTextPost": "ogadjsfnakj ajlksdnf lkaslkd fld laks ls  ako intsik ksadfl laskdf kdk askwepoiqwe qpwieooiter uo kajsnd",
+      "profPostTime": ""
+    },
+    {
+      "id": 8,
+      "profName": "Keemchard Tamio",
+      "profEmail": "keemchardtamio@gmail.com",
+      "profTextPost": "you know what know you yeah tenenen tenen ten ten tenenewwwww",
+      "profPostTime": ""
+    },
+    {
+      "id": 9,
+      "profName": "try",
+      "profEmail": "try@gmail.com",
+      "profTextPost": "ogadjsfnakj ajlksdnf lkaslkd fld laks ls  ako intsik ksadfl laskdf kdk askwepoiqwe qpwieooiter uo kajsnd",
+      "profPostTime": ""
+    },
+    {
+      "id": 10,
+      "profName": "try",
+      "profEmail": "try@gmail.com",
+      "profTextPost": "ogadjsfnakj ajlksdnf lkaslkd fld laks ls  ako intsik ksadfl laskdf kdk askwepoiqwe qpwieooiter uo kajsnd",
+      "profPostTime": ""
     }
   ]
 }

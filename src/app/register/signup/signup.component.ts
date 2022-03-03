@@ -5,6 +5,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faExclamation } from '@fortawesome/free-solid-svg-icons';
 import { userArray } from 'src/app/mock-user';
 import { element } from 'protractor';
+import { userClass } from 'src/app/classes/user-class';
 
 @Component({
   selector: 'app-signup',
@@ -24,7 +25,7 @@ export class SignupComponent implements OnInit {
   address: string;
   password: string;
 
-  constructor(private userObj: UserCredService) { }
+  constructor(private userObj: UserCredService) {}
 
   ngOnInit(): void {
     this.userObj.getUserFromService().subscribe((u) => (this.userVariable = u));
@@ -36,7 +37,7 @@ export class SignupComponent implements OnInit {
     var fieldID = ['#name', '#em', '#mobile', '#address', '#pw'];
     for (let x = 0; x <= fieldID.length; x++) {
       const change: HTMLInputElement = document.querySelector(`${fieldID[x]}`);
-      change.value = "";
+      change.value = '';
       this.changeColor(change, false);
     }
   }
@@ -88,12 +89,12 @@ export class SignupComponent implements OnInit {
     var thisID = ['#name', '#em', '#mobile', '#address', '#pw'];
     for (let i = 0; i <= thisID.length; i++) {
       const first = document.querySelector(`${thisID[i]}`);
-      const closeBtn: HTMLDivElement = document.querySelector("#myModal");
+      const closeBtn: HTMLDivElement = document.querySelector('#myModal');
       // changeColor is true if error is found
       if (!thisField[i]) {
         this.changeColor(first, true);
         // Shows Modal
-        this.modalMessage = 'Please fill everything'
+        this.modalMessage = 'Please fill everything';
         closeBtn.style.display = 'flex';
       } else if (thisField[i] == email) {
         if (this.emailValidation()) {
@@ -119,6 +120,7 @@ export class SignupComponent implements OnInit {
       }
     }
   }
+
   addUser() {
     const newUser = {
       name: this.name,
@@ -167,11 +169,11 @@ export class SignupComponent implements OnInit {
         newUser.password
       );
     } else {
-      this.modalMessage = 'Successful!'
+      this.modalMessage = 'Successful!';
       this.userObj
         .addUserFromService(newUser)
         .subscribe((u) => this.userVariable.push(newUser));
-      this.toggleLoginForm()
+      this.toggleLoginForm();
     }
   }
 
@@ -183,7 +185,7 @@ export class SignupComponent implements OnInit {
     this.resetFields();
   }
   closeButton() {
-    var closeBtn: HTMLDivElement = document.querySelector("#myModal");
+    var closeBtn: HTMLDivElement = document.querySelector('#myModal');
     closeBtn.style.display = 'none';
   }
 }

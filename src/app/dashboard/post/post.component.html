@@ -6,128 +6,26 @@
   </div>
   <div class="post-con">
     <!-- ///////// -->
-    <div class="post-list">
+    <div class="post-list" *ngFor="let post of postVariable">
       <div class="post-profile">
         <div class="post-prof-img">
           <div class="prof-img-con"></div>
         </div>
         <div class="post-prof-name">
           <h4>
-            Keemchard Tamio
-            <span>@keemchard</span>
+            {{ post.profName }}
+            <span>{{ post.profEmail }}</span>
           </h4>
         </div>
       </div>
       <div class="post-txt">
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta ea
-          consequuntur, itaque eligendi est eos modi numquam maiores ad
-          temporibus voluptatem aliquid repudiandae doloremque possimus alias
-          animi sunt at vitae.
+          {{ post.profTextPost }}
         </p>
       </div>
     </div>
     <!-- ///////// -->
-    <div class="post-list">
-      <div class="post-profile">
-        <div class="post-prof-img">
-          <div class="prof-img-con"></div>
-        </div>
-        <div class="post-prof-name">
-          <h4>
-            Jannel Revilla
-            <span>@janeki</span>
-          </h4>
-        </div>
-      </div>
-      <div class="post-txt">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
-          dolor delectus deleniti quidem ipsa quaerat culpa temporibus, quas
-          quae minima, vitae fuga cupiditate. Perspiciatis, recusandae
-          voluptates sit nulla vitae excepturi, error a velit esse quos illum
-          quam. Doloribus libero et odit aliquid, ipsa architecto est quam
-          voluptate saepe, magnam quod!
-        </p>
-      </div>
-    </div>
-    <!-- ///////// -->
-    <div class="post-list">
-      <div class="post-profile">
-        <div class="post-prof-img">
-          <div class="prof-img-con"></div>
-        </div>
-        <div class="post-prof-name">
-          <h4>
-            Merwin Esguerra
-            <span>@mer</span>
-          </h4>
-        </div>
-      </div>
-      <div class="post-txt">
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Reprehenderit, ea? Provident repellendus, facere quas cum assumenda
-          aperiam repudiandae nemo veniam eos voluptatem. Qui quae deleniti
-          dolores fugit labore omnis odit ut adipisci ex soluta ea, id alias
-          quia animi perspiciatis vitae ab minima! Accusantium id corrupti ipsam
-          incidunt recusandae reiciendis quas. Possimus corporis nam, voluptatum
-          qui laboriosam deleniti esse sit perferendis cupiditate beatae eius
-          pariatur accusantium, incidunt, soluta quia dolorum nostrum ipsa.
-          Minima harum, enim ratione, doloremque, qui modi est vitae autem quo
-          porro hic. Doloribus temporibus magni nisi ut, dicta sed reiciendis
-          praesentium architecto provident, dolores atque ad quaerat.
-        </p>
-      </div>
-    </div>
-    <!-- ///////// -->
-    <div class="post-list">
-      <div class="post-profile">
-        <div class="post-prof-img">
-          <div class="prof-img-con"></div>
-        </div>
-        <div class="post-prof-name">
-          <h4>
-            Rhyan Morales
-            <span>@rhy</span>
-          </h4>
-        </div>
-      </div>
-      <div class="post-txt">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
-          dolor delectus deleniti quidem ipsa quaerat culpa temporibus, quas
-          quae minima, vitae fuga cupiditate. Perspiciatis, recusandae
-          voluptates sit nulla vitae excepturi, error a velit esse quos illum
-          quam. Doloribus libero et odit aliquid, ipsa architecto est quam
-          voluptate saepe, magnam quod!
-        </p>
-      </div>
-    </div>
-    <!-- ///////// -->
-    <div class="post-list">
-      <div class="post-profile">
-        <div class="post-prof-img">
-          <div class="prof-img-con"></div>
-        </div>
-        <div class="post-prof-name">
-          <h4>
-            Jannel Revilla
-            <span>@janeki</span>
-          </h4>
-        </div>
-      </div>
-      <div class="post-txt">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
-          dolor delectus deleniti quidem ipsa quaerat culpa temporibus, quas
-          quae minima, vitae fuga cupiditate. Perspiciatis, recusandae
-          voluptates sit nulla vitae excepturi, error a velit esse quos illum
-          quam. Doloribus libero et odit aliquid, ipsa architecto est quam
-          voluptate saepe, magnam quod!
-        </p>
-      </div>
-    </div>
-    <!-- ///////// -->
+
+    <button (click)="makePost()" class="open-post-btn">+</button>
   </div>
 </div>
