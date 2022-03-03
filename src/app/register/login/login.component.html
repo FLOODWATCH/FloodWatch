@@ -1,7 +1,37 @@
+<div class="modal" id="my-modal">
+  <!-- Modal Content -->
+  <div class="modal-content" id="login-modal-content">
+    <h2 id="closeMod" class="closeMod">
+      <fa-icon
+        (click)="closeButton()"
+        id="login-red-icon"
+        class="login-red-icon"
+        [icon]="faTimes"
+      ></fa-icon>
+      <fa-icon
+        (click)="closeSuccessModal()"
+        id="login-green-icon"
+        class="login-green-icon"
+        [icon]="faTimes"
+      ></fa-icon>
+    </h2>
+    <div id="login-icon-modal">
+      <fa-icon *ngIf="changeIcon" [icon]="faExclamation"></fa-icon>
+      <fa-icon *ngIf="!changeIcon" [icon]="faCheck"></fa-icon>
+    </div>
+    <h2 class="login-modal-text">
+      <span id="modal-message">
+        {{ loginModalMessage }}
+      </span>
+      <p id="login-modal-ptext">{{ errorAlert }}</p>
+    </h2>
+  </div>
+</div>
 <form class="log-form" (ngSubmit)="login()">
   <p>LOG IN</p>
   <div>
     <input
+      (keyup)="checkEmail()"
       [ngStyle]="{ outline: 'none' }"
       type="text"
       name="email"
@@ -12,6 +42,7 @@
   </div>
   <div>
     <input
+      (keyup)="checkPassword()"
       [ngStyle]="{ outline: 'none' }"
       type="password"
       name="password"
@@ -21,7 +52,11 @@
     />
   </div>
   <section>
-    <input [ngStyle]="{ cursor: 'pointer' }" type="submit" value="Continue" />
+    <input
+      [ngStyle]="{ cursor: 'pointer', color: 'white' }"
+      type="submit"
+      value="Continue"
+    />
   </section>
   <!-- <article><a routerLink="/signup">Already have an account?</a></article> -->
   <article>
