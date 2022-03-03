@@ -2,15 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { userInterface } from 'src/app/user-interface';
 import { UserCredService } from 'src/app/register-services/user-cred.service';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faExclamation } from '@fortawesome/free-solid-svg-icons';
 import { userClass } from 'src/app/classes/user-class';
 import { UserDataService } from 'src/app/shared-service/user-data.service';
 import { Subscription } from 'rxjs';
-=======
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { faExclamation } from '@fortawesome/free-solid-svg-icons';
->>>>>>> 0b7732945109216c722c39416cece0b291c8dc24
 
 @Component({
   selector: 'app-login',
@@ -25,7 +22,7 @@ export class LoginComponent implements OnInit {
   errorAlert: string;
   loginModalMessage: string;
   userVariable: userInterface[] = [];
-  constructor(public userObj: UserCredService, public router: Router) {}
+  constructor(public userObj: UserCredService, public router: Router) { }
 
   email: string;
   password: string;
@@ -35,7 +32,7 @@ export class LoginComponent implements OnInit {
   address: string;
   theUser: userInterface;
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   // Green Modal
   greenModal() {
@@ -93,26 +90,17 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-<<<<<<< HEAD
-    const first: HTMLInputElement = document.querySelector('#email');
-    const second: HTMLInputElement = document.querySelector('#password');
-=======
     const first: HTMLInputElement = document.querySelector("#email")
     const second: HTMLInputElement = document.querySelector("#password")
     // const checkEmail: HTMLInputElement = document.querySelector("#email")
     const openModal: HTMLDivElement = document.querySelector("#my-modal")
 
->>>>>>> 0b7732945109216c722c39416cece0b291c8dc24
     this.userObj.getUserFromService().subscribe((u) => {
       this.theUser = u.find((a: any) => {
         return a.email === this.email && a.password === this.password;
       });
-<<<<<<< HEAD
       if (this.theUser) {
-=======
-      if (theUser) {
         this.changeIcon = false;
->>>>>>> 0b7732945109216c722c39416cece0b291c8dc24
         first.style.borderBottomColor = 'white';
         second.style.borderBottomColor = 'white';
         this.greenModal()

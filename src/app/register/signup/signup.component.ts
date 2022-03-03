@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
   address: string;
   password: string;
 
-  constructor(private userObj: UserCredService) {}
+  constructor(private userObj: UserCredService) { }
 
   ngOnInit(): void {
     this.userObj.getUserFromService().subscribe((u) => (this.userVariable = u));
@@ -172,26 +172,17 @@ export class SignupComponent implements OnInit {
     var thisID = ['#name', '#em', '#mobile', '#address', '#pw'];
     for (let i = 0; i <= thisID.length; i++) {
       const first = document.querySelector(`${thisID[i]}`);
-<<<<<<< HEAD
-      const closeBtn: HTMLDivElement = document.querySelector('#myModal');
-=======
       const showModal: HTMLDivElement = document.querySelector("#myModal");
       const redClose: HTMLInputElement = document.querySelector("#signup-red-icon");
->>>>>>> 0b7732945109216c722c39416cece0b291c8dc24
       // changeColor is true if error is found
       if (!thisField[i]) {
         this.changeColor(first, true);
         // Shows Modal
-<<<<<<< HEAD
-        this.modalMessage = 'Please fill everything';
-        closeBtn.style.display = 'flex';
-=======
         // this.signupModalMessage = 'Error'
         // this.alert = 'Please fill everything'
         this.redModal()
         showModal.style.display = 'flex';
         redClose.style.display = 'flex';
->>>>>>> 0b7732945109216c722c39416cece0b291c8dc24
       } else if (thisField[i] == email) {
         if (this.emailValidation()) {
           this.changeColor(first, false);
@@ -265,14 +256,6 @@ export class SignupComponent implements OnInit {
         newUser.address,
         newUser.password
       );
-<<<<<<< HEAD
-    } else {
-      this.modalMessage = 'Successful!';
-      this.userObj
-        .addUserFromService(newUser)
-        .subscribe((u) => this.userVariable.push(newUser));
-      this.toggleLoginForm();
-=======
     }
     else {
       this.userObj
@@ -280,7 +263,6 @@ export class SignupComponent implements OnInit {
         .subscribe((u) => this.userVariable.push(newUser));
       this.greenModal()
       openModal.style.display = 'flex'
->>>>>>> 0b7732945109216c722c39416cece0b291c8dc24
     }
   }
   toggleLoginForm() {
@@ -298,10 +280,6 @@ export class SignupComponent implements OnInit {
   }
   // Close button when error is found
   closeButton() {
-<<<<<<< HEAD
-    var closeBtn: HTMLDivElement = document.querySelector('#myModal');
-    closeBtn.style.display = 'none';
-=======
     var showModal: HTMLDivElement = document.querySelector("#myModal");
     showModal.style.display = 'none';
   }
@@ -312,6 +290,5 @@ export class SignupComponent implements OnInit {
     } else {
       myName.style.borderColor = "white";
     }
->>>>>>> 0b7732945109216c722c39416cece0b291c8dc24
   }
 }
