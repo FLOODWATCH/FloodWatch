@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
   address: string;
   password: string;
 
-  constructor(private userObj: UserCredService) { }
+  constructor(private userObj: UserCredService) {}
 
   ngOnInit(): void {
     this.userObj.getUserFromService().subscribe((u) => (this.userVariable = u));
@@ -193,14 +193,9 @@ export class SignupComponent implements OnInit {
     var thisID = ['#name', '#em', '#mobile', '#address', '#pw'];
     for (let i = 0; i <= thisID.length; i++) {
       const first = document.querySelector(`${thisID[i]}`);
-<<<<<<< HEAD
       const showModal: HTMLDivElement = document.querySelector('#myModal');
       const redClose: HTMLInputElement =
         document.querySelector('#signup-red-icon');
-=======
-      const showModal: HTMLDivElement = document.querySelector("#myModal");
-      const redClose: HTMLInputElement = document.querySelector("#signup-red-icon");
->>>>>>> 5314a9bd0d502f83c8860536d8b763f32043352d
       // changeColor is true if error is found
       if (!thisField[i]) {
         this.changeColor(first, true);
@@ -282,22 +277,12 @@ export class SignupComponent implements OnInit {
         newUser.address,
         newUser.password
       );
-<<<<<<< HEAD
     } else {
       this.userObj
         .addUserFromService(newUser)
         .subscribe((u) => this.userVariable.push(newUser));
       this.greenModal();
       openModal.style.display = 'flex';
-=======
-    }
-    else {
-      this.userObj
-        .addUserFromService(newUser)
-        .subscribe((u) => this.userVariable.push(newUser));
-      this.greenModal()
-      openModal.style.display = 'flex'
->>>>>>> 5314a9bd0d502f83c8860536d8b763f32043352d
     }
   }
   toggleLoginForm() {
@@ -315,11 +300,7 @@ export class SignupComponent implements OnInit {
   }
   // Close button when error is found
   closeButton() {
-<<<<<<< HEAD
     var showModal: HTMLDivElement = document.querySelector('#myModal');
-=======
-    var showModal: HTMLDivElement = document.querySelector("#myModal");
->>>>>>> 5314a9bd0d502f83c8860536d8b763f32043352d
     showModal.style.display = 'none';
   }
   checkKey() {

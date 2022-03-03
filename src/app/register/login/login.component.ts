@@ -2,18 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { userInterface } from 'src/app/user-interface';
 import { UserCredService } from 'src/app/register-services/user-cred.service';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { faExclamation } from '@fortawesome/free-solid-svg-icons';
-=======
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faExclamation } from '@fortawesome/free-solid-svg-icons';
 import { userClass } from 'src/app/classes/user-class';
 import { UserDataService } from 'src/app/shared-service/user-data.service';
 import { Subscription } from 'rxjs';
->>>>>>> 5314a9bd0d502f83c8860536d8b763f32043352d
 
 @Component({
   selector: 'app-login',
@@ -28,7 +22,7 @@ export class LoginComponent implements OnInit {
   errorAlert: string;
   loginModalMessage: string;
   userVariable: userInterface[] = [];
-  constructor(public userObj: UserCredService, public router: Router) { }
+  constructor(public userObj: UserCredService, public router: Router) {}
 
   email: string;
   password: string;
@@ -38,7 +32,7 @@ export class LoginComponent implements OnInit {
   address: string;
   theUser: userInterface;
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   // Green Modal
   greenModal() {
@@ -112,13 +106,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-<<<<<<< HEAD
     const first: HTMLInputElement = document.querySelector('#email');
     const second: HTMLInputElement = document.querySelector('#password');
-=======
-    const first: HTMLInputElement = document.querySelector("#email")
-    const second: HTMLInputElement = document.querySelector("#password")
->>>>>>> 5314a9bd0d502f83c8860536d8b763f32043352d
     // const checkEmail: HTMLInputElement = document.querySelector("#email")
     const openModal: HTMLDivElement = document.querySelector('#my-modal');
 
