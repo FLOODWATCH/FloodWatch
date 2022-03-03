@@ -12,6 +12,7 @@ import { faExclamation } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  changeIcon = true;
   faTimes = faTimes;
   faCheck = faCheck;
   faExclamation = faExclamation;
@@ -90,6 +91,7 @@ export class LoginComponent implements OnInit {
         return a.email === this.email && a.password === this.password;
       });
       if (theUser) {
+        this.changeIcon = false;
         first.style.borderBottomColor = 'white';
         second.style.borderBottomColor = 'white';
         this.greenModal()
@@ -97,6 +99,7 @@ export class LoginComponent implements OnInit {
         // this.router.navigate(['dashboard']);
       } else {
         if (first.value == '' || second.value == '') {
+          this.changeIcon = true;
           this.redModal()
           this.checkEmail()
           this.checkPassword()
@@ -105,6 +108,7 @@ export class LoginComponent implements OnInit {
         } else {
           // first.style.borderBottomColor = 'red';
           // second.style.borderBottomColor = 'red';
+          this.changeIcon = true;
           this.redModal()
           this.loginModalMessage = 'Error'
           this.errorAlert = 'User not found'
