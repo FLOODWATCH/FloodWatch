@@ -1,22 +1,33 @@
-<div (click)="closeButton()" class="modal" id="myModal">
+<div class="modal" id="myModal">
+  <!-- Modal Content -->
   <div class="modal-content" id="modal-content">
     <h2 id="closeMod" class="closeMod">
-      <fa-icon class="thisMod" [icon]="faTimes"></fa-icon>
+      <!-- RedIcon -->
+      <fa-icon
+        (click)="closeButton()"
+        id="signup-red-icon"
+        class="signup-red-icon"
+        [icon]="faTimes"
+      ></fa-icon>
+      <fa-icon
+        (click)="toggleClose()"
+        id="signup-green-icon"
+        class="signup-green-icon"
+        [icon]="faTimes"
+      ></fa-icon>
     </h2>
-    <fa-icon id="icon-modal" [icon]="faExclamation"></fa-icon>
-    <h2 [ngStyle]="{ color: '#ad3939', 'font-size': '25px' }">
-      <!-- <fa-icon id="icon-modal" [icon]="faExclamation"></fa-icon> -->
+    <div id="icon-modal">
+      <fa-icon *ngIf="displayName" [icon]="faExclamation"></fa-icon>
+      <fa-icon *ngIf="!displayName" [icon]="faCheck"></fa-icon>
+    </div>
+    <!-- <fa-icon id="icon-modal" [icon]="faExclamation"></fa-icon> -->
+    <h2 class="modal-text">
       <span id="modal-message">
-        {{ modalMessage }}
+        {{ signupModalMessage }}
+        <!-- Error -->
       </span>
+      <p id="modal-ptext">{{ alert }}</p>
     </h2>
-    <!-- <button
-      [ngStyle]="{ cursor: 'pointer' }"
-      class="closeButton"
-      id="closeButton"
-    >
-      Okay
-    </button> -->
   </div>
 </div>
 <!-- FORM -->
@@ -25,6 +36,7 @@
   <div>
     <!-- Name -->
     <input
+      (keyup)="validateName()"
       [ngStyle]="{ outline: 'none' }"
       type="text"
       placeholder="Enter Name"
@@ -36,6 +48,7 @@
   <div>
     <!-- Email -->
     <input
+      (keyup)="validateEmail()"
       [ngStyle]="{ outline: 'none' }"
       type="text"
       placeholder="Enter Email"
@@ -48,6 +61,7 @@
   <!-- Mobile No. -->
   <div>
     <input
+      (keyup)="mobileValidation()"
       [ngStyle]="{ outline: 'none' }"
       type="text"
       placeholder="Mobile Number"
@@ -59,6 +73,7 @@
   <!-- Address -->
   <div>
     <input
+      (keyup)="validateAddress()"
       [ngStyle]="{ outline: 'none' }"
       type="text"
       placeholder="Address"
@@ -70,6 +85,7 @@
   <!-- Password -->
   <div>
     <input
+      (keyup)="validatePassword()"
       [ngStyle]="{ outline: 'none' }"
       type="password"
       placeholder="Password"
