@@ -29,12 +29,31 @@
     <button (click)="makePost()" class="open-post-btn">+</button>
   </div>
 </div>
+
 <!-- Create Post Modal -->
 <div id="post-main-modal" class="post-main-modal">
   <form class="post-create-form">
-    <div class="upper-container">
-      <input placeholder="Name" type="text" />
+    <div id="icon-times" (click)="closeTimes()" class="icon-times">
+      <fa-icon [icon]="faTimes"></fa-icon>
     </div>
-    <div class="bottom-container"></div>
+    <div class="upper-container">
+      <input [(ngModel)]="name" placeholder="{{ name }} " type="text" />
+      <input placeholder="{{ mobileNumber }} " type="text" />
+      <input
+        class="input-email"
+        [(ngModel)]="email"
+        placeholder="{{ email }} "
+        type="text"
+      />
+    </div>
+    <div class="bottom-container">
+      <input placeholder="Type text here" type="text" />
+      <section>
+        <input type="submit" value="Post" />
+      </section>
+    </div>
+    <!-- <section>
+      <input type="submit" value="Post" />
+    </section> -->
   </form>
 </div>

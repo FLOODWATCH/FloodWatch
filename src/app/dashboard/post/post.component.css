@@ -122,18 +122,88 @@
   height: 100vh;
   top: 0;
   left: 0;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(5px);
   /* background-color: aquamarine; */
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 .post-create-form {
+  border: solid white;
   border-radius: 10px;
   display: flex;
+  flex-direction: column;
   background-color: gray;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
   width: 700px;
-  height: 500px;
+  height: 450px;
+  justify-content: space-around;
+  padding: 10px 30px 20px 30px;
+  /* align-items: center; */
+}
+.post-create-form > div {
+  border-radius: 10px;
+}
+.post-create-form div > input {
+  /* font-size: 15px; */
+  margin: 0.5rem 1rem 0 1rem;
+  padding: 10px;
+}
+.icon-times {
+  color: white;
+  margin-bottom: 10px;
+  align-items: flex-end;
+  display: flex;
+  font-size: 20px;
+}
+.icon-times:hover {
+  cursor: pointer;
+  color: #2e89ff;
+}
+.post-create-form div > section {
+  margin-top: 20px;
+  display: flex;
   justify-content: center;
   align-items: center;
+}
+.post-create-form section > input {
+  border-radius: 10px;
+  padding: 10px;
+  width: 100px;
+  transition: 0.25s;
+}
+.post-create-form section > input:hover {
+  transform: scale(1.1);
+}
+.upper-container > input {
+  width: 35%;
+}
+.bottom-container > input {
+  font-size: 18px;
+  /* direction: ltr; */
+  overflow: scroll;
+  text-overflow: ellipsis;
+  /* justify-content: center; */
+  /* text-overflow: inherit; */
+  /* overflow: visible; */
+  height: 60%;
+}
+.post-main-modal form > div {
+  display: flex;
+  flex-direction: column;
+}
+.upper-container {
+  padding: 1rem 0 1rem 0;
+  margin-bottom: 20px;
+  height: 200px;
+  background-color: red;
+}
+/* .input-email {
+  right: 0;
+} */
+.bottom-container {
+  /* margin: 10px; */
+  background-color: blue;
+  /* width: 100%; */
+  height: 300px;
 }
