@@ -1,0 +1,48 @@
+<div class="dash-main">
+  <div class="dashboard">
+    <div>
+      <app-profile></app-profile>
+    </div>
+    <div style="width: 100%">
+      <app-post></app-post>
+    </div>
+    <div>
+      <app-notif></app-notif>
+    </div>
+  </div>
+
+  <div class="confirm-info">
+    <div class="confirm-info-content">
+      <h3>
+        Please re-enter your password as well as your mobile number for
+        FloodWatch SMS Feature
+      </h3>
+      <form (ngSubmit)="reEnterSubmit()">
+        <div>
+          <input
+            type="text"
+            name="phone"
+            [(ngModel)]="phone"
+            placeholder="Enter Mobile Number"
+            id="phone"
+          />
+          <label for="phone">Example Format: 09305193102</label>
+        </div>
+        <div>
+          <input
+            type="password"
+            name="pass"
+            [(ngModel)]="pass"
+            placeholder="Please re-enter your Password"
+            id="pass"
+          />
+        </div>
+
+        <section>
+          <input type="submit" value="Continue" />
+        </section>
+      </form>
+      <!-- <p>Note: Watchers!, you need to re-enter your mobile number and password everytime the </p> -->
+    </div>
+  </div>
+</div>

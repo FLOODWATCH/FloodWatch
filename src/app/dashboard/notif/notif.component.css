@@ -1,0 +1,66 @@
+.notif-main {
+  width: 300px;
+  /* background-color: brown; */
+  padding: 5px;
+}
+.notif-con {
+  /* background-color: rgb(124, 128, 131); */
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+  background-color: #242526;
+}
+.notif-con h2 {
+  /* background-color: aqua; */
+  padding: 7px 10px;
+  margin-bottom: 10px;
+}
+.notif-list {
+  /* background-color: aquamarine; */
+  height: 300px;
+  padding: 5px;
+  overflow-y: scroll;
+  /* -ms-overflow-style: none;
+  scrollbar-width: none; */
+}
+
+/* .notif-list::-webkit-scrollbar {
+  display: none;
+} */
+
+.notif {
+  /* background-color: aliceblue; */
+  background-color: #3a3b3c;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.notif:hover {
+  transform: scale(1.03);
+}
+.notif h4 {
+  margin-bottom: 5px;
+}
+.notif p {
+  font-size: 14px;
+  margin-top: -7px;
+}
+
+/* shortcut container */
+
+.shortcut-con {
+  margin-top: 20px;
+  height: 300px;
+  background-color: beige;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+  background-color: #242526;
+}
+.shortcut-con h2 {
+  /* background-color: aqua; */
+  padding: 7px 10px;
+  margin-bottom: 10px;
+}

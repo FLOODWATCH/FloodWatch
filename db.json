@@ -1,0 +1,79 @@
+{
+  "user": [
+    {
+      "name": "janeki",
+      "email": "revillazjannelz@gmail.com",
+      "mobile": "09260722719",
+      "address": "Imus, Cavite",
+      "password": "janeki21",
+      "id": 1
+    },
+    {
+      "name": "Keemchard De Guzman Tamio",
+      "email": "keemchard.tamio@cvsu.edu.ph",
+      "mobile": "09305193102",
+      "address": "Purok III, 0129 Santol, Tanza, Cavite",
+      "password": "bosskc03",
+      "id": 2
+    },
+    {
+      "name": "janeki",
+      "email": "revillazjannelz@gmail.com",
+      "mobile": "09260722719",
+      "address": "cavite",
+      "password": "jannel21",
+      "id": 3
+    }
+  ],
+  "post": [
+    {
+      "id": 1,
+      "profName": "Keemchard Tamio",
+      "profEmail": "keemchardtamio@gmail.com",
+      "profTextPost": "you know what know you yeah tenenen tenen ten ten tenenewwwww",
+      "profPostTime": ""
+    },
+    {
+      "id": 2,
+      "profName": "try",
+      "profEmail": "try@gmail.com",
+      "profTextPost": "ogadjsfnakj ajlksdnf lkaslkd fld laks ls  ako intsik ksadfl laskdf kdk askwepoiqwe qpwieooiter uo kajsnd",
+      "profPostTime": ""
+    },
+    {
+      "id": 3,
+      "profName": "Keemchard Tamio",
+      "profEmail": "keemchardtamio@gmail.com",
+      "profTextPost": "you know what know you yeah tenenen tenen ten ten tenenewwwww",
+      "profPostTime": ""
+    },
+    {
+      "id": 4,
+      "profName": "try",
+      "profEmail": "try@gmail.com",
+      "profTextPost": "ogadjsfnakj ajlksdnf lkaslkd fld laks ls  ako intsik ksadfl laskdf kdk askwepoiqwe qpwieooiter uo kajsnd",
+      "profPostTime": ""
+    },
+    {
+      "id": 5,
+      "profName": "try",
+      "profEmail": "try@gmail.com",
+      "profTextPost": "ogadjsfnakj ajlksdnf lkaslkd fld laks ls  ako intsik ksadfl laskdf kdk askwepoiqwe qpwieooiter uo kajsnd",
+      "profPostTime": ""
+    },
+    {
+      "id": 6,
+      "profName": "janeki",
+      "profEmail": "janeki@gmail.com",
+      "profTextPost": "ogadjsfnakj ajlksdnf lkaslkd fld laks ls  ako intsik ksadfl laskdf kdk askwepoiqwe qpwieooiter uo kajsnd",
+      "profPostTime": ""
+    },
+    {
+      "id": 7,
+      "profName": "jannel",
+      "profEmail": "jannel@gmail.com",
+      "profTextPost": "ogadjsfnakj ajlksdnf lkaslkd fld laks ls  ako intsik ksadfl laskdf kdk askwepoiqwe qpwieooiter uo kajsnd",
+      "profPostTime": ""
+    }
+  ]
+}
