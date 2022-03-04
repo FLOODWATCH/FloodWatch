@@ -9,6 +9,7 @@ import { PostService } from 'src/app/dashboard-service/post.service';
   styleUrls: ['./post.component.css'],
 })
 export class PostComponent implements OnInit {
+  name: string;
   postVariable: postInterface[] = [];
   constructor(private postObj: PostService) {}
 
@@ -19,8 +20,11 @@ export class PostComponent implements OnInit {
   }
 
   makePost() {
-    alert(
-      'wala pa tong functionalities hahahaha but the data was already being fetched from the mock database to this post component'
-    );
+    const postModal: HTMLDivElement = document.querySelector("#post-main-modal")
+    postModal.style.display = 'flex'
+
+    // alert(
+    //   'wala pa tong functionalities hahahaha but the data was already being fetched from the mock database to this post component'
+    // );
   }
 }

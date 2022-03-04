@@ -19,7 +19,6 @@
 .confirm-info {
   /* background-color: #18191a; */
   backdrop-filter: blur(20px);
-
   position: fixed;
   top: 0;
   height: 100vh;
