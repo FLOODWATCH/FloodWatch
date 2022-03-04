@@ -1,3 +1,8 @@
+<!-- Create Post Modal -->
+<!-- <div class="post-main-modal">
+  <div class="post-content">HELLOASJHDJKASGDJHASGDHJAGDJAGSDJHASJJgjdaa</div>
+</div> -->
+
 <div class="post-main">
   <div class="post-category">
     <div><h2 class="post-tab">POSTS</h2></div>
@@ -5,15 +10,16 @@
     <div><h2>Diagram</h2></div>
   </div>
   <div class="post-con">
+    <!-- Container of each Posts -->
     <!-- ///////// -->
-    <div class="post-list" *ngFor="let post of postVariable">
+    <div class="post-list" *ngFor="let post of postVariable.slice().reverse()">
       <div class="post-profile">
         <div class="post-prof-img">
           <div class="prof-img-con"></div>
         </div>
         <div class="post-prof-name">
           <h4>
-            {{ post.profName }}
+            {{ post.id }}
             <span>{{ post.profEmail }}</span>
           </h4>
         </div>
@@ -25,7 +31,6 @@
       </div>
     </div>
     <!-- ///////// -->
-
     <button (click)="makePost()" class="open-post-btn">+</button>
   </div>
 </div>

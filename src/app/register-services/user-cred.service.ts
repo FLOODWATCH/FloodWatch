@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class UserCredService {
   private userUrl = 'http://localhost:5000/user';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getUserFromService(): Observable<userInterface[]> {
     return this.http.get<userInterface[]>(this.userUrl);

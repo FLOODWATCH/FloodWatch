@@ -63,9 +63,9 @@
   align-items: center;
   border-radius: 10px;
 }
-.post-profile > div {
-  /* border: 1px solid black; */
-}
+/* .post-profile > div {
+  border: 1px solid black;
+} */
 .post-profile .post-prof-img {
   width: 55px;
   height: 53px;
@@ -115,4 +115,16 @@
 }
 .open-post-btn:hover {
   transform: scale(1.1);
+}
+.post-main-modal {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  /* backdrop-filter: blur(20px); */
+  background-color: aquamarine;
+  display: block;
+  justify-content: center;
+  align-items: center;
 }
