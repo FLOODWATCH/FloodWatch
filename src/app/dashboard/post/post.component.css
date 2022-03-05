@@ -114,6 +114,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.77);
 }
 .open-post-btn:hover {
+  cursor: pointer;
   transform: scale(1.1);
 }
 .post-main-modal {
@@ -124,7 +125,7 @@
   left: 0;
   backdrop-filter: blur(5px);
   /* background-color: aquamarine; */
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -167,22 +168,26 @@
   align-items: center;
 }
 .post-create-form section > input {
+  margin-bottom: 20px;
   border-radius: 10px;
   padding: 10px;
   width: 100px;
   transition: 0.25s;
 }
 .post-create-form section > input:hover {
+  cursor: pointer;
   transform: scale(1.1);
 }
 .upper-container > input {
   width: 35%;
 }
-.bottom-container > input {
-  font-size: 18px;
+.bottom-container > textarea {
+  margin: 0.5rem 1rem 0 1rem;
+  padding: 10px;
+  font-size: 15px;
   /* direction: ltr; */
-  overflow: scroll;
-  text-overflow: ellipsis;
+  /* overflow: scroll;
+  text-overflow: ellipsis; */
   /* justify-content: center; */
   /* text-overflow: inherit; */
   /* overflow: visible; */

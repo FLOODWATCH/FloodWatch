@@ -17,11 +17,11 @@
       "id": 2
     },
     {
-      "name": "janeki",
-      "email": "revillazjannelz@gmail.com",
-      "mobile": "09260722719",
-      "address": "cavite",
-      "password": "jannel21",
+      "name": "jannel",
+      "email": "jannelrevilla@gmail.com",
+      "mobile": "12345678901",
+      "address": "Imus, Cavite",
+      "password": "janeki21",
       "id": 3
     }
   ],
@@ -62,25 +62,18 @@
       "profPostTime": ""
     },
     {
-      "id": 6,
-      "profName": "janeki",
-      "profEmail": "janeki@gmail.com",
-      "profTextPost": "ogadjsfnakj ajlksdnf lkaslkd fld laks ls  ako intsik ksadfl laskdf kdk askwepoiqwe qpwieooiter uo kajsnd",
-      "profPostTime": ""
-    },
-    {
-      "id": 7,
       "profName": "jannel",
-      "profEmail": "jannel@gmail.com",
-      "profTextPost": "ogadjsfnakj ajlksdnf lkaslkd fld laks ls  ako intsik ksadfl laskdf kdk askwepoiqwe qpwieooiter uo kajsnd",
-      "profPostTime": ""
+      "profEmail": "jannelrevilla@gmail.com",
+      "profTextPost": "Jannel's Post",
+      "profPostTime": "03/05/22, 03:49:04 PM",
+      "id": 6
     },
     {
-      "id": 8,
-      "profName": "revilla",
-      "profEmail": "revilla@gmail.com",
-      "profTextPost": "ogadjsfnakj ajlksdnf lkaslkd fld laks ls  ako intsik ksadfl laskdf kdk askwepoiqwe qpwieooiter uo kajsnd",
-      "profPostTime": ""
+      "profName": "jannel",
+      "profEmail": "jannelrevilla@gmail.com",
+      "profTextPost": "This is my Number",
+      "profPostTime": "03/05/22, 03:49:13 PM",
+      "id": 7
     }
   ]
 }
