@@ -8,7 +8,7 @@ import { userInterface } from 'src/app/user-interface';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private userObj: UserCredService) { }
+  constructor(private userObj: UserCredService) {}
 
   phone: string;
   pass: string;
@@ -34,13 +34,13 @@ export class DashboardComponent implements OnInit {
         let profNameVar: HTMLHeadingElement =
           document.querySelector('#profileName');
         profNameVar.textContent = this.theUser.name;
-        let profEmailVar: HTMLHeadingElement =
+        let profEmailVar: HTMLParagraphElement =
           document.querySelector('#profileEmail');
         profEmailVar.textContent = this.theUser.email;
-        let profMobileVar: HTMLHeadingElement =
+        let profMobileVar: HTMLParagraphElement =
           document.querySelector('#profileMobile');
         profMobileVar.textContent = this.theUser.mobile;
-        let profAddressVar: HTMLHeadingElement =
+        let profAddressVar: HTMLParagraphElement =
           document.querySelector('#profileAddress');
         profAddressVar.textContent = this.theUser.address;
 

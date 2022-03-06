@@ -1,32 +1,44 @@
 <div class="post-main">
   <div class="post-category">
-    <div><h2 class="post-tab">POSTS</h2></div>
-    <div><h2>POLL</h2></div>
-    <div><h2>Diagram</h2></div>
+    <div><h2 class="post-tab" (click)="togglePostCon()">POSTS</h2></div>
+    <div><h2 class="poll-tab" (click)="togglePollCon()">POLL</h2></div>
+    <div><h2 class="diagram-tab" (click)="toggleDiagramCon()">Diagram</h2></div>
   </div>
-  <div class="post-con">
-    <!-- Container of each Posts -->
-    <!-- ///////// -->
-    <div class="post-list" *ngFor="let post of postVariable.slice().reverse()">
-      <div class="post-profile">
-        <div class="post-prof-img">
-          <div class="prof-img-con"></div>
-        </div>
-        <div class="post-prof-name">
-          <h4>
-            {{ post.profName }}
-            <span>{{ post.profEmail }}</span>
-          </h4>
-        </div>
-      </div>
-      <div class="post-txt">
-        <p>
-          {{ post.profTextPost }}
-        </p>
-      </div>
+  <div>
+    <div class="poll-con">
+      <app-poll></app-poll>
     </div>
-    <!-- ///////// -->
-    <button (click)="makePost()" class="open-post-btn">+</button>
+    <div class="diagram-con">
+      <app-monthly-diagram></app-monthly-diagram>
+    </div>
+    <div class="post-con">
+      <!-- <router-outlet></router-outlet> -->
+      <!-- ///////// -->
+      <!-- Container of each Posts -->
+      <div
+        class="post-list"
+        *ngFor="let post of postVariable.slice().reverse()"
+      >
+        <div class="post-profile">
+          <div class="post-prof-img">
+            <div class="prof-img-con"></div>
+          </div>
+          <div class="post-prof-name">
+            <h4>
+              {{ post.profName }}
+              <span>{{ post.profEmail }}</span>
+            </h4>
+          </div>
+        </div>
+        <div class="post-txt">
+          <p>
+            {{ post.profTextPost }}
+          </p>
+        </div>
+      </div>
+      <!-- ///////// -->
+      <button (click)="makePost()" class="open-post-btn">+</button>
+    </div>
   </div>
 </div>
 

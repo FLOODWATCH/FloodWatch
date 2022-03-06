@@ -16,6 +16,8 @@ import {
   FontAwesomeModule,
   FaIconLibrary,
 } from '@fortawesome/angular-fontawesome';
+import { PollComponent } from './dashboard/poll/poll.component';
+import { MonthlyDiagramComponent } from './dashboard/monthly-diagram/monthly-diagram.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import {
     NotifComponent,
     DashboardComponent,
     RegisterDashComponent,
+    PollComponent,
+    MonthlyDiagramComponent,
   ],
   imports: [
     BrowserModule,
