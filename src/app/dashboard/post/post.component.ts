@@ -17,7 +17,7 @@ export class PostComponent implements OnInit {
   profPostTime: string;
   faTimes = faTimes;
   postVariable: postInterface[] = [];
-  constructor(private postObj: PostService) {}
+  constructor(private postObj: PostService) { }
 
   ngOnInit(): void {
     this.postObj
@@ -78,10 +78,6 @@ export class PostComponent implements OnInit {
     this.profEmail = postEmail.textContent;
     this.profMobile = postMobile.textContent;
     postModal.style.display = 'flex';
-
-    // alert(
-    //   'wala pa tong functionalities hahahaha but the data was already being fetched from the mock database to this post component'
-    // );
   }
 
   //OPEN TABS [post, poll, and diagram]

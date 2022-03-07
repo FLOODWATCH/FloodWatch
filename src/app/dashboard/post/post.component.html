@@ -45,58 +45,46 @@
 <!-- Create Post Modal -->
 <div id="post-main-modal" class="post-main-modal">
   <form class="post-create-form" (ngSubmit)="addPost()">
-    <div id="icon-times" (click)="closeTimes()" class="icon-times">
-      <fa-icon [icon]="faTimes"></fa-icon>
+    <!-- Header -->
+    <div class="post-header">
+      <h3 class="upload-post-title">Upload Post</h3>
+      <fa-icon
+        (click)="closeTimes()"
+        class="close-upload-post"
+        [icon]="faTimes"
+      ></fa-icon>
     </div>
-    <div class="upper-container">
-      <input
-        id="post-name"
-        name="profName"
-        [(ngModel)]="profName"
-        type="text"
-        value="{{ profName }}"
-        readonly
-      />
-      <input
-        id="post-mobile"
+    <!-- Info -->
+    <div class="user-info">
+      <label name="profName" [(ngModel)]="profName" for="profName"></label>
+      <label name="profEmail" [(ngModel)]="profEmail" for="profEmail"></label>
+      <label
         name="profMobile"
         [(ngModel)]="profMobile"
-        value="{{ profMobile }}"
-        type="text"
-        readonly
-      />
-      <input
-        id="post-email"
-        name="profEmail"
-        [(ngModel)]="profEmail"
-        class="input-email"
-        type="text"
-        value="{{ profEmail }} "
-        readonly
-      />
+        for="profMobile"
+      ></label>
     </div>
-    <div class="bottom-container">
+    <!-- Text Area -->
+    <div class="upper-container">
       <textarea
         name="profTextPost"
-        id="post-content"
         [(ngModel)]="profTextPost"
-        placeholder="Type text here"
+        placeholder="Let them know your status!"
+        id="post-content"
+        class="upload-post"
         cols="30"
         rows="4"
       ></textarea>
-      <!-- <input
-        id="post-content"
-        name="profTextPost"
-        [(ngModel)]="profTextPost"
-        placeholder="Type text here"
-        type="text"
-      /> -->
-      <section>
-        <input type="submit" value="Post" />
-      </section>
     </div>
-    <!-- <section>
-      <input type="submit" value="Post" />
-    </section> -->
+    <!-- Submit -->
+    <div class="add-post-container">
+      <input
+        (click)="addPost()"
+        type="submit"
+        class="add-post"
+        id="add-post"
+        value="Upload"
+      />
+    </div>
   </form>
 </div>
