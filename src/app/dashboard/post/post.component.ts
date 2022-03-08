@@ -17,7 +17,7 @@ export class PostComponent implements OnInit {
   profPostTime: string;
   faTimes = faTimes;
   postVariable: postInterface[] = [];
-  constructor(private postObj: PostService) { }
+  constructor(private postObj: PostService) {}
 
   ngOnInit(): void {
     this.postObj
@@ -60,10 +60,14 @@ export class PostComponent implements OnInit {
         date.toLocaleTimeString('en-US', format)
       )),
     };
-    this.postObj
-      .addPostFromPostService(newPost)
-      .subscribe((p) => this.postVariable.push(newPost));
-    this.closeTimes();
+    if (!this.profTextPost) {
+      return alert('Post cannot be void');
+    } else {
+      this.postObj
+        .addPostFromPostService(newPost)
+        .subscribe((p) => this.postVariable.push(newPost));
+      this.closeTimes();
+    }
   }
 
   makePost() {
