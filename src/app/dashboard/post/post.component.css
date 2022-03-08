@@ -91,6 +91,10 @@
   font-size: 15px;
   color: gray;
 }
+.post-prof-name p {
+  font-size: 13px;
+  color: gray;
+}
 .post-txt {
   margin-top: 10px;
   /* background-color: aliceblue; */
