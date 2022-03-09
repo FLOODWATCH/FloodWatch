@@ -70,7 +70,18 @@ export class PostComponent implements OnInit {
     }
   }
 
-  makePost() {
+  //Open Option Tab
+  OptionTab() {
+    let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
+    optionTab.style.display = 'block';
+  }
+  closeOptionTab() {
+    let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
+    optionTab.style.display = 'none';
+  }
+
+  //Open TEXT POST
+  makeTextPost() {
     const postModal: HTMLDivElement =
       document.querySelector('#post-main-modal');
     const postName: HTMLHeadingElement = document.querySelector('#profileName');
@@ -82,7 +93,13 @@ export class PostComponent implements OnInit {
     this.profEmail = postEmail.textContent;
     this.profMobile = postMobile.textContent;
     postModal.style.display = 'flex';
+
+    //close option tab
+    let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
+    optionTab.style.display = 'none';
   }
+
+  //Open FILE || FILE && TEXT POST
 
   //OPEN TABS [post, poll, and diagram]
   togglePostCon() {

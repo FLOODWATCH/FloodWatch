@@ -121,9 +121,39 @@
   font-weight: 0px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.77);
 }
+.post-option-tab {
+  width: 200px;
+  height: 220px;
+  background-color: #242526;
+  position: absolute;
+  bottom: 75px;
+  right: 70px;
+  display: none;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.77);
+}
 .open-post-btn:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+.option-con {
+  margin-top: 45px;
+}
+.option-con > div {
+  background-color: #3a3b3c;
+  margin: 10px 0;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 16px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.option-con > div:hover {
+  background-color: #2e89ff;
 }
 .post-main-modal {
   position: fixed;
@@ -164,6 +194,25 @@
 }
 .post-header > h3 {
   font-size: 15px;
+}
+.close-option-post {
+  background-color: #3a3b3c;
+  height: 28px;
+  width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 15px;
+  position: absolute;
+  right: 5px;
+  top: 10px;
+}
+.close-option-post:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #2e89ff;
 }
 .close-upload-post {
   background-color: #3a3b3c;

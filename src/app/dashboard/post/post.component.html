@@ -38,12 +38,29 @@
         </div>
       </div>
       <!-- ///////// -->
-      <button (click)="makePost()" class="open-post-btn">+</button>
+      <div>
+        <button (click)="OptionTab()" class="open-post-btn">+</button>
+        <div class="post-option-tab">
+          <div>
+            <fa-icon
+              (click)="closeOptionTab()"
+              class="close-option-post"
+              [icon]="faTimes"
+            ></fa-icon>
+          </div>
+          <div class="option-con">
+            <div (click)="makeTextPost()" class="text-option">
+              Create Text Post
+            </div>
+            <div class="file-text-option">Create File and Text Post</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Create Post Modal -->
+<!-- Create Post Modal Form -->
 <div id="post-main-modal" class="post-main-modal">
   <form class="post-create-form" (ngSubmit)="addPost()">
     <!-- Header -->
