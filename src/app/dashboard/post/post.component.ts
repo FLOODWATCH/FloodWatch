@@ -174,8 +174,15 @@ export class PostComponent implements OnInit {
   }
 
   //for delete and update'
-  deletePost() {
-    alert('deleted lol');
+  deletePost(postToBeDeleted: postInterface) {
+    this.postObj
+      .deletePostFromPostService(postToBeDeleted)
+      .subscribe(
+        () =>
+          (this.postVariable = this.postVariable.filter(
+            (p) => p.id !== postToBeDeleted.id
+          ))
+      );
   }
 
   updatePost() {

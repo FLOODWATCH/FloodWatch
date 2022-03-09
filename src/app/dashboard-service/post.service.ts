@@ -23,4 +23,11 @@ export class PostService {
   addPostFromPostService(postAdded: postInterface): Observable<postInterface> {
     return this.http.post<postInterface>(this.postUrl, postAdded, httpOptions);
   }
+
+  deletePostFromPostService(
+    postDeleted: postInterface
+  ): Observable<postInterface> {
+    const deleteUrl = `${this.postUrl}/${postDeleted.id}`;
+    return this.http.delete<postInterface>(deleteUrl);
+  }
 }
