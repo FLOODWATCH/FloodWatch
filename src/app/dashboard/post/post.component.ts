@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { postInterface } from 'src/app/mock-post-interface';
 import { postArray } from 'src/app/mock-post-array';
 import { PostService } from 'src/app/dashboard-service/post.service';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faEraser, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+import { faBan } from '@fortawesome/free-solid-svg-icons';
+import { faPen } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-post',
@@ -16,6 +19,10 @@ export class PostComponent implements OnInit {
   profMobile: string;
   profPostTime: string;
   faTimes = faTimes;
+  faEllipsisH = faEllipsisH;
+  faBan = faBan;
+  faPen = faPen;
+  faEraser = faEraser;
   postVariable: postInterface[] = [];
   constructor(private postObj: PostService) {}
 
@@ -164,5 +171,14 @@ export class PostComponent implements OnInit {
       document.querySelector('.diagram-tab');
 
     diagramTabBottomLine.style.borderBottom = '5px solid #2e89ff';
+  }
+
+  //for delete and update'
+  deletePost() {
+    alert('deleted lol');
+  }
+
+  updatePost() {
+    alert('updated lol');
   }
 }

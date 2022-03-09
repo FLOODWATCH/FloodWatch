@@ -30,6 +30,18 @@
             </h4>
             <p>{{ post.profPostTime }}</p>
           </div>
+          <div>
+            <fa-icon
+              (click)="deletePost()"
+              class="delete-option"
+              [icon]="faEraser"
+            ></fa-icon>
+            <fa-icon
+              (click)="updatePost()"
+              class="update-option"
+              [icon]="faPen"
+            ></fa-icon>
+          </div>
         </div>
         <div class="post-txt">
           <p>
