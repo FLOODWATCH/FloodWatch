@@ -175,14 +175,31 @@ export class PostComponent implements OnInit {
 
   //for delete and update'
   deletePost(postToBeDeleted: postInterface) {
-    this.postObj
-      .deletePostFromPostService(postToBeDeleted)
-      .subscribe(
-        () =>
-          (this.postVariable = this.postVariable.filter(
-            (p) => p.id !== postToBeDeleted.id
-          ))
-      );
+    //////////////////////////
+    const profileName: HTMLHeadingElement =
+      document.querySelector('#profileName');
+    const profileEmail: HTMLParagraphElement =
+      document.querySelector('#profileEmail');
+
+    // console.log(profileEmail.textContent);
+    // const profileNumber: HTML
+    if (
+      profileName.textContent === postToBeDeleted.profName &&
+      profileEmail.textContent === postToBeDeleted.profEmail
+    ) {
+      this.postObj
+        .deletePostFromPostService(postToBeDeleted)
+        .subscribe(
+          () =>
+            (this.postVariable = this.postVariable.filter(
+              (p) => p.id !== postToBeDeleted.id
+            ))
+        );
+    } else {
+      alert('This is not your post, bakit mo ide delete aber???');
+    }
+
+    //////////////////////////
   }
 
   updatePost() {
