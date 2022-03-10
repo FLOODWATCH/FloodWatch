@@ -188,8 +188,7 @@
   top: 0;
   left: 0;
   /* backdrop-filter: blur(5px); */
-  background: rgba(0, 0, 0, 0.8);
-  /* background-color: aquamarine; */
+  background-color: rgba(0, 0, 0, 0.699);
   display: none;
   justify-content: center;
   align-items: center;

@@ -2,10 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { postInterface } from 'src/app/mock-post-interface';
 import { postArray } from 'src/app/mock-post-array';
 import { PostService } from 'src/app/dashboard-service/post.service';
-import { faEraser, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
-import { faBan } from '@fortawesome/free-solid-svg-icons';
-import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-post',
@@ -19,12 +16,8 @@ export class PostComponent implements OnInit {
   profMobile: string;
   profPostTime: string;
   faTimes = faTimes;
-  faEllipsisH = faEllipsisH;
-  faBan = faBan;
-  faPen = faPen;
-  faEraser = faEraser;
   postVariable: postInterface[] = [];
-  constructor(private postObj: PostService) {}
+  constructor(private postObj: PostService) { }
 
   ngOnInit(): void {
     this.postObj
@@ -67,28 +60,13 @@ export class PostComponent implements OnInit {
         date.toLocaleTimeString('en-US', format)
       )),
     };
-    if (!this.profTextPost) {
-      return alert('Post cannot be void');
-    } else {
-      this.postObj
-        .addPostFromPostService(newPost)
-        .subscribe((p) => this.postVariable.push(newPost));
-      this.closeTimes();
-    }
+    this.postObj
+      .addPostFromPostService(newPost)
+      .subscribe((p) => this.postVariable.push(newPost));
+    this.closeTimes();
   }
 
-  //Open Option Tab
-  OptionTab() {
-    let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
-    optionTab.style.display = 'block';
-  }
-  closeOptionTab() {
-    let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
-    optionTab.style.display = 'none';
-  }
-
-  //Open TEXT POST
-  makeTextPost() {
+  makePost() {
     const postModal: HTMLDivElement =
       document.querySelector('#post-main-modal');
     const postName: HTMLHeadingElement = document.querySelector('#profileName');
@@ -100,13 +78,7 @@ export class PostComponent implements OnInit {
     this.profEmail = postEmail.textContent;
     this.profMobile = postMobile.textContent;
     postModal.style.display = 'flex';
-
-    //close option tab
-    let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
-    optionTab.style.display = 'none';
   }
-
-  //Open FILE || FILE && TEXT POST
 
   //OPEN TABS [post, poll, and diagram]
   togglePostCon() {
@@ -171,45 +143,5 @@ export class PostComponent implements OnInit {
       document.querySelector('.diagram-tab');
 
     diagramTabBottomLine.style.borderBottom = '5px solid #2e89ff';
-  }
-
-  //for delete and update'
-  deletePost(postToBeDeleted: postInterface) {
-    const profileName: HTMLHeadingElement =
-      document.querySelector('#profileName');
-    const profileEmail: HTMLParagraphElement =
-      document.querySelector('#profileEmail');
-
-    if (
-      profileName.textContent === postToBeDeleted.profName &&
-      profileEmail.textContent === postToBeDeleted.profEmail
-    ) {
-      this.postObj
-        .deletePostFromPostService(postToBeDeleted)
-        .subscribe(
-          () =>
-            (this.postVariable = this.postVariable.filter(
-              (p) => p.id !== postToBeDeleted.id
-            ))
-        );
-    } else {
-      alert('This is not your post, bakit mo ide delete aber???');
-    }
-  }
-
-  updatePost(postTobeUpdated: postInterface) {
-    const profileName: HTMLHeadingElement =
-      document.querySelector('#profileName');
-    const profileEmail: HTMLParagraphElement =
-      document.querySelector('#profileEmail');
-
-    if (
-      profileName.textContent === postTobeUpdated.profName &&
-      profileEmail.textContent === postTobeUpdated.profEmail
-    ) {
-      alert('updated lol');
-    } else {
-      alert('This is not your post, bakit mo i a update, aber???');
-    }
   }
 }

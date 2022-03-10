@@ -137,6 +137,7 @@
       "id": 16
     },
     {
+<<<<<<< HEAD
       "profName": "Keemchard De Guzman Tamio",
       "profEmail": "keemchard.tamio@cvsu.edu.ph",
       "profTextPost": "This is my status",
@@ -163,6 +164,20 @@
       "profTextPost": "Hey tulong baha na dito sa barangay santol, tanza, cavite",
       "profPostTime": "03/10/22, 05:45:18 PM",
       "id": 24
+=======
+      "profName": "jannel",
+      "profEmail": "jannelrevilla@gmail.com",
+      "profTextPost": "Jannel's Post",
+      "profPostTime": "03/07/22, 09:49:10 PM",
+      "id": 17
+    },
+    {
+      "profName": "jannel",
+      "profEmail": "jannelrevilla@gmail.com",
+      "profTextPost": "Jannel's Post",
+      "profPostTime": "03/07/22, 09:49:10 PM",
+      "id": 18
+>>>>>>> d6a0d54 (deleted blur)
     }
   ]
 }
