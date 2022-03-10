@@ -175,14 +175,11 @@ export class PostComponent implements OnInit {
 
   //for delete and update'
   deletePost(postToBeDeleted: postInterface) {
-    //////////////////////////
     const profileName: HTMLHeadingElement =
       document.querySelector('#profileName');
     const profileEmail: HTMLParagraphElement =
       document.querySelector('#profileEmail');
 
-    // console.log(profileEmail.textContent);
-    // const profileNumber: HTML
     if (
       profileName.textContent === postToBeDeleted.profName &&
       profileEmail.textContent === postToBeDeleted.profEmail
@@ -198,11 +195,21 @@ export class PostComponent implements OnInit {
     } else {
       alert('This is not your post, bakit mo ide delete aber???');
     }
-
-    //////////////////////////
   }
 
-  updatePost() {
-    alert('updated lol');
+  updatePost(postTobeUpdated: postInterface) {
+    const profileName: HTMLHeadingElement =
+      document.querySelector('#profileName');
+    const profileEmail: HTMLParagraphElement =
+      document.querySelector('#profileEmail');
+
+    if (
+      profileName.textContent === postTobeUpdated.profName &&
+      profileEmail.textContent === postTobeUpdated.profEmail
+    ) {
+      alert('updated lol');
+    } else {
+      alert('This is not your post, bakit mo i a update, aber???');
+    }
   }
 }

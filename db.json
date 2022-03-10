@@ -139,20 +139,6 @@
     {
       "profName": "Keemchard De Guzman Tamio",
       "profEmail": "keemchard.tamio@cvsu.edu.ph",
-      "profTextPost": "",
-      "profPostTime": "03/08/22, 08:35:33 PM",
-      "id": 17
-    },
-    {
-      "profName": "Keemchard De Guzman Tamio",
-      "profEmail": "keemchard.tamio@cvsu.edu.ph",
-      "profTextPost": "",
-      "profPostTime": "03/08/22, 08:35:33 PM",
-      "id": 18
-    },
-    {
-      "profName": "Keemchard De Guzman Tamio",
-      "profEmail": "keemchard.tamio@cvsu.edu.ph",
       "profTextPost": "This is my status",
       "profPostTime": "03/08/22, 08:35:44 PM",
       "id": 19
@@ -165,25 +151,18 @@
       "id": 20
     },
     {
-      "profName": "Keemchard De Guzman Tamio",
-      "profEmail": "keemchard.tamio@cvsu.edu.ph",
-      "profTextPost": "asdasd",
-      "profPostTime": "03/08/22, 08:42:35 PM",
-      "id": 21
-    },
-    {
-      "profName": "Keemchard De Guzman Tamio",
-      "profEmail": "keemchard.tamio@cvsu.edu.ph",
-      "profTextPost": "Heyyyyy",
-      "profPostTime": "03/08/22, 09:12:34 PM",
-      "id": 22
-    },
-    {
       "profName": "something went wrong",
       "profEmail": "something went wrong",
       "profTextPost": "asl;kdfmlknasfop0j",
       "profPostTime": "03/09/22, 05:19:58 PM",
       "id": 23
+    },
+    {
+      "profName": "Keemchard De Guzman Tamio",
+      "profEmail": "keemchard.tamio@cvsu.edu.ph",
+      "profTextPost": "Hey tulong baha na dito sa barangay santol, tanza, cavite",
+      "profPostTime": "03/10/22, 05:45:18 PM",
+      "id": 24
     }
   ]
 }
