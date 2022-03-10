@@ -3,6 +3,8 @@ import { postInterface } from 'src/app/mock-post-interface';
 import { postArray } from 'src/app/mock-post-array';
 import { PostService } from 'src/app/dashboard-service/post.service';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { faEraser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-post',
@@ -16,6 +18,8 @@ export class PostComponent implements OnInit {
   profMobile: string;
   profPostTime: string;
   faTimes = faTimes;
+  faPen = faPen;
+  faEraser = faEraser;
   postVariable: postInterface[] = [];
   constructor(private postObj: PostService) { }
 
@@ -66,19 +70,19 @@ export class PostComponent implements OnInit {
     this.closeTimes();
   }
 
-  makePost() {
-    const postModal: HTMLDivElement =
-      document.querySelector('#post-main-modal');
-    const postName: HTMLHeadingElement = document.querySelector('#profileName');
-    const postEmail: HTMLHeadingElement =
-      document.querySelector('#profileEmail');
-    const postMobile: HTMLHeadingElement =
-      document.querySelector('#profileMobile');
-    this.profName = postName.textContent;
-    this.profEmail = postEmail.textContent;
-    this.profMobile = postMobile.textContent;
-    postModal.style.display = 'flex';
-  }
+  // makePost() {
+  //   const postModal: HTMLDivElement =
+  //     document.querySelector('#post-main-modal');
+  //   const postName: HTMLHeadingElement = document.querySelector('#profileName');
+  //   const postEmail: HTMLHeadingElement =
+  //     document.querySelector('#profileEmail');
+  //   const postMobile: HTMLHeadingElement =
+  //     document.querySelector('#profileMobile');
+  //   this.profName = postName.textContent;
+  //   this.profEmail = postEmail.textContent;
+  //   this.profMobile = postMobile.textContent;
+  //   postModal.style.display = 'flex';
+  // }
 
   //OPEN TABS [post, poll, and diagram]
   togglePostCon() {
@@ -143,5 +147,79 @@ export class PostComponent implements OnInit {
       document.querySelector('.diagram-tab');
 
     diagramTabBottomLine.style.borderBottom = '5px solid #2e89ff';
+  }
+  //Open Option Tab
+  OptionTab() {
+    let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
+    optionTab.style.display = 'block';
+  }
+  closeOptionTab() {
+    let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
+    optionTab.style.display = 'none';
+  }
+  makeTextPost() {
+    const postModal: HTMLDivElement =
+      document.querySelector('#post-main-modal');
+    const postName: HTMLHeadingElement = document.querySelector('#profileName');
+    const postEmail: HTMLHeadingElement =
+      document.querySelector('#profileEmail');
+    const postMobile: HTMLHeadingElement =
+      document.querySelector('#profileMobile');
+    this.profName = postName.textContent;
+    this.profEmail = postEmail.textContent;
+    this.profMobile = postMobile.textContent;
+    postModal.style.display = 'flex';
+    // const postModal: HTMLDivElement =
+    //   document.querySelector('#post-main-modal');
+    // const postName: HTMLHeadingElement = document.querySelector('#profileName');
+    // const postEmail: HTMLHeadingElement = document.querySelector('#profileEmail');
+    // const postMobile: HTMLHeadingElement = document.querySelector('#profMobile');
+    // this.profEmail = postEmail.textContent;
+    // this.profMobile = postMobile.textContent;
+    // postModal.style.display = 'flex';
+
+    // let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
+    // optionTab.style.display = 'none';
+  }
+
+  deletePost(postToBeDeleted: postInterface) {
+    const profileName: HTMLHeadingElement =
+      document.querySelector('#profileName');
+    const profileEmail: HTMLParagraphElement =
+      document.querySelector('#profileEmail');
+
+    // console.log(profileEmail.textContent);
+    // const profileNumber: HTML
+    if (
+      profileName.textContent === postToBeDeleted.profName &&
+      profileEmail.textContent === postToBeDeleted.profEmail
+    ) {
+      this.postObj
+        .deletePostFromPostService(postToBeDeleted)
+        .subscribe(
+          () =>
+          (this.postVariable = this.postVariable.filter(
+            (p) => p.id !== postToBeDeleted.id
+          ))
+        );
+    } else {
+      alert('This is not your post, bakit mo ide delete aber???');
+    }
+  }
+
+  updatePost(postTobeUpdated: postInterface) {
+    const profileName: HTMLHeadingElement =
+      document.querySelector('#profileName');
+    const profileEmail: HTMLParagraphElement =
+      document.querySelector('#profileEmail');
+
+    if (
+      profileName.textContent === postTobeUpdated.profName &&
+      profileEmail.textContent === postTobeUpdated.profEmail
+    ) {
+      alert('updated lol');
+    } else {
+      alert('This is not your post, bakit mo i a update, aber???');
+    }
   }
 }
