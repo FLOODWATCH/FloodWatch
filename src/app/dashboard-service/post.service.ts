@@ -17,7 +17,6 @@ export class PostService {
 
   constructor(private http: HttpClient) {}
 
-  getPost;
   getPostFromPostService(): Observable<postInterface[]> {
     return this.http.get<postInterface[]>(this.postUrl);
   }
@@ -31,6 +30,11 @@ export class PostService {
   ): Observable<postInterface> {
     const deleteUrl = `${this.postUrl}/${postDeleted.id}`;
     return this.http.delete<postInterface>(deleteUrl);
+  }
+
+  updatePostFromPostService(postToBeUpdated: any): Observable<any> {
+    const updateUrl = `${this.postUrl}/${postToBeUpdated.id}`;
+    return this.http.put<any>(updateUrl, postToBeUpdated, httpOptions);
   }
 
   //Using Spring boot as backend - START (WILL UNCOMMENT THIS ONCE WE'VE ELIMINATE JSON SERVER FROM THE SYSTEM HAHAHA)

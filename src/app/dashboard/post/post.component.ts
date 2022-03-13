@@ -5,6 +5,8 @@ import { PostService } from 'src/app/dashboard-service/post.service';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { faEraser } from '@fortawesome/free-solid-svg-icons';
+import { timeStamp } from 'console';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-post',
@@ -12,6 +14,7 @@ import { faEraser } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./post.component.css'],
 })
 export class PostComponent implements OnInit {
+  profIdNumber: string;
   profName: string;
   profEmail: string;
   profTextPost: string;
@@ -20,6 +23,8 @@ export class PostComponent implements OnInit {
   faTimes = faTimes;
   faPen = faPen;
   faEraser = faEraser;
+  updatePostText: string;
+  updatePostTime: string;
   postVariable: postInterface[] = [];
   constructor(private postObj: PostService) {}
 
@@ -32,6 +37,7 @@ export class PostComponent implements OnInit {
     pollConVar.style.display = 'none';
     let diagramConVar: HTMLDivElement = document.querySelector('.diagram-con');
     diagramConVar.style.display = 'none';
+    this.closeUpdateForm();
   }
 
   closeTimes() {
@@ -43,6 +49,17 @@ export class PostComponent implements OnInit {
     closeTimes.style.display = 'none';
   }
 
+  //Open Option Tab
+  OptionTab() {
+    let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
+    optionTab.style.display = 'block';
+  }
+  closeOptionTab() {
+    let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
+    optionTab.style.display = 'none';
+  }
+
+  //toggle post form
   makeTextPost() {
     const postModal: HTMLDivElement =
       document.querySelector('#post-main-modal');
@@ -92,6 +109,66 @@ export class PostComponent implements OnInit {
       this.profTextPost = '';
       this.closeTimes();
     }
+  }
+
+  //For delete and update'
+  deletePost(postToBeDeleted: postInterface) {
+    const profileName: HTMLHeadingElement =
+      document.querySelector('#profileName');
+    const profileEmail: HTMLParagraphElement =
+      document.querySelector('#profileEmail');
+
+    if (
+      profileName.textContent === postToBeDeleted.profName &&
+      profileEmail.textContent === postToBeDeleted.profEmail
+    ) {
+      this.postObj
+        .deletePostFromPostService(postToBeDeleted)
+        .subscribe(
+          () =>
+            (this.postVariable = this.postVariable.filter(
+              (p) => p.id !== postToBeDeleted.id
+            ))
+        );
+    } else {
+      alert('This is not your post, bakit mo ide delete aber???');
+    }
+  }
+
+  //toggle update form
+  toggleUpdatePostForm(postTobeUpdated: postInterface) {
+    const profileName: HTMLHeadingElement =
+      document.querySelector('#profileName');
+    const profileEmail: HTMLParagraphElement =
+      document.querySelector('#profileEmail');
+
+    if (
+      profileName.textContent === postTobeUpdated.profName &&
+      profileEmail.textContent === postTobeUpdated.profEmail
+    ) {
+      this.openUpdateForm();
+      let updateTextArea: HTMLTextAreaElement =
+        document.querySelector('.update-textarea');
+      updateTextArea.value = postTobeUpdated.profTextPost;
+    } else {
+      alert('This is not your post, bakit mo i a update, aber???');
+    }
+  }
+
+  //update post functionnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+  updateThePost() {
+    alert('updated lol');
+  }
+
+  closeUpdateForm() {
+    let mainUpdateCon: HTMLDivElement =
+      document.querySelector('.main-update-con');
+    mainUpdateCon.style.display = 'none';
+  }
+  openUpdateForm() {
+    let mainUpdateCon: HTMLDivElement =
+      document.querySelector('.main-update-con');
+    mainUpdateCon.style.display = 'flex';
   }
 
   //OPEN TABS [post, poll, and diagram]
@@ -157,55 +234,5 @@ export class PostComponent implements OnInit {
       document.querySelector('.diagram-tab');
 
     diagramTabBottomLine.style.borderBottom = '5px solid #2e89ff';
-  }
-
-  //Open Option Tab
-  OptionTab() {
-    let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
-    optionTab.style.display = 'block';
-  }
-  closeOptionTab() {
-    let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
-    optionTab.style.display = 'none';
-  }
-
-  //For delete and update'
-  deletePost(postToBeDeleted: postInterface) {
-    const profileName: HTMLHeadingElement =
-      document.querySelector('#profileName');
-    const profileEmail: HTMLParagraphElement =
-      document.querySelector('#profileEmail');
-
-    if (
-      profileName.textContent === postToBeDeleted.profName &&
-      profileEmail.textContent === postToBeDeleted.profEmail
-    ) {
-      this.postObj
-        .deletePostFromPostService(postToBeDeleted)
-        .subscribe(
-          () =>
-            (this.postVariable = this.postVariable.filter(
-              (p) => p.id !== postToBeDeleted.id
-            ))
-        );
-    } else {
-      alert('This is not your post, bakit mo ide delete aber???');
-    }
-  }
-
-  updatePost(postTobeUpdated: postInterface) {
-    const profileName: HTMLHeadingElement =
-      document.querySelector('#profileName');
-    const profileEmail: HTMLParagraphElement =
-      document.querySelector('#profileEmail');
-
-    if (
-      profileName.textContent === postTobeUpdated.profName &&
-      profileEmail.textContent === postTobeUpdated.profEmail
-    ) {
-      alert('updated lol');
-    } else {
-      alert('This is not your post, bakit mo i a update, aber???');
-    }
   }
 }
