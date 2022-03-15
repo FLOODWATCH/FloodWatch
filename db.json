@@ -152,5 +152,21 @@
       "profPostTime": "03/10/22, 09:21:09 PM",
       "id": 41
     }
+  ],
+  "poll": [
+    {
+      "id": 1,
+      "pollDate": "the Date here (1)",
+      "pollSafeVote": 39,
+      "pollNotSafeVote": 12,
+      "pollNoVote": 0
+    },
+    {
+      "id": 2,
+      "pollDate": "the Date here (2)",
+      "pollSafeVote": 21,
+      "pollNotSafeVote": 29,
+      "pollNoVote": 0
+    }
   ]
 }
