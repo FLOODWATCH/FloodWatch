@@ -25,8 +25,9 @@ export class PostComponent implements OnInit {
   faEraser = faEraser;
   updatePostText: string;
   updatePostTime: string;
+  holder;
   postVariable: postInterface[] = [];
-  constructor(private postObj: PostService) {}
+  constructor(private postObj: PostService) { }
 
   ngOnInit(): void {
     this.postObj
@@ -41,6 +42,9 @@ export class PostComponent implements OnInit {
   }
 
   closeTimes() {
+    // this.postObj
+    //   .getPostFromPostService()
+    //   .subscribe((p) => (this.postVariable = p));
     const postContent: HTMLInputElement =
       document.querySelector('#post-content');
     const closeTimes: HTMLDivElement =
@@ -97,27 +101,41 @@ export class PostComponent implements OnInit {
         date.toLocaleTimeString('en-US', format)
       )),
     };
-
-    let postContent: HTMLTextAreaElement =
-      document.querySelector('.post-content');
+    // let postContent: HTMLTextAreaElement =
+    //   document.querySelector('.post-content');
     if (!this.profTextPost) {
       return alert('Post cannot be void');
     } else {
       this.postObj
         .addPostFromPostService(newPost)
         .subscribe((p) => this.postVariable.push(newPost));
-      this.profTextPost = '';
+      this.profTextPost = null;
+      // For Json Server. Although 4 get requests will still work with json server.
+      // for (let json = 0; json < 2; json++) {
+      //   this.postObj
+      //     .getPostFromPostService()
+      //     .subscribe((p) => (this.postVariable = p));
+      // }
+      // For Spring LOL
+      for (let spring = 0; spring < 4; spring++) {
+        this.postObj
+          .getPostFromPostService()
+          .subscribe((p) => (this.postVariable = p));
+      }
       this.closeTimes();
     }
   }
 
-  //For delete and update'
+  // For delete and update'
   deletePost(postToBeDeleted: postInterface) {
     const profileName: HTMLHeadingElement =
       document.querySelector('#profileName');
     const profileEmail: HTMLParagraphElement =
       document.querySelector('#profileEmail');
-
+    // In order to refresh
+    // this.postObj
+    //   .getPostFromPostService()
+    //   .subscribe((p) => (this.postVariable = p));
     if (
       profileName.textContent === postToBeDeleted.profName &&
       profileEmail.textContent === postToBeDeleted.profEmail
@@ -126,10 +144,13 @@ export class PostComponent implements OnInit {
         .deletePostFromPostService(postToBeDeleted)
         .subscribe(
           () =>
-            (this.postVariable = this.postVariable.filter(
-              (p) => p.id !== postToBeDeleted.id
-            ))
+          (this.postVariable = this.postVariable.filter(
+            (p) => p.id !== postToBeDeleted.id
+          ))
         );
+      // this.postObj
+      //   .getPostFromPostService()
+      //   .subscribe((p) => (this.postVariable = p));
     } else {
       alert('This is not your post, bakit mo ide delete aber???');
     }
@@ -137,16 +158,24 @@ export class PostComponent implements OnInit {
 
   //toggle update form
   toggleUpdatePostForm(postTobeUpdated: postInterface) {
+    // this.postObj
+    //   .getPostFromPostService()
+    //   .subscribe((p) => (this.postVariable = p));
     const profileName: HTMLHeadingElement =
       document.querySelector('#profileName');
     const profileEmail: HTMLParagraphElement =
       document.querySelector('#profileEmail');
-
     if (
       profileName.textContent === postTobeUpdated.profName &&
       profileEmail.textContent === postTobeUpdated.profEmail
     ) {
-      this.openUpdateForm();
+      // passes the post to be updated into the holder that 
+      // we can access outside the function
+      this.holder = postTobeUpdated
+      // Opens the update form
+      let mainUpdateCon: HTMLDivElement =
+        document.querySelector('.main-update-con');
+      mainUpdateCon.style.display = 'flex';
       let updateTextArea: HTMLTextAreaElement =
         document.querySelector('.update-textarea');
       updateTextArea.value = postTobeUpdated.profTextPost;
@@ -155,20 +184,28 @@ export class PostComponent implements OnInit {
     }
   }
 
-  //update post functionnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+  // Update the post, toggleUpdatePostForm
   updateThePost() {
-    alert('updated lol');
+    // this.postObj
+    //   .getPostFromPostService()
+    //   .subscribe((p) => (this.postVariable = p));
+    let postContent: HTMLTextAreaElement = document.querySelector('#updatePostText')
+    // alert(`${this.holder.id}`)
+    this.holder.profTextPost = postContent.value;
+    this.postObj.updatePostFromPostService(this.holder).subscribe();
+    // this.postObj
+    //   .getPostFromPostService()
+    //   .subscribe((p) => (this.postVariable = p));
+    this.closeUpdateForm()
   }
 
   closeUpdateForm() {
+    // this.postObj
+    //   .getPostFromPostService()
+    //   .subscribe((p) => (this.postVariable = p));
     let mainUpdateCon: HTMLDivElement =
       document.querySelector('.main-update-con');
     mainUpdateCon.style.display = 'none';
-  }
-  openUpdateForm() {
-    let mainUpdateCon: HTMLDivElement =
-      document.querySelector('.main-update-con');
-    mainUpdateCon.style.display = 'flex';
   }
 
   //OPEN TABS [post, poll, and diagram]
