@@ -110,14 +110,8 @@ export class PostComponent implements OnInit {
         .addPostFromPostService(newPost)
         .subscribe((p) => this.postVariable.push(newPost));
       this.profTextPost = null;
-      // For Json Server. Although 4 get requests will still work with json server.
-      // for (let json = 0; json < 2; json++) {
-      //   this.postObj
-      //     .getPostFromPostService()
-      //     .subscribe((p) => (this.postVariable = p));
-      // }
-      // For Spring LOL
-      for (let spring = 0; spring < 4; spring++) {
+      // Just change the value into 2 for json server. Although 4 get requests will still work for json
+      for (let x = 0; x < 4; x++) {
         this.postObj
           .getPostFromPostService()
           .subscribe((p) => (this.postVariable = p));
