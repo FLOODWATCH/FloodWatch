@@ -23,6 +23,46 @@
       "address": "Rosario, Cavite",
       "password": "janeki21",
       "id": 3
+    },
+    {
+      "name": "Flood B. Watch",
+      "email": "floodwatch@gmail.com",
+      "mobile": "09123456789",
+      "address": "Boracay Romblon Albay Camarines Sur",
+      "password": "fl123",
+      "id": 4
+    },
+    {
+      "name": "asdasd",
+      "email": "asdasdasda#gmail.com",
+      "mobile": "09305193102",
+      "address": "asdfasdfsadfasdf",
+      "password": "asdfsadf3",
+      "id": 5
+    },
+    {
+      "name": "try",
+      "email": "try.user@gmail.com",
+      "mobile": "12345678901",
+      "address": "Purok 3, Santol",
+      "password": "123456qwerty",
+      "id": 6
+    },
+    {
+      "name": "asd",
+      "email": "asd@gmail.com",
+      "mobile": "12345678978",
+      "address": "sdfsdfsdf sdfsdfsdf dfsdfsdf",
+      "password": "qwerty123",
+      "id": 7
+    },
+    {
+      "name": "qwerty",
+      "email": "qwerty@gmail.com",
+      "mobile": "11111111111",
+      "address": "EM's Barrio CCAT",
+      "password": "qwerty123",
+      "id": 8
     }
   ],
   "post": [
@@ -151,22 +191,52 @@
       "profTextPost": "variable",
       "profPostTime": "03/10/22, 09:21:09 PM",
       "id": 41
+    },
+    {
+      "profName": "Flood B. Watch",
+      "profEmail": "floodwatch@gmail.com",
+      "profTextPost": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem accusantium\npossimus non corrupti modi molestias? Optio quidem eum necessitatibus doloribus\nab molestias, temporibus cupiditate doloremque qui! Earum voluptas laborum\nprovident!",
+      "profPostTime": "03/17/22, 05:02:24 PM",
+      "id": 42
+    },
+    {
+      "profName": "Flood B. Watch",
+      "profEmail": "floodwatch@gmail.com",
+      "profTextPost": "this is my posttttttttttttttttttttttttttttttttttttttttttttttttttttt sadfsadf asdf sadf\n",
+      "profPostTime": "03/17/22, 09:14:15 PM",
+      "id": 43
     }
   ],
   "poll": [
     {
       "id": 1,
       "pollDate": "the Date here (1)",
-      "pollSafeVote": 39,
-      "pollNotSafeVote": 12,
-      "pollNoVote": 0
+      "pollSafeVote": 2,
+      "pollNotSafeVote": 1,
+      "pollNoVote": 5,
+      "pollTotalVoters": 8
+    }
+  ],
+  "voters": [
+    {
+      "votersEmail": "floodwatch@gmail.com",
+      "votersVote": "SAFE",
+      "id": 1
     },
     {
-      "id": 2,
-      "pollDate": "the Date here (2)",
-      "pollSafeVote": 21,
-      "pollNotSafeVote": 29,
-      "pollNoVote": 0
+      "votersEmail": "try.user@gmail.com",
+      "votersVote": "NOT-SAFE",
+      "id": 2
+    },
+    {
+      "votersEmail": "keemchard.tamio@cvsu.edu.ph",
+      "votersVote": "null",
+      "id": 3
+    },
+    {
+      "votersEmail": "keemchard.tamio@cvsu.edu.ph",
+      "votersVote": "SAFE",
+      "id": 4
     }
   ]
 }

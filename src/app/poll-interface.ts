@@ -4,4 +4,5 @@ export interface pollInterface {
   pollSafeVote: number;
   pollNotSafeVote: number;
   pollNoVote: number;
+  pollTotalVoters: number;
 }

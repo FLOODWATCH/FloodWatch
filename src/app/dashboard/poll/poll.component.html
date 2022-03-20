@@ -11,32 +11,55 @@
     </div>
     <div class="poll-content">
       <div>
-        <div (click)="safeVote(poll)" class="safe vote">
+        <div
+          [ngStyle]="{
+            width: (poll.pollTotalVoters * 100) / poll.pollTotalVoters + '%'
+          }"
+          (click)="safeVote2(poll)"
+          class="safe vote"
+        >
           <p class="safe-txt">Safe</p>
           <div
-            [ngStyle]="{ width: poll.pollSafeVote + '%' }"
+            [ngStyle]="{
+              width: (poll.pollSafeVote / poll.pollTotalVoters) * 100 + '%'
+            }"
             class="safe-vote"
           ></div>
         </div>
       </div>
       <div>
-        <div (click)="notSafeVote(poll)" class="not-safe vote">
+        <div (click)="notSafeVote2(poll)" class="not-safe vote">
           <p class="not-safe-txt">Not Safe</p>
           <div
-            [ngStyle]="{ width: poll.pollNotSafeVote + '%' }"
+            [ngStyle]="{
+              width: (poll.pollNotSafeVote / poll.pollTotalVoters) * 100 + '%'
+            }"
             class="not-safe-vote"
           ></div>
         </div>
 
         <div class="poll-num">
           <div>
-            Safe: <span>{{ poll.pollSafeVote }}%</span>
+            Safe:
+            <span>{{ (poll.pollSafeVote / poll.pollTotalVoters) * 100 }}%</span>
           </div>
           <div>
-            Not Safe: <span>{{ poll.pollNotSafeVote }}%</span>
+            Not Safe:
+            <span
+              >{{ (poll.pollNotSafeVote / poll.pollTotalVoters) * 100 }}%</span
+            >
           </div>
           <div>
-            No Vote: <span>{{ poll.pollNoVote }}%</span>
+            No Vote:
+            <span>{{ (poll.pollNoVote / poll.pollTotalVoters) * 100 }}%</span>
+            <!-- <span
+              >{{
+                ((poll.pollTotalVoters -
+                  (poll.pollSafeVote + poll.pollNotSafeVote)) /
+                  poll.pollTotalVoters) *
+                  100
+              }}%</span
+            > -->
           </div>
         </div>
       </div>
