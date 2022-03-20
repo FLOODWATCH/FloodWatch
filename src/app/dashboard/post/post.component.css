@@ -84,7 +84,6 @@
   font-size: 14px;
   color: rgb(190, 190, 190);
 }
-
 .update-option {
   position: absolute;
   top: 3px;
@@ -347,6 +346,7 @@
   padding: 10px;
   font-size: 20px;
   color: white !important;
+  resize: none;
 }
 
 .update-btn {
@@ -356,4 +356,9 @@
   background-color: #2e89ff;
   border: 1px solid white;
   color: white;
+  transition: 0.25s;
+}
+.update-btn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
