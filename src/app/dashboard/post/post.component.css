@@ -536,7 +536,7 @@
   color: #1b1a1a;
 }
 .update-container > textarea {
-  font-size: 25px;
+  font-size: 20px;
   outline: none;
   /* background-color: #3d348b; */
   /* background-color: #2c2929f1; */
@@ -555,14 +555,16 @@
   transition: 0.25s;
 }
 .update-container > textarea:focus {
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.487) 0px 5px 15px 0px;
 }
 
 .update-post-container {
+  padding: 12px;
+  border-radius: 10px;
   margin-top: 10px;
   display: flex;
   justify-content: flex-end;
+  box-shadow: rgba(0, 0, 0, 0.487) 0px 5px 15px 0px;
 }
 .update-btn {
   font-weight: bold;

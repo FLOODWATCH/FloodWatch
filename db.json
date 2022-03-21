@@ -193,20 +193,6 @@
       "id": 41
     },
     {
-<<<<<<< HEAD
-      "profName": "Flood B. Watch",
-      "profEmail": "floodwatch@gmail.com",
-      "profTextPost": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem accusantium\npossimus non corrupti modi molestias? Optio quidem eum necessitatibus doloribus\nab molestias, temporibus cupiditate doloremque qui! Earum voluptas laborum\nprovident!",
-      "profPostTime": "03/17/22, 05:02:24 PM",
-      "id": 42
-    },
-    {
-      "profName": "Flood B. Watch",
-      "profEmail": "floodwatch@gmail.com",
-      "profTextPost": "this is my posttttttttttttttttttttttttttttttttttttttttttttttttttttt sadfsadf asdf sadf\n",
-      "profPostTime": "03/17/22, 09:14:15 PM",
-      "id": 43
-=======
       "profName": "janeki",
       "profEmail": "revillazjannelz@gmail.com",
       "profTextPost": "Hello! Updated!",
@@ -216,33 +202,18 @@
     {
       "profName": "janeki",
       "profEmail": "revillazjannelz@gmail.com",
-      "profTextPost": "YES!",
-      "profPostTime": "03/21/22, 11:31:56 AM",
+      "profTextPost": "Working",
+      "profPostTime": "03/21/22, 11:50:58 AM",
       "id": 49
->>>>>>> c327642 (Change the color of add post, added alert message, and added a separate add post with files (No logic yet))
     }
   ],
   "poll": [
     {
       "id": 1,
       "pollDate": "the Date here (1)",
-<<<<<<< HEAD
-      "pollSafeVote": 2,
-      "pollNotSafeVote": 1,
-      "pollNoVote": 5,
-      "pollTotalVoters": 8
-    }
-  ],
-  "voters": [
-    {
-      "votersEmail": "floodwatch@gmail.com",
-      "votersVote": "SAFE",
-      "id": 1
-=======
       "pollSafeVote": 60,
       "pollNotSafeVote": 30,
       "pollNoVote": 0
->>>>>>> c327642 (Change the color of add post, added alert message, and added a separate add post with files (No logic yet))
     },
     {
       "votersEmail": "try.user@gmail.com",
