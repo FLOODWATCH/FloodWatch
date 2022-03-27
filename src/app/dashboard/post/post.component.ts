@@ -27,7 +27,7 @@ export class PostComponent implements OnInit {
   updatePostTime: string;
   holder;
   postVariable: postInterface[] = [];
-  constructor(private postObj: PostService) { }
+  constructor(private postObj: PostService) {}
 
   ngOnInit(): void {
     this.postObj
@@ -138,9 +138,9 @@ export class PostComponent implements OnInit {
         .deletePostFromPostService(postToBeDeleted)
         .subscribe(
           () =>
-          (this.postVariable = this.postVariable.filter(
-            (p) => p.id !== postToBeDeleted.id
-          ))
+            (this.postVariable = this.postVariable.filter(
+              (p) => p.id !== postToBeDeleted.id
+            ))
         );
       // this.postObj
       //   .getPostFromPostService()
@@ -163,9 +163,9 @@ export class PostComponent implements OnInit {
       profileName.textContent === postTobeUpdated.profName &&
       profileEmail.textContent === postTobeUpdated.profEmail
     ) {
-      // passes the post to be updated into the holder that 
+      // passes the post to be updated into the holder that
       // we can access outside the function
-      this.holder = postTobeUpdated
+      this.holder = postTobeUpdated;
       // Opens the update form
       let mainUpdateCon: HTMLDivElement =
         document.querySelector('.main-update-con');
@@ -183,14 +183,15 @@ export class PostComponent implements OnInit {
     // this.postObj
     //   .getPostFromPostService()
     //   .subscribe((p) => (this.postVariable = p));
-    let postContent: HTMLTextAreaElement = document.querySelector('#updatePostText')
+    let postContent: HTMLTextAreaElement =
+      document.querySelector('#updatePostText');
     // alert(`${this.holder.id}`)
     this.holder.profTextPost = postContent.value;
     this.postObj.updatePostFromPostService(this.holder).subscribe();
     // this.postObj
     //   .getPostFromPostService()
     //   .subscribe((p) => (this.postVariable = p));
-    this.closeUpdateForm()
+    this.closeUpdateForm();
   }
 
   closeUpdateForm() {

@@ -8,7 +8,7 @@ import { userInterface } from 'src/app/user-interface';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private userObj: UserCredService) { }
+  constructor(private userObj: UserCredService) {}
 
   phone: string;
   pass: string;

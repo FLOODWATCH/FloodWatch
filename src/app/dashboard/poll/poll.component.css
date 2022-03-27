@@ -88,6 +88,7 @@
   width: 0%;
   background-color: #2e89ff;
   background-color: rgba(0, 132, 255, 0.555);
+  animation: gilid 1s ease-in-out;
 }
 .not-safe-vote {
   position: absolute;
@@ -95,6 +96,12 @@
   width: 0%;
   background-color: #2e89ff;
   background-color: rgba(0, 132, 255, 0.555);
+  animation: gilid 1s ease-in-out;
+}
+@keyframes gilid {
+  0% {
+    width: 0;
+  }
 }
 .poll-num {
   margin-top: 30px;

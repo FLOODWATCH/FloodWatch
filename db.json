@@ -160,7 +160,7 @@
     {
       "profName": "Keemchard De Guzman Tamio",
       "profEmail": "keemchard.tamio@cvsu.edu.ph",
-      "profTextPost": "Heyyyy",
+      "profTextPost": "Heyyyy (edited)",
       "profPostTime": "03/10/22, 09:16:39 PM",
       "id": 32
     },
@@ -181,16 +181,9 @@
     {
       "profName": "Keemchard De Guzman Tamio",
       "profEmail": "keemchard.tamio@cvsu.edu.ph",
-      "profTextPost": "Test",
+      "profTextPost": "Test (updated................) (edited)",
       "profPostTime": "03/10/22, 09:20:15 PM",
       "id": 40
-    },
-    {
-      "profName": "Keemchard De Guzman Tamio",
-      "profEmail": "keemchard.tamio@cvsu.edu.ph",
-      "profTextPost": "variable",
-      "profPostTime": "03/10/22, 09:21:09 PM",
-      "id": 41
     },
     {
       "profName": "Flood B. Watch",
@@ -205,6 +198,13 @@
       "profTextPost": "this is my posttttttttttttttttttttttttttttttttttttttttttttttttttttt sadfsadf asdf sadf\n",
       "profPostTime": "03/17/22, 09:14:15 PM",
       "id": 43
+    },
+    {
+      "profName": "something went wrong",
+      "profEmail": "something went wrong",
+      "profTextPost": "the alert level now is 3 according to the SMS notification. Keep safe guys!",
+      "profPostTime": "03/24/22, 01:28:53 PM",
+      "id": 44
     }
   ],
   "poll": [
@@ -235,8 +235,13 @@
     },
     {
       "votersEmail": "keemchard.tamio@cvsu.edu.ph",
-      "votersVote": "SAFE",
+      "votersVote": "null",
       "id": 4
+    },
+    {
+      "votersEmail": "keemchard.tamio@cvsu.edu.ph",
+      "votersVote": "SAFE",
+      "id": 5
     }
   ]
 }
