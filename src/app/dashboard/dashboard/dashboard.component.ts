@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserCredService } from 'src/app/register-services/user-cred.service';
 import { userInterface } from 'src/app/user-interface';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faExclamation } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,9 +12,13 @@ import { userInterface } from 'src/app/user-interface';
 })
 export class DashboardComponent implements OnInit {
   constructor(private userObj: UserCredService) {}
-
+  faTimes = faTimes;
+  faExclamation = faExclamation;
+  faCheck = faCheck;
   phone: string;
   pass: string;
+  messageType: string;
+  modalMessage: string;
   theUser: userInterface;
 
   ngOnInit(): void {
@@ -21,6 +28,12 @@ export class DashboardComponent implements OnInit {
     //////////////////////////////////////////////////////////////// MAKE IT SHOW!!!!!!!!
   }
 
+  // Modal Message related Functions
+  closeModalDashboard() {
+    const closeModal: HTMLDivElement =
+      document.querySelector('#dashboard-modal');
+    closeModal.style.display = 'none';
+  }
   reEnterSubmit() {
     this.userObj.getUserFromService().subscribe((u) => {
       this.theUser = u.find((a: any) => {

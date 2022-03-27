@@ -186,6 +186,7 @@
       "id": 40
     },
     {
+<<<<<<< HEAD
       "profName": "Flood B. Watch",
       "profEmail": "floodwatch@gmail.com",
       "profTextPost": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem accusantium\npossimus non corrupti modi molestias? Optio quidem eum necessitatibus doloribus\nab molestias, temporibus cupiditate doloremque qui! Earum voluptas laborum\nprovident!",
@@ -205,23 +206,36 @@
       "profTextPost": "the alert level now is 3 according to the SMS notification. Keep safe guys!",
       "profPostTime": "03/24/22, 01:28:53 PM",
       "id": 44
+=======
+      "profName": "Keemchard De Guzman Tamio",
+      "profEmail": "keemchard.tamio@cvsu.edu.ph",
+      "profTextPost": "variable",
+      "profPostTime": "03/10/22, 09:21:09 PM",
+      "id": 41
+    },
+    {
+      "profName": "janeki",
+      "profEmail": "revillazjannelz@gmail.com",
+      "profTextPost": "Hello! Updated!",
+      "profPostTime": "03/21/22, 11:31:49 AM",
+      "id": 48
+    },
+    {
+      "profName": "janeki",
+      "profEmail": "revillazjannelz@gmail.com",
+      "profTextPost": "Working",
+      "profPostTime": "03/21/22, 11:50:58 AM",
+      "id": 49
+>>>>>>> d73fcb662083d1db880d0230b46d4b6e9691586c
     }
   ],
   "poll": [
     {
       "id": 1,
       "pollDate": "the Date here (1)",
-      "pollSafeVote": 2,
-      "pollNotSafeVote": 1,
-      "pollNoVote": 5,
-      "pollTotalVoters": 8
-    }
-  ],
-  "voters": [
-    {
-      "votersEmail": "floodwatch@gmail.com",
-      "votersVote": "SAFE",
-      "id": 1
+      "pollSafeVote": 60,
+      "pollNotSafeVote": 30,
+      "pollNoVote": 0
     },
     {
       "votersEmail": "try.user@gmail.com",

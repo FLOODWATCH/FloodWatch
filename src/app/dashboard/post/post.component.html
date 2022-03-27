@@ -66,7 +66,9 @@
             <div (click)="makeTextPost()" class="text-option">
               Create Text Post
             </div>
-            <div class="file-text-option">Create File and Text Post</div>
+            <div (click)="makeTextFilePost()" class="file-text-option">
+              Create File and Text Post
+            </div>
           </div>
         </div>
       </div>
@@ -79,7 +81,7 @@
   <form class="post-create-form" (ngSubmit)="addPost()">
     <!-- Header -->
     <div class="post-header">
-      <h3 class="upload-post-title">Create Post</h3>
+      <h4 class="upload-post-title">Create Post</h4>
       <fa-icon
         (click)="closeTimes()"
         class="close-upload-post"
@@ -110,21 +112,75 @@
     </div>
     <!-- Submit -->
     <div class="add-post-container">
+      <!-- <fa-icon [icon]="faFileImage" [ngStyle]="{ color: '#4c3f91' }"></fa-icon> -->
       <input type="submit" class="add-post" id="add-post" value="Upload" />
     </div>
   </form>
 </div>
 
+<!-- Create Post Form with Files -->
+<div id="post-file-main-modal" class="post-file-main-modal">
+  <form class="post-file-create-form">
+    <!-- Header -->
+    <div class="post-file-header">
+      <h4 class="upload-post-file-title">Create Post</h4>
+      <fa-icon
+        (click)="closeTimes()"
+        class="close-upload-file-post"
+        [icon]="faTimes"
+      ></fa-icon>
+    </div>
+    <!-- Info -->
+    <div class="user-info">
+      <label name="profName" [(ngModel)]="profName" for="profName"></label>
+      <label name="profEmail" [(ngModel)]="profEmail" for="profEmail"></label>
+      <label
+        name="profMobile"
+        [(ngModel)]="profMobile"
+        for="profMobile"
+      ></label>
+    </div>
+    <!-- Text Area -->
+    <div class="upper-file-container">
+      <textarea
+        name="profTextPost"
+        [(ngModel)]="profTextPost"
+        placeholder="Let them know your status!"
+        id="post-file-content"
+        class="upload-post-file"
+        cols="30"
+        rows="4"
+      ></textarea>
+    </div>
+    <!-- Submit -->
+    <div class="add-post-file-container">
+      <div class="post-files">
+        <fa-icon class="file-image fa-image" [icon]="faFileImage"></fa-icon>
+        <fa-icon class="file-image fa-video" [icon]="faFileVideo"></fa-icon>
+      </div>
+      <input
+        type="submit"
+        class="add-post-file"
+        id="add-post-file"
+        value="Upload"
+      />
+    </div>
+  </form>
+</div>
 <!-- Update Form -->
 <div class="main-update-con">
-  <form class="update-post-form">
-    <fa-icon
-      (click)="closeUpdateForm()"
-      class="close-update-post"
-      [icon]="faTimes"
-    ></fa-icon>
-    <h2>Update your Post</h2>
-    <div>
+  <form class="update-post-form" (ngSubmit)="updateThePost()">
+    <!-- Update Header -->
+    <div class="update-header">
+      <h4 class="update-post-title">Update Post</h4>
+      <fa-icon
+        (click)="closeUpdateForm()"
+        class="close-update-post"
+        [icon]="faTimes"
+      ></fa-icon>
+    </div>
+    <!-- Textarea -->
+    <div class="update-container">
       <textarea
         type="text"
         name="updatePostText"
@@ -132,12 +188,40 @@
         id="updatePostText"
         class="update-textarea"
         cols="30"
-        rows="7"
+        rows="4"
       ></textarea>
     </div>
-    <div>
+    <!-- Submit Update -->
+    <div class="update-post-container">
       <!-- <input () class="update-btn" type="submit" value="Update Post" /> -->
-      <button class="update-btn" (click)="updateThePost()">Update Post</button>
+      <input type="submit" class="update-btn" id="upload-post" value="Update" />
     </div>
   </form>
 </div>
+
+<!-- Modal Message for everything -->
+<!-- <div class="dashboard-modal" id="dashboard-modal">
+  <div class="dashboard-modal-content" id="dashboard-modal-content">
+    <h2 id="dashboard-closemod" class="dashboard-closemod">
+      <fa-icon
+        (click)="closeModalDashboard()"
+        class="dashboard-green-icon"
+        id="dashboard-green-icon"
+        [icon]="faTimes"
+      ></fa-icon>
+      <fa-icon
+        (click)="closeModalDashboard()"
+        class="dashboard-red-icon"
+        id="dashboard-red-icon"
+        [icon]="faTimes"
+      ></fa-icon>
+    </h2>
+    <div class="dashboard-icon-modal" id="dashboard-icon-modal">
+      <fa-icon [icon]="faCheck"></fa-icon>
+    </div>
+    <h2 class="dashboard-modal-text">
+      <span id="dashboard-modal-message">Success</span>
+      <p id="dashboard-modal-ptext">Post Updated</p>
+    </h2>
+  </div>
+</div> -->
