@@ -10,8 +10,15 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
 import { faFileImage } from '@fortawesome/free-regular-svg-icons';
 import { faFileVideo } from '@fortawesome/free-regular-svg-icons';
-import { timeStamp } from 'console';
+import { faFileUpload } from '@fortawesome/free-solid-svg-icons';
+import { profile, timeStamp } from 'console';
 import { stringify } from 'querystring';
+import { HttpClient, HttpErrorResponse, HttpEvent, HttpEventType } from '@angular/common/http';
+import { FormGroup, ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
+import { Variable } from '@angular/compiler/src/render3/r3_ast';
+import { FileService } from 'src/app/dashboard-service/file.service';
+import { saveAs } from 'file-server'
+// import { saveAs } from 'file-server';
 
 @Component({
   selector: 'app-post',
@@ -19,27 +26,46 @@ import { stringify } from 'querystring';
   styleUrls: ['./post.component.css'],
 })
 export class PostComponent implements OnInit {
+  images = [];
+  // myFiles: string[] = [];
+  reactiveForm: any = FormGroup;
+  myForm = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    file: new FormControl('', [Validators.required]),
+    fileSource: new FormControl('', [Validators.required])
+  });
+  public userFile: any = File;
+
   profIdNumber: string;
   profName: string;
   profEmail: string;
   profTextPost: string;
   profMobile: string;
   profPostTime: string;
+  profFile: any;
   faTimes = faTimes;
   faPen = faPen;
   faEraser = faEraser;
   faExclamation = faExclamation;
   faCheck = faCheck;
-  faFile = faFile;
+  faFileUpload = faFileUpload;
   faFileImage = faFileImage;
   faFileVideo = faFileVideo;
-  // messageType: string;
-  // modalMessage: string;
+  url: any;
+  msg = "";
+  receivedImageData: any;
+  base64Data: any;
+  convertedImage: any;
+  public selectedFile;
+  public event1;
+  public imagePath;
   updatePostText: string;
   updatePostTime: string;
   holder;
   postVariable: postInterface[] = [];
-  constructor(private postObj: PostService) { }
+  filenames: string[] = [];
+  constructor(private postObj: PostService, private httpClient: HttpClient,
+    private fileService: FileService) { }
 
   ngOnInit(): void {
     this.postObj
@@ -67,6 +93,10 @@ export class PostComponent implements OnInit {
     closeTimes.style.display = 'none';
     postFileContent.value = null;
     closeFileTimes.style.display = 'none';
+    const text: HTMLTextAreaElement = document.querySelector("#post-content")
+    const imageContainer: HTMLDivElement = document.querySelector("#img-container")
+    text.style.height = '200px'
+    imageContainer.style.display = 'none'
     // if (postContent.value != null ) {
     //   this.errorModal("Notice", "Discard Post?")
     // }
@@ -97,6 +127,8 @@ export class PostComponent implements OnInit {
     postModal.style.display = 'flex';
     let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
     optionTab.style.display = 'none';
+    let textForm: HTMLDivElement = document.querySelector("#post-content")
+    // textForm.style.height = 'auto';
   }
   makeTextFilePost() {
     const postName: HTMLHeadingElement = document.querySelector('#profileName');
@@ -123,9 +155,16 @@ export class PostComponent implements OnInit {
       second: '2-digit',
     } as const;
     var date = new Date();
+    const formData = new FormData()
     const postName: HTMLHeadingElement = document.querySelector('#profileName');
     const postEmail: HTMLHeadingElement =
       document.querySelector('#profileEmail');
+    formData.append('file', this.userFile)
+    // var read = new FileReader()
+    // var pass = (read.onload = (event: any) => {
+    //   this.images.push(event.target.result)
+    // })
+
     const newPost = {
       profName: (this.profName = postName.textContent),
       profEmail: (this.profEmail = postEmail.textContent),
@@ -133,6 +172,9 @@ export class PostComponent implements OnInit {
       profPostTime: (this.profPostTime = String(
         date.toLocaleTimeString('en-US', format)
       )),
+      profFile: (this.profFile = postName.textContent)
+      // profFile: (this.profFile = formData.append('file',
+      //   this.myForm.get('fileSource').value))
     };
     // let postContent: HTMLTextAreaElement =
     //   document.querySelector('.post-content');
@@ -196,6 +238,8 @@ export class PostComponent implements OnInit {
       document.querySelector('#profileName');
     const profileEmail: HTMLParagraphElement =
       document.querySelector('#profileEmail');
+    let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
+    optionTab.style.display = 'none';
     if (
       profileName.textContent === postTobeUpdated.profName &&
       profileEmail.textContent === postTobeUpdated.profEmail
@@ -369,4 +413,107 @@ export class PostComponent implements OnInit {
     typeMessage.style.color = '#ad3939'
     messageModal.style.color = 'rgb(214, 111, 111)'
   }
+  uploadImg() {
+    const text: HTMLTextAreaElement = document.querySelector("#post-content")
+    const postForm: HTMLFormElement = document.querySelector("#post-create-form")
+    const imageContainer: HTMLDivElement = document.querySelector("#img-container")
+    const imgClose = document.getElementById("img-close")
+    text.style.height = '120px'
+    imageContainer.style.display = 'flex'
+    // postForm.style.height = '700px'
+  }
+
+  deleteImage(i) {
+    this.images.splice(i, 1);
+    // this.images.filter((a) => a !== i)
+  }
+  // Upload Image
+  selectFile(event: any) {
+    const imageContainer: HTMLDivElement = document.querySelector("#img-container")
+    // if (event.target.files && event.target.files[0]) {
+    // var filesAmount = event.target.files.length;
+    // for (let i = 0; i < filesAmount; i++) {
+    //   var reader = new FileReader()
+
+    //   reader.onload = (event: any) => {
+    //     this.images.push(event.target.result);
+    //   }
+    //   reader.readAsDataURL(event.target.files[i]);
+    //   this.myForm
+    // }
+    // }
+    const file = event.target.files[0]
+    this.userFile = file
+    var reader = new FileReader()
+    reader.onload = (event: any) => {
+      this.images.push(event.target.result)
+    }
+    reader.readAsDataURL(file)
+
+  }
+  // function to upload files 
+  onUpload(files: File[]): void {
+    const formData = new FormData();
+    for (const file of files) {
+      formData.append('files', file, file.name);
+      this.fileService.uploadFile(formData).subscribe(
+        event => {
+          console.log(event);
+          this.reportProgress(event);
+        },
+        (error: HttpErrorResponse) => {
+          console.log(error)
+        }
+      );
+    }
+  }
+  // function to download files
+  onDownload(filename: string): void {
+    const formData = new FormData();
+    // for (const file of files) {
+    //   formData.append('files', file, file.name); }
+    this.fileService.downloadFile(filename).subscribe(
+      event => {
+        console.log(event);
+        this.reportProgress(event);
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    );
+
+  }
+  private reportProgress(httpEvent: HttpEvent<string[] | Blob>) {
+    // throw new Error('Method not implemented.');
+    switch (httpEvent.type) {
+      case HttpEventType.UploadProgress:
+        this.updateStatus(httpEvent.loaded, httpEvent.total, 'Uploading')
+        break;
+      case HttpEventType.DownloadProgress:
+        this.updateStatus(httpEvent.loaded, httpEvent.total, 'Downloading')
+        break;
+      case HttpEventType.ResponseHeader:
+        console.log('Header returned', httpEvent);
+        break;
+      case HttpEventType.Response:
+        if (httpEvent.body instanceof Array) {
+          for (const filename of httpEvent.body) {
+            this.filenames.unshift(filename);
+          }
+        } else {
+          //  download logic
+          saveAs(new File([httpEvent.body!], httpEvent.headers.get('File-Name')!,
+            { type: `${httpEvent.headers.get('Content-Type')};charset=utf-8` }));
+
+          // saveAs(new Blob([httpEvent.body!],
+          //   { type: `${httpEvent.headers.get('Content-Type')};charset=utf-8` }),
+          //   httpEvent.headers.get('File-Name'));
+        }
+        break;
+    }
+  }
+  updateStatus(loaded: number, total: number, requestType: string) {
+    throw new Error('Method not implemented.');
+  }
+
 }

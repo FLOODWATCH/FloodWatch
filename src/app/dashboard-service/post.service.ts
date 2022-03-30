@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { postInterface } from '../mock-post-interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { profile } from 'console';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -38,6 +39,11 @@ export class PostService {
     const updateUrl = `${this.postUrl}/${postToBeUpdated.id}`;
     return this.http.put<postInterface>(updateUrl, postToBeUpdated, httpOptions);
   }
+  // uploadImage(imageAdded: postInterface): Observable<postInterface> {
+  //   const formData = new FormData();
+  //   formData.append('image', imageAdded)
+  //   return this.http.post<postInterface>(this.postUrl, imageAdded, httpOptions)
+  // }
   // Post Service from json-server END
 
   //Using Spring boot as backend - START (WILL UNCOMMENT THIS ONCE WE'VE ELIMINATE JSON SERVER FROM THE SYSTEM HAHAHA)
