@@ -4,4 +4,5 @@ export interface waterLevelPostInterface {
   wlInfo: string;
   wlTime: string;
   wlMonth: string;
+  wlColor: String;
 }

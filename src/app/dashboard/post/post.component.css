@@ -22,7 +22,8 @@
 }
 .post-tab,
 .poll-tab,
-.diagram-tab {
+.diagram-tab,
+.flupdates-tab {
   border-radius: 5px;
   padding: 0 2px 4px 2px;
   cursor: pointer;

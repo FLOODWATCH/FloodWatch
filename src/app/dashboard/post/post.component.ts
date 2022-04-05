@@ -46,6 +46,9 @@ export class PostComponent implements OnInit {
       .getPostFromPostService()
       .subscribe((p) => (this.postVariable = p));
 
+    let flupdatesConVar: HTMLDivElement =
+      document.querySelector('.flupdates-con');
+    flupdatesConVar.style.display = 'none';
     let pollConVar: HTMLDivElement = document.querySelector('.poll-con');
     pollConVar.style.display = 'none';
     let diagramConVar: HTMLDivElement = document.querySelector('.diagram-con');
@@ -256,19 +259,52 @@ export class PostComponent implements OnInit {
     pollConVar.style.display = 'none';
     let diagramConVar: HTMLDivElement = document.querySelector('.diagram-con');
     diagramConVar.style.display = 'none';
+    let flupdatesConVar: HTMLDivElement =
+      document.querySelector('.flupdates-con');
+    flupdatesConVar.style.display = 'none';
     ////////////////////////
     let postTabBottomLine: HTMLHeadingElement =
       document.querySelector('.post-tab');
-
     postTabBottomLine.style.borderBottom = '5px solid #2e89ff';
+
     let pollTabBottomLine: HTMLHeadingElement =
       document.querySelector('.poll-tab');
-
     pollTabBottomLine.style.borderBottom = '5px solid transparent';
+
     let diagramTabBottomLine: HTMLHeadingElement =
       document.querySelector('.diagram-tab');
-
     diagramTabBottomLine.style.borderBottom = '5px solid transparent';
+
+    let flupdatesTabBottomLine: HTMLDivElement =
+      document.querySelector('.flupdates-tab');
+    flupdatesTabBottomLine.style.borderBottom = '5px solid transparent';
+  }
+  toggleFlUpdatesCon() {
+    let postConVar: HTMLDivElement = document.querySelector('.post-con');
+    postConVar.style.display = 'none';
+    let pollConVar: HTMLDivElement = document.querySelector('.poll-con');
+    pollConVar.style.display = 'none';
+    let diagramConVar: HTMLDivElement = document.querySelector('.diagram-con');
+    diagramConVar.style.display = 'none';
+    let flupdatesConVar: HTMLDivElement =
+      document.querySelector('.flupdates-con');
+    flupdatesConVar.style.display = 'block';
+    ////////////////////////
+    let postTabBottomLine: HTMLHeadingElement =
+      document.querySelector('.post-tab');
+    postTabBottomLine.style.borderBottom = '5px solid transparent';
+
+    let pollTabBottomLine: HTMLHeadingElement =
+      document.querySelector('.poll-tab');
+    pollTabBottomLine.style.borderBottom = '5px solid transparent';
+
+    let diagramTabBottomLine: HTMLHeadingElement =
+      document.querySelector('.diagram-tab');
+    diagramTabBottomLine.style.borderBottom = '5px solid transparent';
+
+    let flupdatesTabBottomLine: HTMLDivElement =
+      document.querySelector('.flupdates-tab');
+    flupdatesTabBottomLine.style.borderBottom = '5px solid #2e89ff';
   }
   togglePollCon() {
     let postConVar: HTMLDivElement = document.querySelector('.post-con');
@@ -277,6 +313,9 @@ export class PostComponent implements OnInit {
     pollConVar.style.display = 'block';
     let diagramConVar: HTMLDivElement = document.querySelector('.diagram-con');
     diagramConVar.style.display = 'none';
+    let flupdatesConVar: HTMLDivElement =
+      document.querySelector('.flupdates-con');
+    flupdatesConVar.style.display = 'none';
     ////////////////////////
     let postTabBottomLine: HTMLHeadingElement =
       document.querySelector('.post-tab');
@@ -290,6 +329,10 @@ export class PostComponent implements OnInit {
       document.querySelector('.diagram-tab');
 
     diagramTabBottomLine.style.borderBottom = '5px solid transparent';
+
+    let flupdatesTabBottomLine: HTMLDivElement =
+      document.querySelector('.flupdates-tab');
+    flupdatesTabBottomLine.style.borderBottom = '5px solid transparent';
   }
   toggleDiagramCon() {
     let postConVar: HTMLDivElement = document.querySelector('.post-con');
@@ -298,6 +341,9 @@ export class PostComponent implements OnInit {
     pollConVar.style.display = 'none';
     let diagramConVar: HTMLDivElement = document.querySelector('.diagram-con');
     diagramConVar.style.display = 'block';
+    let flupdatesConVar: HTMLDivElement =
+      document.querySelector('.flupdates-con');
+    flupdatesConVar.style.display = 'none';
     ////////////////////////
     let postTabBottomLine: HTMLHeadingElement =
       document.querySelector('.post-tab');
@@ -311,7 +357,12 @@ export class PostComponent implements OnInit {
       document.querySelector('.diagram-tab');
 
     diagramTabBottomLine.style.borderBottom = '5px solid #2e89ff';
+
+    let flupdatesTabBottomLine: HTMLDivElement =
+      document.querySelector('.flupdates-tab');
+    flupdatesTabBottomLine.style.borderBottom = '5px solid transparent';
   }
+
   closeModalDashboard() {
     const closeModal: HTMLDivElement =
       document.querySelector('#dashboard-modal');
