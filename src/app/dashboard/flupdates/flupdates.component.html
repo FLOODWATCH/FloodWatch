@@ -1,21 +1,20 @@
 <div class="wlPost-con">
-  <div class="wlPostList-con">
-    <div [ngStyle]="{ backgroundColor: 'gray' }" class="wlheader">
-      <h2>Level #</h2>
-      <h4>Time here <span>Month here</span></h4>
+  <div
+    class="wlPostList-con"
+    *ngFor="let alerts of flUpdatesVariable.slice().reverse()"
+  >
+    <div
+      [ngStyle]="{ backgroundColor: alerts.wlColor }"
+      class="wlheader"
+      style="color: black !important"
+    >
+      <h2>{{ alerts.wlLevel }}</h2>
+      <h4>
+        {{ alerts.wlTime }} <span>{{ alerts.wlMonth }}</span>
+      </h4>
     </div>
     <div class="wlInfo-con">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eaque,
-      debitis error explicabo assumenda dolorum accusantium tempore distinctio
-      reiciendis ex facere non nisi in reprehenderit ut quae aut, consequuntur
-      et. Labore rerum mollitia quas odit blanditiis fugiat ipsa consectetur
-      dolorem quae harum doloremque suscipit, libero excepturi veniam voluptate.
-      Odit, sunt. Recusandae quis molestiae nobis quia ipsum tempore quae
-      voluptates sint, praesentium nemo inventore eius adipisci ullam reiciendis
-      quaerat voluptas dicta? Dolor nesciunt, alias, vel temporibus odio placeat
-      tempora ipsam officia illo facilis nam iste vitae excepturi labore ipsa
-      ullam totam ea quibusdam magnam, reprehenderit molestias! Corporis
-      voluptates pariatur qui possimus.
+      {{ alerts.wlInfo }}
     </div>
   </div>
 </div>

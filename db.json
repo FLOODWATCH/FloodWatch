@@ -250,5 +250,85 @@
       "votersVote": "SAFE",
       "id": 5
     }
+  ],
+  "flmonthly": [
+    {
+      "id": 1,
+      "month": "April"
+    },
+    {
+      "id": 2,
+      "month": "May"
+    },
+    {
+      "id": 3,
+      "month": "June"
+    }
+  ],
+  "flwaterlevelpost": [
+    {
+      "id": 1,
+      "wlLevel": "Level 2",
+      "wlInfo": "It is a Yellow Warning, we have detected a 2 meters increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/6/2022 | 3:01 PM",
+      "wlMonth": "April",
+      "wlColor": "yellow"
+    },
+    {
+      "id": 2,
+      "wlLevel": "Level 1",
+      "wlInfo": "It is a Green Warning, okay lang ambon palang yan tulog ka pa..., we have detected a 1 meter increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/5/2022 | 1:23 AM",
+      "wlMonth": "April",
+      "wlColor": "Green"
+    },
+    {
+      "id": 3,
+      "wlLevel": "Level 3",
+      "wlInfo": "Orange Warning, okay please prepare for evacuation..., we have detected a 3 meters increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/5/2022 | 1:45 PM",
+      "wlMonth": "April",
+      "wlColor": "Orange"
+    },
+    {
+      "id": 4,
+      "wlLevel": "Level 4",
+      "wlInfo": "It is a Red Warning, we're all going to die, please evacuate..., we have detected a 4 meters increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/5/2022 | 7:00 AM",
+      "wlMonth": "April",
+      "wlColor": "Red"
+    },
+    {
+      "id": 5,
+      "wlLevel": "Level 2",
+      "wlInfo": "It is a Yellow Warning, we have detected a 2 meters increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/6/2022 | 3:01 PM",
+      "wlMonth": "April",
+      "wlColor": "yellow"
+    },
+    {
+      "id": 6,
+      "wlLevel": "Level 1",
+      "wlInfo": "It is a Green Warning, okay lang ambon palang yan tulog ka pa..., we have detected a 1 meter increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/5/2022 | 1:23 AM",
+      "wlMonth": "April",
+      "wlColor": "Green"
+    },
+    {
+      "id": 7,
+      "wlLevel": "Level 3",
+      "wlInfo": "Orange Warning, okay please prepare for evacuation..., we have detected a 3 meters increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/5/2022 | 1:45 PM",
+      "wlMonth": "April",
+      "wlColor": "Orange"
+    },
+    {
+      "id": 8,
+      "wlLevel": "Level 4",
+      "wlInfo": "It is a Red Warning, we're all going to die, please evacuate..., we have detected a 4 meters increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/5/2022 | 7:00 AM",
+      "wlMonth": "April",
+      "wlColor": "Red"
+    }
   ]
 }
