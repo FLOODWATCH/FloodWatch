@@ -17,8 +17,6 @@ import { HttpClient, HttpErrorResponse, HttpEvent, HttpEventType } from '@angula
 import { FormGroup, ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { FileService } from 'src/app/dashboard-service/file.service';
-import { saveAs } from 'file-server'
-// import { saveAs } from 'file-server';
 
 @Component({
   selector: 'app-post',
@@ -26,15 +24,13 @@ import { saveAs } from 'file-server'
   styleUrls: ['./post.component.css'],
 })
 export class PostComponent implements OnInit {
+  // for file
   images = [];
-  // myFiles: string[] = [];
-  reactiveForm: any = FormGroup;
-  myForm = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    file: new FormControl('', [Validators.required]),
-    fileSource: new FormControl('', [Validators.required])
-  });
-  public userFile: any = File;
+  url: any;
+  base64Data: any;
+  retrieveResponse: any;
+  selectedFile: File;
+  retrievedImage: any;
 
   profIdNumber: string;
   profName: string;
@@ -42,7 +38,7 @@ export class PostComponent implements OnInit {
   profTextPost: string;
   profMobile: string;
   profPostTime: string;
-  profFile: any;
+  profFile = [];
   faTimes = faTimes;
   faPen = faPen;
   faEraser = faEraser;
@@ -51,19 +47,10 @@ export class PostComponent implements OnInit {
   faFileUpload = faFileUpload;
   faFileImage = faFileImage;
   faFileVideo = faFileVideo;
-  url: any;
-  msg = "";
-  receivedImageData: any;
-  base64Data: any;
-  convertedImage: any;
-  public selectedFile;
-  public event1;
-  public imagePath;
   updatePostText: string;
   updatePostTime: string;
   holder;
   postVariable: postInterface[] = [];
-  filenames: string[] = [];
   constructor(private postObj: PostService, private httpClient: HttpClient,
     private fileService: FileService) { }
 
@@ -78,6 +65,7 @@ export class PostComponent implements OnInit {
     diagramConVar.style.display = 'none';
     this.closeUpdateForm();
   }
+  thisUrl = "./assets/yaeWP.jpg";
 
   closeTimes() {
     // this.postObj
@@ -100,6 +88,10 @@ export class PostComponent implements OnInit {
     // if (postContent.value != null ) {
     //   this.errorModal("Notice", "Discard Post?")
     // }
+  }
+  closeFile() {
+    const closeModal: HTMLDivElement = document.querySelector("#post-file-main-modal")
+    closeModal.style.display = 'none'
   }
 
   //Open Option Tab
@@ -159,11 +151,6 @@ export class PostComponent implements OnInit {
     const postName: HTMLHeadingElement = document.querySelector('#profileName');
     const postEmail: HTMLHeadingElement =
       document.querySelector('#profileEmail');
-    formData.append('file', this.userFile)
-    // var read = new FileReader()
-    // var pass = (read.onload = (event: any) => {
-    //   this.images.push(event.target.result)
-    // })
 
     const newPost = {
       profName: (this.profName = postName.textContent),
@@ -172,7 +159,7 @@ export class PostComponent implements OnInit {
       profPostTime: (this.profPostTime = String(
         date.toLocaleTimeString('en-US', format)
       )),
-      profFile: (this.profFile = postName.textContent)
+      profFile: this.profFile
       // profFile: (this.profFile = formData.append('file',
       //   this.myForm.get('fileSource').value))
     };
@@ -417,103 +404,78 @@ export class PostComponent implements OnInit {
     const text: HTMLTextAreaElement = document.querySelector("#post-content")
     const postForm: HTMLFormElement = document.querySelector("#post-create-form")
     const imageContainer: HTMLDivElement = document.querySelector("#img-container")
+    const fileContainer: HTMLDivElement = document.querySelector("#img-file-container")
     const imgClose = document.getElementById("img-close")
     text.style.height = '120px'
+    fileContainer.style.display = 'flex'
+
     imageContainer.style.display = 'flex'
     // postForm.style.height = '700px'
   }
 
   deleteImage(i) {
+    console.log(i)
     this.images.splice(i, 1);
-    // this.images.filter((a) => a !== i)
+    // i = i.filter((a) => a !== i);
   }
   // Upload Image
-  selectFile(event: any) {
+  selectFile(event) {
     const imageContainer: HTMLDivElement = document.querySelector("#img-container")
-    // if (event.target.files && event.target.files[0]) {
-    // var filesAmount = event.target.files.length;
-    // for (let i = 0; i < filesAmount; i++) {
-    //   var reader = new FileReader()
+    if (event.target.files && event.target.files[0]) {
+      var filesAmount = event.target.files.length;
+      for (let i = 0; i < filesAmount; i++) {
+        var reader = new FileReader()
+        reader.onload = (event) => {
+          this.images.push(event.target.result);
 
-    //   reader.onload = (event: any) => {
-    //     this.images.push(event.target.result);
-    //   }
-    //   reader.readAsDataURL(event.target.files[i]);
-    //   this.myForm
-    // }
-    // }
-    const file = event.target.files[0]
-    this.userFile = file
-    var reader = new FileReader()
-    reader.onload = (event: any) => {
-      this.images.push(event.target.result)
+        }
+        this.profFile = event.target.files[i];
+        reader.readAsDataURL(event.target.files[i]);
+        console.log('Profile: ' + this.profFile);
+      }
+      this.selectedFile = event.target.files[0];
     }
-    reader.readAsDataURL(file)
-
+    // var reader = new FileReader();
+    // reader.readAsDataURL(event.target.files[0]);
+    // reader.onload = (event) => {
+    //   this.profFile = event.target.result;
+    //   console.log('Profile: ' + this.profFile)
+    // }
+    // this.selectedFile = event.target.files[0];
   }
-  // function to upload files 
-  onUpload(files: File[]): void {
-    const formData = new FormData();
-    for (const file of files) {
-      formData.append('files', file, file.name);
-      this.fileService.uploadFile(formData).subscribe(
-        event => {
-          console.log(event);
-          this.reportProgress(event);
-        },
-        (error: HttpErrorResponse) => {
-          console.log(error)
+
+  uploadImage() {
+    console.log(this.selectedFile);
+    console.log(this.selectedFile.name)
+    const uploadImageData = new FormData();
+    uploadImageData.append('file', this.selectedFile, this.selectedFile.name)
+
+    this.httpClient.post('http://localhost:8080/flfile/upload',
+      uploadImageData, { observe: 'response' })
+      .subscribe((response) => {
+        if (response.status === 200) {
+          console.log("Uploaded Successfully")
+          console.log(this.selectedFile.name)
+        } else {
+          console.log("Image not Uploaded")
+        }
+      });
+  }
+  public onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+  getImage() {
+    this.httpClient.get(`http://localhost:8080/flfile/upload/49`)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.retrieveResponse = res;
+          this.base64Data = this.retrieveResponse.data;
+          console.log(this.base64Data);
+          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
         }
       );
-    }
+    console.log(this.retrievedImage);
+    this.thisUrl = this.retrievedImage;
   }
-  // function to download files
-  onDownload(filename: string): void {
-    const formData = new FormData();
-    // for (const file of files) {
-    //   formData.append('files', file, file.name); }
-    this.fileService.downloadFile(filename).subscribe(
-      event => {
-        console.log(event);
-        this.reportProgress(event);
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error);
-      }
-    );
-
-  }
-  private reportProgress(httpEvent: HttpEvent<string[] | Blob>) {
-    // throw new Error('Method not implemented.');
-    switch (httpEvent.type) {
-      case HttpEventType.UploadProgress:
-        this.updateStatus(httpEvent.loaded, httpEvent.total, 'Uploading')
-        break;
-      case HttpEventType.DownloadProgress:
-        this.updateStatus(httpEvent.loaded, httpEvent.total, 'Downloading')
-        break;
-      case HttpEventType.ResponseHeader:
-        console.log('Header returned', httpEvent);
-        break;
-      case HttpEventType.Response:
-        if (httpEvent.body instanceof Array) {
-          for (const filename of httpEvent.body) {
-            this.filenames.unshift(filename);
-          }
-        } else {
-          //  download logic
-          saveAs(new File([httpEvent.body!], httpEvent.headers.get('File-Name')!,
-            { type: `${httpEvent.headers.get('Content-Type')};charset=utf-8` }));
-
-          // saveAs(new Blob([httpEvent.body!],
-          //   { type: `${httpEvent.headers.get('Content-Type')};charset=utf-8` }),
-          //   httpEvent.headers.get('File-Name'));
-        }
-        break;
-    }
-  }
-  updateStatus(loaded: number, total: number, requestType: string) {
-    throw new Error('Method not implemented.');
-  }
-
 }

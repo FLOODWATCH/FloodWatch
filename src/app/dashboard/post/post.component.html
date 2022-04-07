@@ -114,16 +114,13 @@
     </div>
     <!-- Images -->
     <div id="img-container" class="img-container">
-      <!-- Each Image -->
       <div
         *ngFor="let url of images; let i = index"
         class="solo-img"
         id="solo-img"
       >
-        <!-- <fa-icon class="img-close" id="img-close" [icon]="faTimes"></fa-icon> -->
         <img
           (click)="deleteImage(i)"
-          [(ngModel)]="profFile"
           alt="img"
           id="img-file"
           [src]="url"
@@ -131,7 +128,6 @@
           width="60px"
         />
       </div>
-      <!-- End of Each Image -->
     </div>
     <!-- Submit -->
     <div class="add-post-container">
@@ -152,12 +148,7 @@
           id="file-input"
         />
       </div>
-      <!-- <input
-        type="file"
-        multiple
-        (change)="selectFile($event)"
-        id="file-input"
-      /> -->
+      <!-- <input type="file" multiple (click)="uploadImage()" id="file-input" /> -->
       <!-- <input type="file" /> -->
       <!-- <fa-icon [icon]="faFileImage" [ngStyle]="{ color: '#4c3f91' }"></fa-icon> -->
       <input type="submit" class="add-post" id="add-post" value="Upload" />
@@ -167,16 +158,16 @@
 
 <!-- Create Post Form with Files -->
 <div id="post-file-main-modal" class="post-file-main-modal">
-  <form class="post-file-create-form">
+  <form enctype="multipart/form-data" class="post-file-create-form">
     <div class="post-file-header">
       <h4 class="upload-post-file-title">Create Post</h4>
       <fa-icon
-        (click)="closeTimes()"
+        (click)="closeFile()"
         class="close-upload-file-post"
         [icon]="faTimes"
       ></fa-icon>
     </div>
-    <div class="user-info">
+    <!-- <div class="user-info">
       <label name="profName" [(ngModel)]="profName" for="profName"></label>
       <label name="profEmail" [(ngModel)]="profEmail" for="profEmail"></label>
       <label
@@ -184,29 +175,47 @@
         [(ngModel)]="profMobile"
         for="profMobile"
       ></label>
-    </div>
-    <div class="upper-file-container">
-      <!-- <textarea
-        name="profTextPost"
-        [(ngModel)]="profTextPost"
-        placeholder="Let them know your status!"
-        id="post-file-content"
-        class="upload-post-file"
-        cols="30"
-        rows="4"
-      ></textarea> -->
+    </div> -->
+    <div class="upper-file-container"></div>
+    <!-- Images -->
+    <!-- <div id="img-file-container" class="img-file-container">
+      <div *ngIf="retrievedImage" id="solo-file-img">
+        <img [src]="retrievedImage" alt="thisUrl" height="60" width="60" />
+      </div>
+    </div> -->
+    <div *ngIf="images" id="img-file-container" class="img-file-container">
+      <div
+        *ngFor="let url of images; let i = index"
+        id="solo-file-img"
+        class="solo-file-img"
+      >
+        <img [src]="url" (click)="deleteImage(i)" id="img-file-upload" />
+      </div>
     </div>
     <div class="add-post-file-container">
       <div class="post-files">
-        <label for="file-input">
-          <fa-icon class="file-image fa-image" [icon]="faFileImage"></fa-icon>
+        <label for="file-input-upload">
+          <fa-icon
+            (click)="uploadImg()"
+            class="file-image fa-image"
+            id="upload-image"
+            [icon]="faFileImage"
+          ></fa-icon>
         </label>
+        <input
+          type="file"
+          (change)="selectFile($event)"
+          multiple
+          id="file-input-upload"
+        />
         <!-- <label for="file-input">
           <fa-icon class="file-image fa-video" [icon]="faFileVideo"></fa-icon>
         </label> -->
       </div>
-      <input type="file" id="file-input" />
+      <!-- <input type="file" id="file-input" /> -->
+      <input type="button" (click)="getImage()" value="Get" />
       <input
+        (click)="uploadImage()"
         type="submit"
         class="add-post-file"
         id="add-post-file"
