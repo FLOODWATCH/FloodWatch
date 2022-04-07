@@ -11,7 +11,7 @@ import { faExclamation } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private userObj: UserCredService) { }
+  constructor(private userObj: UserCredService) {}
   faTimes = faTimes;
   faExclamation = faExclamation;
   faCheck = faCheck;
@@ -30,8 +30,9 @@ export class DashboardComponent implements OnInit {
 
   // Modal Message related Functions
   closeModalDashboard() {
-    const closeModal: HTMLDivElement = document.querySelector("#dashboard-modal")
-    closeModal.style.display = 'none'
+    const closeModal: HTMLDivElement =
+      document.querySelector('#dashboard-modal');
+    closeModal.style.display = 'none';
   }
   reEnterSubmit() {
     this.userObj.getUserFromService().subscribe((u) => {

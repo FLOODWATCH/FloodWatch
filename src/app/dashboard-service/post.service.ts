@@ -16,7 +16,7 @@ export class PostService {
   private postUrl = 'http://localhost:5000/post'; //from json-server
   private flpostUrl = 'http://localhost:8080/flpost'; //from spring boot
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // Post Service from json-server
   getPostFromPostService(): Observable<postInterface[]> {
@@ -34,10 +34,16 @@ export class PostService {
     return this.http.delete<postInterface>(deleteUrl);
   }
 
-  updatePostFromPostService(postToBeUpdated: postInterface): Observable<postInterface> {
+  updatePostFromPostService(
+    postToBeUpdated: postInterface
+  ): Observable<postInterface> {
     // const updateUrl = `${this.postUrl}/${postToBeUpdated.id}?${"profTextPost"}=${postToBeUpdated.profTextPost}`;
     const updateUrl = `${this.postUrl}/${postToBeUpdated.id}`;
-    return this.http.put<postInterface>(updateUrl, postToBeUpdated, httpOptions);
+    return this.http.put<postInterface>(
+      updateUrl,
+      postToBeUpdated,
+      httpOptions
+    );
   }
 
   // Post Service from json-server END

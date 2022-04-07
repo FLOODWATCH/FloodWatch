@@ -59,6 +59,9 @@ export class PostComponent implements OnInit {
       .getPostFromPostService()
       .subscribe((p) => (this.postVariable = p));
 
+    let flupdatesConVar: HTMLDivElement =
+      document.querySelector('.flupdates-con');
+    flupdatesConVar.style.display = 'none';
     let pollConVar: HTMLDivElement = document.querySelector('.poll-con');
     pollConVar.style.display = 'none';
     let diagramConVar: HTMLDivElement = document.querySelector('.diagram-con');
@@ -75,8 +78,11 @@ export class PostComponent implements OnInit {
       document.querySelector('#post-content');
     const closeTimes: HTMLDivElement =
       document.querySelector('#post-main-modal');
-    const postFileContent: HTMLInputElement = document.querySelector("#post-file-content")
-    const closeFileTimes: HTMLDivElement = document.querySelector("#post-file-main-modal")
+    const postFileContent: HTMLInputElement =
+      document.querySelector('#post-file-content');
+    const closeFileTimes: HTMLDivElement = document.querySelector(
+      '#post-file-main-modal'
+    );
     postContent.value = null;
     closeTimes.style.display = 'none';
     postFileContent.value = null;
@@ -131,8 +137,10 @@ export class PostComponent implements OnInit {
     this.profName = postName.textContent;
     this.profEmail = postEmail.textContent;
     this.profMobile = postMobile.textContent;
-    const posttModal: HTMLDivElement = document.querySelector('#post-file-main-modal')
-    posttModal.style.display = 'flex'
+    const posttModal: HTMLDivElement = document.querySelector(
+      '#post-file-main-modal'
+    );
+    posttModal.style.display = 'flex';
     let optionTab: HTMLDivElement = document.querySelector('.post-option-tab');
     optionTab.style.display = 'none';
   }
@@ -166,7 +174,7 @@ export class PostComponent implements OnInit {
     // let postContent: HTMLTextAreaElement =
     //   document.querySelector('.post-content');
     if (!this.profTextPost) {
-      this.errorModal('Error', 'Post cannot be void')
+      this.errorModal('Error', 'Post cannot be void');
       // return alert('Post cannot be void');
     } else {
       this.postObj
@@ -179,7 +187,7 @@ export class PostComponent implements OnInit {
           .getPostFromPostService()
           .subscribe((p) => (this.postVariable = p));
       }
-      this.successModdal("Success", "Post Uploaded")
+      this.successModdal('Success', 'Post Uploaded');
       this.closeTimes();
     }
   }
@@ -206,12 +214,12 @@ export class PostComponent implements OnInit {
             (p) => p.id !== postToBeDeleted.id
           ))
         );
-      this.successModdal("Success", "Post Deleted")
+      this.successModdal('Success', 'Post Deleted');
       // this.postObj
       //   .getPostFromPostService()
       //   .subscribe((p) => (this.postVariable = p));
     } else {
-      this.errorModal("Error", "Not Your Account!")
+      this.errorModal('Error', 'Not Your Account!');
       // alert('This is not your post, bakit mo ide delete aber???');
     }
   }
@@ -231,9 +239,9 @@ export class PostComponent implements OnInit {
       profileName.textContent === postTobeUpdated.profName &&
       profileEmail.textContent === postTobeUpdated.profEmail
     ) {
-      // passes the post to be updated into the holder that 
+      // passes the post to be updated into the holder that
       // we can access outside the function
-      this.holder = postTobeUpdated
+      this.holder = postTobeUpdated;
       // Opens the update form
       let mainUpdateCon: HTMLDivElement =
         document.querySelector('.main-update-con');
@@ -242,7 +250,7 @@ export class PostComponent implements OnInit {
         document.querySelector('.update-textarea');
       updateTextArea.value = postTobeUpdated.profTextPost;
     } else {
-      this.errorModal("Error", "Not Your Account!")
+      this.errorModal('Error', 'Not Your Account!');
       // alert('This is not your post, bakit mo i a update, aber???');
     }
   }
@@ -252,7 +260,8 @@ export class PostComponent implements OnInit {
     // this.postObj
     //   .getPostFromPostService()
     //   .subscribe((p) => (this.postVariable = p));
-    let postContent: HTMLTextAreaElement = document.querySelector('#updatePostText')
+    let postContent: HTMLTextAreaElement =
+      document.querySelector('#updatePostText');
     // alert(`${this.holder.id}`)
     this.holder.profTextPost = postContent.value;
     this.postObj.updatePostFromPostService(this.holder).subscribe();
@@ -260,8 +269,8 @@ export class PostComponent implements OnInit {
     //   .getPostFromPostService()
     //   .subscribe((p) => (this.postVariable = p));
     // this.closeUpdateForm()
-    this.successModdal("Success", "Post Updated")
-    this.closeUpdateForm()
+    this.successModdal('Success', 'Post Updated');
+    this.closeUpdateForm();
   }
 
   closeUpdateForm() {
@@ -281,19 +290,52 @@ export class PostComponent implements OnInit {
     pollConVar.style.display = 'none';
     let diagramConVar: HTMLDivElement = document.querySelector('.diagram-con');
     diagramConVar.style.display = 'none';
+    let flupdatesConVar: HTMLDivElement =
+      document.querySelector('.flupdates-con');
+    flupdatesConVar.style.display = 'none';
     ////////////////////////
     let postTabBottomLine: HTMLHeadingElement =
       document.querySelector('.post-tab');
-
     postTabBottomLine.style.borderBottom = '5px solid #2e89ff';
+
     let pollTabBottomLine: HTMLHeadingElement =
       document.querySelector('.poll-tab');
-
     pollTabBottomLine.style.borderBottom = '5px solid transparent';
+
     let diagramTabBottomLine: HTMLHeadingElement =
       document.querySelector('.diagram-tab');
-
     diagramTabBottomLine.style.borderBottom = '5px solid transparent';
+
+    let flupdatesTabBottomLine: HTMLDivElement =
+      document.querySelector('.flupdates-tab');
+    flupdatesTabBottomLine.style.borderBottom = '5px solid transparent';
+  }
+  toggleFlUpdatesCon() {
+    let postConVar: HTMLDivElement = document.querySelector('.post-con');
+    postConVar.style.display = 'none';
+    let pollConVar: HTMLDivElement = document.querySelector('.poll-con');
+    pollConVar.style.display = 'none';
+    let diagramConVar: HTMLDivElement = document.querySelector('.diagram-con');
+    diagramConVar.style.display = 'none';
+    let flupdatesConVar: HTMLDivElement =
+      document.querySelector('.flupdates-con');
+    flupdatesConVar.style.display = 'block';
+    ////////////////////////
+    let postTabBottomLine: HTMLHeadingElement =
+      document.querySelector('.post-tab');
+    postTabBottomLine.style.borderBottom = '5px solid transparent';
+
+    let pollTabBottomLine: HTMLHeadingElement =
+      document.querySelector('.poll-tab');
+    pollTabBottomLine.style.borderBottom = '5px solid transparent';
+
+    let diagramTabBottomLine: HTMLHeadingElement =
+      document.querySelector('.diagram-tab');
+    diagramTabBottomLine.style.borderBottom = '5px solid transparent';
+
+    let flupdatesTabBottomLine: HTMLDivElement =
+      document.querySelector('.flupdates-tab');
+    flupdatesTabBottomLine.style.borderBottom = '5px solid #2e89ff';
   }
   togglePollCon() {
     let postConVar: HTMLDivElement = document.querySelector('.post-con');
@@ -302,6 +344,9 @@ export class PostComponent implements OnInit {
     pollConVar.style.display = 'block';
     let diagramConVar: HTMLDivElement = document.querySelector('.diagram-con');
     diagramConVar.style.display = 'none';
+    let flupdatesConVar: HTMLDivElement =
+      document.querySelector('.flupdates-con');
+    flupdatesConVar.style.display = 'none';
     ////////////////////////
     let postTabBottomLine: HTMLHeadingElement =
       document.querySelector('.post-tab');
@@ -315,6 +360,10 @@ export class PostComponent implements OnInit {
       document.querySelector('.diagram-tab');
 
     diagramTabBottomLine.style.borderBottom = '5px solid transparent';
+
+    let flupdatesTabBottomLine: HTMLDivElement =
+      document.querySelector('.flupdates-tab');
+    flupdatesTabBottomLine.style.borderBottom = '5px solid transparent';
   }
   toggleDiagramCon() {
     let postConVar: HTMLDivElement = document.querySelector('.post-con');
@@ -323,6 +372,9 @@ export class PostComponent implements OnInit {
     pollConVar.style.display = 'none';
     let diagramConVar: HTMLDivElement = document.querySelector('.diagram-con');
     diagramConVar.style.display = 'block';
+    let flupdatesConVar: HTMLDivElement =
+      document.querySelector('.flupdates-con');
+    flupdatesConVar.style.display = 'none';
     ////////////////////////
     let postTabBottomLine: HTMLHeadingElement =
       document.querySelector('.post-tab');
@@ -336,11 +388,17 @@ export class PostComponent implements OnInit {
       document.querySelector('.diagram-tab');
 
     diagramTabBottomLine.style.borderBottom = '5px solid #2e89ff';
+
+    let flupdatesTabBottomLine: HTMLDivElement =
+      document.querySelector('.flupdates-tab');
+    flupdatesTabBottomLine.style.borderBottom = '5px solid transparent';
   }
+
   closeModalDashboard() {
-    const closeModal: HTMLDivElement = document.querySelector("#dashboard-modal")
-    closeModal.style.display = 'flex'
-    this.successModdal("Success", "Post Uploaded")
+    const closeModal: HTMLDivElement =
+      document.querySelector('#dashboard-modal');
+    closeModal.style.display = 'flex';
+    this.successModdal('Success', 'Post Uploaded');
     // this.errorModal("Error", "Not Your Account")
     // let messageType = document.getElementById("dashboard-message-type");
     // messageType.innerHTML = "Success"
@@ -349,56 +407,69 @@ export class PostComponent implements OnInit {
     // dashboard-modal-message
   }
 
-
   // Modal Message
   successModdal(messageType, modalMessage) {
-    const closeModal: HTMLDivElement = document.querySelector("#dashboard-modal")
-    closeModal.style.display = 'flex'
-    const checkIcon = document.getElementById("checkIcon")
-    const exclamationIcon = document.getElementById("exclamationIcon")
-    const typeMessage: HTMLSpanElement = document.querySelector("#dashboard-message-type")
-    const messageModal: HTMLParagraphElement = document.querySelector("#dashboard-modal-message")
-    const redIcon = document.getElementById("dashboard-red-icon")
-    const greenIcon = document.getElementById("dashboard-green-icon")
-    const modalContent: HTMLDivElement = document.querySelector("#dashboard-modal-content")
-    const alertType = document.getElementById("dashboard-icon-modal")
-    typeMessage.innerHTML = messageType
-    messageModal.innerHTML = modalMessage
-    checkIcon.style.display = 'block'
-    exclamationIcon.style.display = 'none'
-    greenIcon.style.display = 'block'
-    redIcon.style.display = 'none'
+    const closeModal: HTMLDivElement =
+      document.querySelector('#dashboard-modal');
+    closeModal.style.display = 'flex';
+    const checkIcon = document.getElementById('checkIcon');
+    const exclamationIcon = document.getElementById('exclamationIcon');
+    const typeMessage: HTMLSpanElement = document.querySelector(
+      '#dashboard-message-type'
+    );
+    const messageModal: HTMLParagraphElement = document.querySelector(
+      '#dashboard-modal-message'
+    );
+    const redIcon = document.getElementById('dashboard-red-icon');
+    const greenIcon = document.getElementById('dashboard-green-icon');
+    const modalContent: HTMLDivElement = document.querySelector(
+      '#dashboard-modal-content'
+    );
+    const alertType = document.getElementById('dashboard-icon-modal');
+    typeMessage.innerHTML = messageType;
+    messageModal.innerHTML = modalMessage;
+    checkIcon.style.display = 'block';
+    exclamationIcon.style.display = 'none';
+    greenIcon.style.display = 'block';
+    redIcon.style.display = 'none';
     modalContent.style.color = 'rgb(39, 165, 87)';
     modalContent.style.borderColor = 'rgb(4, 107, 4)';
     modalContent.style.backgroundColor = 'rgb(191, 238, 201)';
     messageModal.style.color = 'rgb(97, 177, 127)';
     alertType.style.backgroundColor = 'rgb(39, 165, 87)';
-    typeMessage.style.color = 'rgb(39, 165, 87)'
+    typeMessage.style.color = 'rgb(39, 165, 87)';
     // messageModal.style.color = 'rgb(214, 111, 111)'
   }
   errorModal(messageType, modalMessage) {
-    const closeModal: HTMLDivElement = document.querySelector("#dashboard-modal")
-    closeModal.style.display = 'flex'
-    const checkIcon = document.getElementById("checkIcon")
-    const exclamationIcon = document.getElementById("exclamationIcon")
-    const typeMessage: HTMLSpanElement = document.querySelector("#dashboard-message-type")
-    const messageModal: HTMLParagraphElement = document.querySelector("#dashboard-modal-message")
-    const redIcon = document.getElementById("dashboard-red-icon")
-    const greenIcon = document.getElementById("dashboard-green-icon")
-    const modalContent: HTMLDivElement = document.querySelector("#dashboard-modal-content")
-    const alertType = document.getElementById("dashboard-icon-modal")
-    typeMessage.innerHTML = messageType
-    messageModal.innerHTML = modalMessage
-    checkIcon.style.display = 'none'
-    exclamationIcon.style.display = 'block'
-    greenIcon.style.display = 'none'
-    redIcon.style.display = 'flex'
-    modalContent.style.backgroundColor = 'rgb(255, 217, 211)'
-    modalContent.style.color = 'rgb(214, 111, 111)'
-    modalContent.style.borderColor = 'red'
-    alertType.style.backgroundColor = 'rgb(221, 82, 48)'
-    typeMessage.style.color = '#ad3939'
-    messageModal.style.color = 'rgb(214, 111, 111)'
+    const closeModal: HTMLDivElement =
+      document.querySelector('#dashboard-modal');
+    closeModal.style.display = 'flex';
+    const checkIcon = document.getElementById('checkIcon');
+    const exclamationIcon = document.getElementById('exclamationIcon');
+    const typeMessage: HTMLSpanElement = document.querySelector(
+      '#dashboard-message-type'
+    );
+    const messageModal: HTMLParagraphElement = document.querySelector(
+      '#dashboard-modal-message'
+    );
+    const redIcon = document.getElementById('dashboard-red-icon');
+    const greenIcon = document.getElementById('dashboard-green-icon');
+    const modalContent: HTMLDivElement = document.querySelector(
+      '#dashboard-modal-content'
+    );
+    const alertType = document.getElementById('dashboard-icon-modal');
+    typeMessage.innerHTML = messageType;
+    messageModal.innerHTML = modalMessage;
+    checkIcon.style.display = 'none';
+    exclamationIcon.style.display = 'block';
+    greenIcon.style.display = 'none';
+    redIcon.style.display = 'flex';
+    modalContent.style.backgroundColor = 'rgb(255, 217, 211)';
+    modalContent.style.color = 'rgb(214, 111, 111)';
+    modalContent.style.borderColor = 'red';
+    alertType.style.backgroundColor = 'rgb(221, 82, 48)';
+    typeMessage.style.color = '#ad3939';
+    messageModal.style.color = 'rgb(214, 111, 111)';
   }
   uploadImg() {
     const text: HTMLTextAreaElement = document.querySelector("#post-content")

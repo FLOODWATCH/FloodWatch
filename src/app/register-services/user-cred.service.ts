@@ -15,7 +15,7 @@ const httpOptions = {
 export class UserCredService {
   private userUrl = 'http://localhost:5000/user'; //from json-server
   private fluserUrl = 'http://localhost:8080/fluser'; //from spring-boot
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   //Using JSON Server - START
   // getUserFromService(): Observable<userInterface[]> {

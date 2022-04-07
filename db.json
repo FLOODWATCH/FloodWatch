@@ -160,7 +160,7 @@
     {
       "profName": "Keemchard De Guzman Tamio",
       "profEmail": "keemchard.tamio@cvsu.edu.ph",
-      "profTextPost": "Heyyyy",
+      "profTextPost": "Heyyyy (edited)",
       "profPostTime": "03/10/22, 09:16:39 PM",
       "id": 32
     },
@@ -181,18 +181,26 @@
     {
       "profName": "Keemchard De Guzman Tamio",
       "profEmail": "keemchard.tamio@cvsu.edu.ph",
-      "profTextPost": "Test",
+      "profTextPost": "Test (updated................) (edited)",
       "profPostTime": "03/10/22, 09:20:15 PM",
       "id": 40
     },
     {
-      "profName": "Keemchard De Guzman Tamio",
-      "profEmail": "keemchard.tamio@cvsu.edu.ph",
-      "profTextPost": "variable",
-      "profPostTime": "03/10/22, 09:21:09 PM",
-      "id": 41
+      "profName": "Flood B. Watch",
+      "profEmail": "floodwatch@gmail.com",
+      "profTextPost": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem accusantium\npossimus non corrupti modi molestias? Optio quidem eum necessitatibus doloribus\nab molestias, temporibus cupiditate doloremque qui! Earum voluptas laborum\nprovident!",
+      "profPostTime": "03/17/22, 05:02:24 PM",
+      "id": 42
     },
     {
+      "profName": "Flood B. Watch",
+      "profEmail": "floodwatch@gmail.com",
+      "profTextPost": "this is my posttttttttttttttttttttttttttttttttttttttttttttttttttttt sadfsadf asdf sadf\n",
+      "profPostTime": "03/17/22, 09:14:15 PM",
+      "id": 43
+    },
+    {
+<<<<<<< HEAD
       "profName": "janeki",
       "profEmail": "revillazjannelz@gmail.com",
       "profTextPost": "Yow! Updated!!!",
@@ -296,15 +304,37 @@
       "profTextPost": "asdasda",
       "profPostTime": "03/28/22, 10:54:17 PM",
       "id": 62
+=======
+      "profName": "something went wrong",
+      "profEmail": "something went wrong",
+      "profTextPost": "the alert level now is 3 according to the SMS notification. Keep safe guys!",
+      "profPostTime": "03/24/22, 01:28:53 PM",
+      "id": 44
+    },
+    {
+      "profName": "Keemchard De Guzman Tamio",
+      "profEmail": "keemchard.tamio@cvsu.edu.ph",
+      "profTextPost": "Testing latest git pull (edit works)",
+      "profPostTime": "03/27/22, 06:15:56 PM",
+      "id": 45
+>>>>>>> 6f36ad51e35a84148fcebc9040fad6435e9298bb
     }
   ],
   "poll": [
     {
       "id": 1,
       "pollDate": "the Date here (1)",
-      "pollSafeVote": 60,
-      "pollNotSafeVote": 30,
-      "pollNoVote": 0
+      "pollSafeVote": 2,
+      "pollNotSafeVote": 1,
+      "pollNoVote": 5,
+      "pollTotalVoters": 8
+    }
+  ],
+  "voters": [
+    {
+      "votersEmail": "floodwatch@gmail.com",
+      "votersVote": "SAFE",
+      "id": 1
     },
     {
       "votersEmail": "try.user@gmail.com",
@@ -318,8 +348,93 @@
     },
     {
       "votersEmail": "keemchard.tamio@cvsu.edu.ph",
-      "votersVote": "SAFE",
+      "votersVote": "null",
       "id": 4
+    },
+    {
+      "votersEmail": "keemchard.tamio@cvsu.edu.ph",
+      "votersVote": "SAFE",
+      "id": 5
+    }
+  ],
+  "flmonthly": [
+    {
+      "id": 1,
+      "month": "April"
+    },
+    {
+      "id": 2,
+      "month": "May"
+    },
+    {
+      "id": 3,
+      "month": "June"
+    }
+  ],
+  "flwaterlevelpost": [
+    {
+      "id": 1,
+      "wlLevel": "Level 2",
+      "wlInfo": "It is a Yellow Warning, we have detected a 2 meters increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/6/2022 | 3:01 PM",
+      "wlMonth": "April",
+      "wlColor": "yellow"
+    },
+    {
+      "id": 2,
+      "wlLevel": "Level 1",
+      "wlInfo": "It is a Green Warning, okay lang ambon palang yan tulog ka pa..., we have detected a 1 meter increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/5/2022 | 1:23 AM",
+      "wlMonth": "April",
+      "wlColor": "Green"
+    },
+    {
+      "id": 3,
+      "wlLevel": "Level 3",
+      "wlInfo": "Orange Warning, okay please prepare for evacuation..., we have detected a 3 meters increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/5/2022 | 1:45 PM",
+      "wlMonth": "April",
+      "wlColor": "Orange"
+    },
+    {
+      "id": 4,
+      "wlLevel": "Level 4",
+      "wlInfo": "It is a Red Warning, we're all going to die, please evacuate..., we have detected a 4 meters increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/5/2022 | 7:00 AM",
+      "wlMonth": "April",
+      "wlColor": "Red"
+    },
+    {
+      "id": 5,
+      "wlLevel": "Level 2",
+      "wlInfo": "It is a Yellow Warning, we have detected a 2 meters increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/6/2022 | 3:01 PM",
+      "wlMonth": "April",
+      "wlColor": "yellow"
+    },
+    {
+      "id": 6,
+      "wlLevel": "Level 1",
+      "wlInfo": "It is a Green Warning, okay lang ambon palang yan tulog ka pa..., we have detected a 1 meter increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/5/2022 | 1:23 AM",
+      "wlMonth": "April",
+      "wlColor": "Green"
+    },
+    {
+      "id": 7,
+      "wlLevel": "Level 3",
+      "wlInfo": "Orange Warning, okay please prepare for evacuation..., we have detected a 3 meters increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/5/2022 | 1:45 PM",
+      "wlMonth": "April",
+      "wlColor": "Orange"
+    },
+    {
+      "id": 8,
+      "wlLevel": "Level 4",
+      "wlInfo": "It is a Red Warning, we're all going to die, please evacuate..., we have detected a 4 meters increase on the water level of the Tanza Bridge. Keep safe and be alert at all times",
+      "wlTime": "04/5/2022 | 7:00 AM",
+      "wlMonth": "April",
+      "wlColor": "Red"
     }
   ]
 }

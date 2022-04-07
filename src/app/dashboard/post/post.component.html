@@ -3,6 +3,11 @@
     <div>
       <h2 class="post-tab post-cat" (click)="togglePostCon()">POSTS</h2>
     </div>
+    <div>
+      <h2 class="flupdates-tab post-cat" (click)="toggleFlUpdatesCon()">
+        FL Updates
+      </h2>
+    </div>
     <div><h2 class="poll-tab post-cat" (click)="togglePollCon()">POLL</h2></div>
     <div>
       <h2 class="diagram-tab post-cat" (click)="toggleDiagramCon()">Diagram</h2>
@@ -11,6 +16,9 @@
   <div>
     <div class="poll-con">
       <app-poll></app-poll>
+    </div>
+    <div class="flupdates-con">
+      <app-flupdates></app-flupdates>
     </div>
     <div class="diagram-con">
       <app-monthly-diagram></app-monthly-diagram>
