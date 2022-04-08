@@ -200,7 +200,6 @@
       "id": 43
     },
     {
-<<<<<<< HEAD
       "profName": "janeki",
       "profEmail": "revillazjannelz@gmail.com",
       "profTextPost": "Yow! Updated!!!",
@@ -304,20 +303,6 @@
       "profTextPost": "asdasda",
       "profPostTime": "03/28/22, 10:54:17 PM",
       "id": 62
-=======
-      "profName": "something went wrong",
-      "profEmail": "something went wrong",
-      "profTextPost": "the alert level now is 3 according to the SMS notification. Keep safe guys!",
-      "profPostTime": "03/24/22, 01:28:53 PM",
-      "id": 44
-    },
-    {
-      "profName": "Keemchard De Guzman Tamio",
-      "profEmail": "keemchard.tamio@cvsu.edu.ph",
-      "profTextPost": "Testing latest git pull (edit works)",
-      "profPostTime": "03/27/22, 06:15:56 PM",
-      "id": 45
->>>>>>> 6f36ad51e35a84148fcebc9040fad6435e9298bb
     }
   ],
   "poll": [
