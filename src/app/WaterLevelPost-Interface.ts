@@ -5,4 +5,5 @@ export interface waterLevelPostInterface {
   wlTime: string;
   wlMonth: string;
   wlColor: String;
+  wlPercent: String;
 }

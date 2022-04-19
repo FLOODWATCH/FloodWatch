@@ -7,13 +7,29 @@
     <div class="monthly-diagram">
       <!-- this div below swould also got ngFor, and that's for fetching water level post LEVEL the belongs to specific month -->
 
-      <div class="bar-con">
-        <div [ngStyle]="{ height: '100%' }" class="bar"></div>
+      <!-- ,
+            backgroundColor: level.wlColor -->
+      <div
+        *ngFor="let level of flUpdatesVariable.slice().reverse()"
+        class="bar-con"
+      >
+        <div
+          [ngStyle]="{
+            height: level.wlPercent + '%'
+          }"
+          class="bar"
+        ></div>
+        <p class="bar-info">
+          {{ level.wlMonth }}
+          <span>
+            <p>{{ level.wlTime }}</p></span
+          >
+        </p>
       </div>
-      <div class="bar-con">
+      <!-- <div class="bar-con">
         <div [ngStyle]="{ height: '50%' }" class="bar"></div>
-      </div>
-      <div class="bar-con">
+      </div> -->
+      <!-- <div class="bar-con">
         <div [ngStyle]="{ height: '25%' }" class="bar"></div>
       </div>
       <div class="bar-con">
@@ -42,11 +58,9 @@
       </div>
       <div class="bar-con">
         <div [ngStyle]="{ height: '50%' }" class="bar"></div>
-      </div>
-      <!-- 
-   
+      </div> -->
 
-      <!-- below code is for level indicator -->
+      <!-- below code is for level indicator COLOR -->
       <div class="indicator level-one"></div>
       <div class="indicator level-two"></div>
       <div class="indicator level-three"></div>

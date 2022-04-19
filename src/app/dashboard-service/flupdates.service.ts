@@ -9,6 +9,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class FlupdatesService {
   private flupdatesUrl = 'http://localhost:5000/flwaterlevelpost'; //JSON Server
+  // private flupdatesUrl =
+  //   'https://floodwatchbackend.herokuapp.com/flwaterlevelpost'; //Springboot Heroku Server Try
 
   constructor(private http: HttpClient) {}
 
