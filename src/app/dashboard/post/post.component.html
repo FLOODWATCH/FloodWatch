@@ -8,7 +8,9 @@
         FL Updates
       </h2>
     </div>
-    <div><h2 class="poll-tab post-cat" (click)="togglePollCon()">POLL</h2></div>
+    <div>
+      <h2 class="poll-tab post-cat" (click)="togglePollCon()">POLL</h2>
+    </div>
     <div>
       <h2 class="diagram-tab post-cat" (click)="toggleDiagramCon()">Diagram</h2>
     </div>
@@ -54,9 +56,23 @@
           </div>
         </div>
         <div class="post-txt">
+          <!-- <div *ngIf="retrievedImage" id="solo-file-img">
+            <img [src]="retrievedImage" alt="thisUrl" height="60" width="60" />
+          </div> -->
           <p>
             {{ post.profTextPost }}
           </p>
+          <!-- IMAGES -->
+          <ng-container *ngIf="post.profFile">
+            <div class="img-box">
+              <div
+                *ngFor="let pic of post.profFile; let x = index"
+                class="image-post"
+              >
+                <img class="image-content" [src]="pic" alt="thisUrl" />
+              </div>
+            </div>
+          </ng-container>
         </div>
       </div>
       <!-- Make Text Post -->
@@ -118,7 +134,6 @@
         cols="30"
         rows="2"
       ></textarea>
-      <!-- <img src="/assets/yaeWP.jpg" alt="img" /> -->
     </div>
     <!-- Images -->
     <div id="img-container" class="img-container">
@@ -127,14 +142,20 @@
         class="solo-img"
         id="solo-img"
       >
-        <img
-          (click)="deleteImage(i)"
-          alt="img"
-          id="img-file"
-          [src]="url"
-          height="60px"
-          width="60px"
-        />
+        <div class="each-container" id="each-container">
+          <img
+            alt="img"
+            class="img-file"
+            id="img-file"
+            [src]="url"
+            height="60px"
+            width="60px"
+          />
+          <span id="close-img" class="close-img" (click)="deleteImage(i)">
+            <fa-icon [icon]="faTimes" id="close-img-inside"></fa-icon>
+          </span>
+          <!-- [ngStyle]="{ opacity: cnt === 1 ? 0.5 : 1 }" -->
+        </div>
       </div>
     </div>
     <!-- Submit -->
@@ -175,15 +196,6 @@
         [icon]="faTimes"
       ></fa-icon>
     </div>
-    <!-- <div class="user-info">
-      <label name="profName" [(ngModel)]="profName" for="profName"></label>
-      <label name="profEmail" [(ngModel)]="profEmail" for="profEmail"></label>
-      <label
-        name="profMobile"
-        [(ngModel)]="profMobile"
-        for="profMobile"
-      ></label>
-    </div> -->
     <div class="upper-file-container"></div>
     <!-- Images -->
     <!-- <div id="img-file-container" class="img-file-container">
@@ -191,40 +203,26 @@
         <img [src]="retrievedImage" alt="thisUrl" height="60" width="60" />
       </div>
     </div> -->
-    <div *ngIf="images" id="img-file-container" class="img-file-container">
-      <div
-        *ngFor="let url of images; let i = index"
-        id="solo-file-img"
-        class="solo-file-img"
-      >
-        <img [src]="url" (click)="deleteImage(i)" id="img-file-upload" />
-      </div>
-    </div>
     <div class="add-post-file-container">
       <div class="post-files">
         <label for="file-input-upload">
           <fa-icon
-            (click)="uploadImg()"
             class="file-image fa-image"
             id="upload-image"
             [icon]="faFileImage"
           ></fa-icon>
         </label>
-        <input
+        <!-- <input
           type="file"
           (change)="selectFile($event)"
           multiple
           id="file-input-upload"
-        />
-        <!-- <label for="file-input">
-          <fa-icon class="file-image fa-video" [icon]="faFileVideo"></fa-icon>
-        </label> -->
+        /> -->
       </div>
-      <!-- <input type="file" id="file-input" /> -->
-      <input type="button" (click)="getImage()" value="Get" />
+      <!-- <input type="button" (click)="getImage()" value="Get" /> -->
       <input
-        (click)="uploadImage()"
-        type="submit"
+        (click)="getImage()"
+        type="button"
         class="add-post-file"
         id="add-post-file"
         value="Upload"

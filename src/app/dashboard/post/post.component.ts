@@ -17,6 +17,8 @@ import { HttpClient, HttpErrorResponse, HttpEvent, HttpEventType } from '@angula
 import { FormGroup, ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { FileService } from 'src/app/dashboard-service/file.service';
+import { url } from 'inspector';
+import { isNull } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-post',
@@ -31,6 +33,9 @@ export class PostComponent implements OnInit {
   retrieveResponse: any;
   selectedFile: File;
   retrievedImage: any;
+  private base64textString: string;
+
+  cnt: number;
 
   profIdNumber: string;
   profName: string;
@@ -38,7 +43,7 @@ export class PostComponent implements OnInit {
   profTextPost: string;
   profMobile: string;
   profPostTime: string;
-  profFile = [];
+  profFile: any;
   faTimes = faTimes;
   faPen = faPen;
   faEraser = faEraser;
@@ -55,6 +60,20 @@ export class PostComponent implements OnInit {
     private fileService: FileService) { }
 
   ngOnInit(): void {
+    // this.postObj
+    //   .getPostFromPostService()
+    //   .subscribe(
+    //     p => {
+    //       this.postVariable = p;
+    //       console.log("P:")
+    //       console.log(p[23])
+    //       this.retrieveResponse = p[23];
+    //       this.base64Data = this.retrieveResponse.profFile;
+    //       this.retrievedImage = this.base64Data;
+    //       this.profFile = this.retrievedImage;
+    //       console.log(this.profFile)
+    //     }
+    //   )
     this.postObj
       .getPostFromPostService()
       .subscribe((p) => (this.postVariable = p));
@@ -71,9 +90,6 @@ export class PostComponent implements OnInit {
   thisUrl = "./assets/yaeWP.jpg";
 
   closeTimes() {
-    // this.postObj
-    //   .getPostFromPostService()
-    //   .subscribe((p) => (this.postVariable = p));
     const postContent: HTMLInputElement =
       document.querySelector('#post-content');
     const closeTimes: HTMLDivElement =
@@ -84,13 +100,16 @@ export class PostComponent implements OnInit {
       '#post-file-main-modal'
     );
     postContent.value = null;
+    postContent.style.height = '200px'
     closeTimes.style.display = 'none';
-    postFileContent.value = null;
-    closeFileTimes.style.display = 'none';
     const text: HTMLTextAreaElement = document.querySelector("#post-content")
+
+    // Image related
     const imageContainer: HTMLDivElement = document.querySelector("#img-container")
     text.style.height = '200px'
     imageContainer.style.display = 'none'
+    this.images.splice(0, this.images.length)
+    console.log(this.images.length)
     // if (postContent.value != null ) {
     //   this.errorModal("Notice", "Discard Post?")
     // }
@@ -155,11 +174,9 @@ export class PostComponent implements OnInit {
       second: '2-digit',
     } as const;
     var date = new Date();
-    const formData = new FormData()
     const postName: HTMLHeadingElement = document.querySelector('#profileName');
     const postEmail: HTMLHeadingElement =
       document.querySelector('#profileEmail');
-
     const newPost = {
       profName: (this.profName = postName.textContent),
       profEmail: (this.profEmail = postEmail.textContent),
@@ -167,10 +184,12 @@ export class PostComponent implements OnInit {
       profPostTime: (this.profPostTime = String(
         date.toLocaleTimeString('en-US', format)
       )),
-      profFile: this.profFile
+      profFile: (this.images.length == 0 ? null : this.images)
       // profFile: (this.profFile = formData.append('file',
       //   this.myForm.get('fileSource').value))
     };
+    console.log("Profile")
+    console.group(this.selectedFile)
     // let postContent: HTMLTextAreaElement =
     //   document.querySelector('.post-content');
     if (!this.profTextPost) {
@@ -475,10 +494,10 @@ export class PostComponent implements OnInit {
     const text: HTMLTextAreaElement = document.querySelector("#post-content")
     const postForm: HTMLFormElement = document.querySelector("#post-create-form")
     const imageContainer: HTMLDivElement = document.querySelector("#img-container")
-    const fileContainer: HTMLDivElement = document.querySelector("#img-file-container")
     const imgClose = document.getElementById("img-close")
     text.style.height = '120px'
-    fileContainer.style.display = 'flex'
+    // const fileContainer: HTMLDivElement = document.querySelector("#img-file-container")
+    // fileContainer.style.display = 'flex'
 
     imageContainer.style.display = 'flex'
     // postForm.style.height = '700px'
@@ -487,47 +506,61 @@ export class PostComponent implements OnInit {
   deleteImage(i) {
     console.log(i)
     this.images.splice(i, 1);
-    // i = i.filter((a) => a !== i);
+    this.images = this.images.filter((a) => a !== i);
+    const elem: HTMLImageElement = document.querySelector('#img-file');
+    elem.style.opacity = '1'
   }
   // Upload Image
   selectFile(event) {
     const imageContainer: HTMLDivElement = document.querySelector("#img-container")
-    if (event.target.files && event.target.files[0]) {
+    // if (event.target.files && event.target.files[0]) {
+    if (event.target.files.length <= 4 && this.images.length < 4) {
       var filesAmount = event.target.files.length;
       for (let i = 0; i < filesAmount; i++) {
         var reader = new FileReader()
+        console.log('No: ', filesAmount)
         reader.onload = (event) => {
           this.images.push(event.target.result);
-
         }
-        this.profFile = event.target.files[i];
-        reader.readAsDataURL(event.target.files[i]);
-        console.log('Profile: ' + this.profFile);
+        reader.onload = this.handleReader.bind(this);
+        reader.readAsBinaryString(event.target.files[i])
+        // reader.readAsDataURL(event.target.files[i]);
       }
-      this.selectedFile = event.target.files[0];
+      console.log('Images: ', this.images.length)
+    } else {
+      this.errorModal('Error', 'Max of 4 images only')
     }
-    // var reader = new FileReader();
-    // reader.readAsDataURL(event.target.files[0]);
-    // reader.onload = (event) => {
-    //   this.profFile = event.target.result;
-    //   console.log('Profile: ' + this.profFile)
     // }
-    // this.selectedFile = event.target.files[0];
+  }
+  handleReader(e) {
+    this.images.push('data:image/png;base64,' + btoa(e.target.result));
+    for (let i = 0; i < this.images.length; i++) {
+      // console.log("NO: " + i);
+      // console.log(this.images[i]);
+    }
   }
 
+  // _handleReaderLoaded(readerEvt) {
+  //   var binaryString = readerEvt.target.result;
+  //   this.base64textString = btoa(binaryString);
+  //   console.log("Handle Reader: ")
+  //   this.profFile = this.base64textString
+  //   console.log(this.profFile)
+  // }
   uploadImage() {
     console.log(this.selectedFile);
     console.log(this.selectedFile.name)
     const uploadImageData = new FormData();
     uploadImageData.append('file', this.selectedFile, this.selectedFile.name)
-
-    this.httpClient.post('http://localhost:8080/flfile/upload',
+    // localhost:8080//flfile/upload
+    this.httpClient.post('http://localhost:5000/post',
       uploadImageData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
-          console.log("Uploaded Successfully")
+          alert('Success!')
           console.log(this.selectedFile.name)
         } else {
+          console.log(response.status)
           console.log("Image not Uploaded")
         }
       });
@@ -536,17 +569,40 @@ export class PostComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
   getImage() {
-    this.httpClient.get(`http://localhost:8080/flfile/upload/49`)
+    this.httpClient.get(`http://localhost:5000/post/53`)
       .subscribe(
         res => {
+          console.log("RES:")
           console.log(res);
           this.retrieveResponse = res;
-          this.base64Data = this.retrieveResponse.data;
+          this.base64Data = this.retrieveResponse.profFile;
+          console.log("IMAGE:")
           console.log(this.base64Data);
-          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+          this.retrievedImage = this.base64Data;
+
         }
       );
-    console.log(this.retrievedImage);
-    this.thisUrl = this.retrievedImage;
+    // this.thisUrl = this.retrievedImage;
   }
+  increaseSize() {
+    const elem = document.getElementById("img-file")
+    const close: HTMLImageElement = document.querySelector('#close-img');
+    const con: HTMLDivElement = document.querySelector('#each-container')
+    const nod = document.getElementById('img-file');
+    // nod.parentElement.style.opacity = '0.5'
+    this.cnt = 1;
+    console.log("increase", this.cnt)
+  }
+  decreaseSize() {
+    const elem = document.getElementById("img-file")
+    const close: HTMLImageElement = document.querySelector('#close-img');
+    const nod = document.getElementById('img-file');
+    // nod.parentElement.style.opacity = '1'
+    this.cnt = 0;
+    console.log("decrease", this.cnt)
+    // close.style.opacity = '0';
+    // close.style.display = 'block'
+    // elem.style.opacity = '1';
+  }
+
 }
