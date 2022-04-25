@@ -60,10 +60,19 @@
   vertical-align: bottom;
 }
 .bar {
-  width: 40px;
+  width: 30px;
   background-color: rgba(0, 132, 255, 0.555);
   margin: 0 10px;
   animation: angat 1s ease-in-out;
+  position: relative;
+}
+.bar-info {
+  writing-mode: vertical-rl;
+  font-size: 8px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  text-align: center;
 }
 
 @keyframes angat {
