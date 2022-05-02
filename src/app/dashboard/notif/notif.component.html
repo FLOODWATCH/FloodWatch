@@ -2,31 +2,14 @@
   <div class="notif-con">
     <h2>Notifications</h2>
     <div class="notif-list">
-      <div class="notif">
-        <h4>@rhy</h4>
-        <p>Posted an event</p>
-      </div>
-      <div class="notif">
-        <h4>@keemchard</h4>
-        <p>Posted an event</p>
-      </div>
-      <div class="notif">
-        <h4>@keemchard</h4>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore eum,
-          voluptas veritatis soluta perspiciatis quia aperiam? Voluptate, nobis
-          eligendi doloremque, ipsam dolor, corporis commodi molestias ullam
-          culpa ut fugiat itaque!
-        </p>
-      </div>
-      <div class="notif">
-        <h4>@keemchard</h4>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore eum,
-          voluptas veritatis soluta perspiciatis quia aperiam? Voluptate, nobis
-          eligendi doloremque, ipsam dolor, corporis commodi molestias ullam
-          culpa ut fugiat itaque!
-        </p>
+      <div class="notif" *ngFor="let notif of notifVar.slice().reverse()">
+        <h3 [ngStyle]="{ color: notif.wlColor }">
+          {{ notif.wlLevel.toUpperCase() }}
+        </h3>
+        <p>{{ notif.wlInfo }}</p>
+        <div class="time">
+          <p>{{ notif.wlTime }}</p>
+        </div>
       </div>
     </div>
   </div>
