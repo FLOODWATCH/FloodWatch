@@ -4,12 +4,37 @@
   padding: 5px;
 }
 .floodwatch-logo {
-  height: 80px;
+  /* height: 80px; */
   /* background-color: aqua; */
-  background-color: #2e89ff;
+  /* background-color: #2e89ff; */
+  background-color: #242526;
   margin-bottom: 20px;
   border-radius: 10px;
+  padding: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+.fl-logo {
+  height: 110px;
+  width: 110px;
+}
+.fl-name-con {
+  line-height: 23px;
+}
+.fl-name-con h3 {
+  margin-left: 10px;
+}
+.fl-name-con h3 a {
+  text-decoration: none;
+  color: #2e89ff;
+}
+.floodwatch-logo p {
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 10px;
 }
 .profile-con {
   /* background-color: aliceblue; */
@@ -62,3 +87,5 @@
 .profile-logout button:hover {
   transform: scale(1.1);
 }
+
+/* for animations */
