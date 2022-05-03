@@ -89,8 +89,8 @@ export class ProfileComponent extends LoginComponent implements OnInit {
   secret() {
     let phoneField: HTMLInputElement = document.querySelector('#phone');
     let passField: HTMLInputElement = document.querySelector('#pass');
-    this.profileAddress = phoneField.value;
-    console.log(phoneField.value);
-    console.log(passField.value);
+    // this.profileAddress = phoneField.value;
+    // console.log(phoneField.value);
+    // console.log(passField.value);
   }
 }

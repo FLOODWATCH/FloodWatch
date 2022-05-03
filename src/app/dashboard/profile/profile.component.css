@@ -23,6 +23,11 @@
 .fl-logo {
   height: 110px;
   width: 110px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.fl-logo:hover {
+  transform: scale(1.1);
 }
 .fl-name-con {
   line-height: 23px;
