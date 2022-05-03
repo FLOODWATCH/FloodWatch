@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noticia+Text&display=swap");
+
 .profile-main {
   /* background-color: brown; */
   width: 320px;
@@ -30,15 +33,18 @@
 .fl-name-con h3 a {
   text-decoration: none;
   color: #2e89ff;
+  font-family: "Noticia Text", serif;
+  font-size: 15px;
 }
 .floodwatch-logo p {
-  font-size: 30px;
+  font-size: 17px;
   font-weight: bold;
   margin-left: 10px;
   /* font-size: 72px; */
-  background: -webkit-linear-gradient(#2e89ff, #eee);
+  background: -webkit-linear-gradient(#2e89ff, rgb(168, 191, 255));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-family: "Press Start 2P", cursive;
 }
 .profile-con {
   /* background-color: aliceblue; */
