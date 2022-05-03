@@ -1,36 +1,264 @@
-<!-- Create Post Modal -->
-<!-- <div class="post-main-modal">
-  <div class="post-content">HELLOASJHDJKASGDJHASGDHJAGDJAGSDJHASJJgjdaa</div>
-</div> -->
-
 <div class="post-main">
   <div class="post-category">
-    <div><h2 class="post-tab">POSTS</h2></div>
-    <div><h2>POLL</h2></div>
-    <div><h2>Diagram</h2></div>
+    <div>
+      <h2 class="post-tab post-cat" (click)="togglePostCon()">POSTS</h2>
+    </div>
+    <div>
+      <h2 class="flupdates-tab post-cat" (click)="toggleFlUpdatesCon()">
+        FL Updates
+      </h2>
+    </div>
+    <div>
+      <h2 class="poll-tab post-cat" (click)="togglePollCon()">POLL</h2>
+    </div>
+    <div>
+      <h2 class="diagram-tab post-cat" (click)="toggleDiagramCon()">Diagram</h2>
+    </div>
   </div>
-  <div class="post-con">
-    <!-- Container of each Posts -->
-    <!-- ///////// -->
-    <div class="post-list" *ngFor="let post of postVariable.slice().reverse()">
-      <div class="post-profile">
-        <div class="post-prof-img">
-          <div class="prof-img-con"></div>
+  <div>
+    <div class="poll-con">
+      <app-poll></app-poll>
+    </div>
+    <div class="flupdates-con">
+      <app-flupdates></app-flupdates>
+    </div>
+    <div class="diagram-con">
+      <app-monthly-diagram></app-monthly-diagram>
+    </div>
+    <div class="post-con">
+      <!-- Container of each Posts -->
+      <div
+        class="post-list"
+        *ngFor="let post of postVariable.slice().reverse()"
+      >
+        <div class="post-profile">
+          <div class="post-prof-img">
+            <div class="prof-img-con"></div>
+          </div>
+          <div class="post-prof-name">
+            <h4>
+              {{ post.profName }}
+              <span>{{ post.profEmail }}</span>
+            </h4>
+            <p>{{ post.profPostTime }}</p>
+          </div>
+          <div>
+            <fa-icon
+              (click)="deletePost(post)"
+              class="delete-option"
+              [icon]="faEraser"
+            ></fa-icon>
+            <fa-icon
+              (click)="toggleUpdatePostForm(post)"
+              class="update-option"
+              [icon]="faPen"
+            ></fa-icon>
+          </div>
         </div>
-        <div class="post-prof-name">
-          <h4>
-            {{ post.id }}
-            <span>{{ post.profEmail }}</span>
-          </h4>
+        <div class="post-txt">
+          <!-- <div *ngIf="retrievedImage" id="solo-file-img">
+            <img [src]="retrievedImage" alt="thisUrl" height="60" width="60" />
+          </div> -->
+          <p>
+            {{ post.profTextPost }}
+          </p>
+          <!-- IMAGES -->
+          <ng-container *ngIf="post.profFile">
+            <div class="img-box">
+              <div
+                *ngFor="let pic of post.profFile; let x = index"
+                class="image-post"
+              >
+                <img class="image-content" [src]="pic" alt="thisUrl" />
+              </div>
+            </div>
+          </ng-container>
         </div>
       </div>
-      <div class="post-txt">
-        <p>
-          {{ post.profTextPost }}
-        </p>
+      <!-- Make Text Post -->
+      <div>
+        <button (click)="OptionTab()" class="open-post-btn">+</button>
+        <div class="post-option-tab">
+          <div>
+            <fa-icon
+              (click)="closeOptionTab()"
+              class="close-option-post"
+              [icon]="faTimes"
+            ></fa-icon>
+          </div>
+          <div class="option-con">
+            <div (click)="makeTextPost()" class="text-option">
+              Create Text Post
+            </div>
+            <div (click)="makeTextFilePost()" class="file-text-option">
+              Create File and Text Post
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- ///////// -->
-    <button (click)="makePost()" class="open-post-btn">+</button>
   </div>
+</div>
+
+<!-- Create Post Modal Form -->
+<div id="post-main-modal" class="post-main-modal">
+  <form class="post-create-form" (ngSubmit)="addPost()">
+    <!-- Header -->
+    <div class="post-header">
+      <h4 class="upload-post-title">Create Post</h4>
+      <fa-icon
+        (click)="closeTimes()"
+        class="close-upload-post"
+        [icon]="faTimes"
+        [spin]="true"
+      ></fa-icon>
+    </div>
+    <!-- Info -->
+    <div class="user-info">
+      <label name="profName" [(ngModel)]="profName" for="profName"></label>
+      <label name="profEmail" [(ngModel)]="profEmail" for="profEmail"></label>
+      <label
+        name="profMobile"
+        [(ngModel)]="profMobile"
+        for="profMobile"
+      ></label>
+    </div>
+    <!-- Text Area -->
+    <div class="upper-container">
+      <textarea
+        name="profTextPost"
+        [(ngModel)]="profTextPost"
+        placeholder="Let them know your status!"
+        id="post-content"
+        class="upload-post"
+        cols="30"
+        rows="2"
+      ></textarea>
+    </div>
+    <!-- Images -->
+    <div id="img-container" class="img-container">
+      <div
+        *ngFor="let url of images; let i = index"
+        class="solo-img"
+        id="solo-img"
+      >
+        <div class="each-container" id="each-container">
+          <img
+            alt="img"
+            class="img-file"
+            id="img-file"
+            [src]="url"
+            height="60px"
+            width="60px"
+          />
+          <span id="close-img" class="close-img" (click)="deleteImage(i)">
+            <fa-icon [icon]="faTimes" id="close-img-inside"></fa-icon>
+          </span>
+          <!-- [ngStyle]="{ opacity: cnt === 1 ? 0.5 : 1 }" -->
+        </div>
+      </div>
+    </div>
+    <!-- Submit -->
+    <div class="add-post-container">
+      <!-- Upload Pictures and Videos -->
+      <div class="post-files">
+        <label for="file-input">
+          <fa-icon
+            (click)="uploadImg()"
+            id="upload-image"
+            class="file-image fa-image"
+            [icon]="faFileImage"
+          ></fa-icon>
+        </label>
+        <input
+          type="file"
+          multiple
+          (change)="selectFile($event)"
+          id="file-input"
+        />
+      </div>
+      <!-- <input type="file" multiple (click)="uploadImage()" id="file-input" /> -->
+      <!-- <input type="file" /> -->
+      <!-- <fa-icon [icon]="faFileImage" [ngStyle]="{ color: '#4c3f91' }"></fa-icon> -->
+      <input type="submit" class="add-post" id="add-post" value="Upload" />
+    </div>
+  </form>
+</div>
+
+<!-- Create Post Form with Files -->
+<div id="post-file-main-modal" class="post-file-main-modal">
+  <form enctype="multipart/form-data" class="post-file-create-form">
+    <div class="post-file-header">
+      <h4 class="upload-post-file-title">Create Post</h4>
+      <fa-icon
+        (click)="closeFile()"
+        class="close-upload-file-post"
+        [icon]="faTimes"
+      ></fa-icon>
+    </div>
+    <div class="upper-file-container"></div>
+    <!-- Images -->
+    <!-- <div id="img-file-container" class="img-file-container">
+      <div *ngIf="retrievedImage" id="solo-file-img">
+        <img [src]="retrievedImage" alt="thisUrl" height="60" width="60" />
+      </div>
+    </div> -->
+    <div class="add-post-file-container">
+      <div class="post-files">
+        <label for="file-input-upload">
+          <fa-icon
+            class="file-image fa-image"
+            id="upload-image"
+            [icon]="faFileImage"
+          ></fa-icon>
+        </label>
+        <!-- <input
+          type="file"
+          (change)="selectFile($event)"
+          multiple
+          id="file-input-upload"
+        /> -->
+      </div>
+      <!-- <input type="button" (click)="getImage()" value="Get" /> -->
+      <input
+        (click)="getImage()"
+        type="button"
+        class="add-post-file"
+        id="add-post-file"
+        value="Upload"
+      />
+    </div>
+  </form>
+</div>
+
+<!-- Update Form -->
+<div class="main-update-con">
+  <form class="update-post-form" (ngSubmit)="updateThePost()">
+    <!-- Update Header -->
+    <div class="update-header">
+      <h4 class="update-post-title">Update Post</h4>
+      <fa-icon
+        (click)="closeUpdateForm()"
+        class="close-update-post"
+        [icon]="faTimes"
+      ></fa-icon>
+    </div>
+    <!-- Textarea -->
+    <div class="update-container">
+      <textarea
+        type="text"
+        name="updatePostText"
+        [(ngModel)]="updatePostText"
+        id="updatePostText"
+        class="update-textarea"
+        cols="30"
+        rows="4"
+      ></textarea>
+    </div>
+    <!-- Submit Update -->
+    <div class="update-post-container">
+      <!-- <input () class="update-btn" type="submit" value="Update Post" /> -->
+      <input type="submit" class="update-btn" id="upload-post" value="Update" />
+    </div>
+  </form>
 </div>

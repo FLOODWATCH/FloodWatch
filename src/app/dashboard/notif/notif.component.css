@@ -36,17 +36,26 @@
   margin-bottom: 10px;
   border-radius: 10px;
   transition: 0.2s;
+  position: relative;
 }
 
 .notif:hover {
   transform: scale(1.03);
 }
-.notif h4 {
-  margin-bottom: 5px;
+.notif h3 {
+  margin: 7px 0 0 0;
 }
 .notif p {
-  font-size: 14px;
-  margin-top: -7px;
+  font-size: 13px;
+}
+
+.time {
+  position: absolute;
+  top: 5px;
+  right: 6px;
+}
+.time p {
+  font-size: 10px;
 }
 
 /* shortcut container */

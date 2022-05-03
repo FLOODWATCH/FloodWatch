@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
   address: string;
   password: string;
 
-  constructor(private userObj: UserCredService) {}
+  constructor(private userObj: UserCredService) { }
 
   ngOnInit(): void {
     this.userObj.getUserFromService().subscribe((u) => (this.userVariable = u));

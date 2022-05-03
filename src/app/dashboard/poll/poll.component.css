@@ -1,0 +1,108 @@
+* {
+  color: white;
+}
+
+.poll-con {
+  height: 87.5vh;
+  /* background-color: #2e89ff; */
+  overflow-y: scroll;
+  padding: 5px;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.poll-con::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.poll-con {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.poll-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #3a3b3c;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px 10px 17px 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+.poll-list .poll-info {
+  background-color: #242526;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.poll-info .poll-name {
+  margin-left: 8px;
+}
+/* .poll-name h3   {
+  font-size: 30px;
+} */
+
+.poll-name h3 span {
+  margin-left: 2px;
+  font-weight: 100;
+  font-size: 15px;
+  color: gray;
+}
+.poll-content {
+  /* background-color: red; */
+  padding: 20px 23px;
+  margin: 15px 0;
+}
+.poll-content > div {
+  margin-bottom: 15px;
+}
+.poll-content p {
+  font-size: 15.5px;
+}
+.poll-content .safe,
+.not-safe {
+  height: 50px;
+  background-color: #242526;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.poll-content .safe-txt,
+.not-safe-txt {
+  color: gray;
+  z-index: 1;
+  font-size: 20px !important;
+  margin-left: 20px;
+}
+.vote:hover {
+  transform: scale(1.02);
+}
+.safe-vote {
+  position: absolute;
+  height: 50px;
+  width: 0%;
+  background-color: #2e89ff;
+  background-color: rgba(0, 132, 255, 0.555);
+  animation: gilid 1s ease-in-out;
+}
+.not-safe-vote {
+  position: absolute;
+  height: 50px;
+  width: 0%;
+  background-color: #2e89ff;
+  background-color: rgba(0, 132, 255, 0.555);
+  animation: gilid 1s ease-in-out;
+}
+@keyframes gilid {
+  0% {
+    width: 0;
+  }
+}
+.poll-num {
+  margin-top: 30px;
+}

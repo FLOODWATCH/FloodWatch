@@ -1,0 +1,20 @@
+<div class="wlPost-con">
+  <div
+    class="wlPostList-con"
+    *ngFor="let alerts of flUpdatesVariable.slice().reverse()"
+  >
+    <div
+      [ngStyle]="{ backgroundColor: alerts.wlColor }"
+      class="wlheader"
+      style="color: black !important"
+    >
+      <h2>{{ alerts.wlLevel }}</h2>
+      <h4>
+        {{ alerts.wlTime }} <span>{{ alerts.wlMonth }}</span>
+      </h4>
+    </div>
+    <div class="wlInfo-con">
+      {{ alerts.wlInfo }}
+    </div>
+  </div>
+</div>

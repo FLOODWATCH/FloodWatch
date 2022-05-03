@@ -9,6 +9,10 @@
   /* color: white; */
 }
 
+body {
+  background-color: #18191a;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }

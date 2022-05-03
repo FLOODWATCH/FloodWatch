@@ -4,4 +4,5 @@ export interface postInterface {
   profEmail: string;
   profTextPost: string;
   profPostTime: string;
+  profFile: any;
 }

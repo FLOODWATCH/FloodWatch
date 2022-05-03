@@ -19,12 +19,11 @@
 .confirm-info {
   /* background-color: #18191a; */
   backdrop-filter: blur(20px);
-
   position: fixed;
   top: 0;
   height: 100vh;
   width: 100%;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -65,4 +64,90 @@
   justify-content: center;
   width: 250px;
   background-color: #2e89ff;
+}
+
+/* Modal Background */
+.dashboard-modal {
+  background-color: transparent;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard-modal-content {
+  border-radius: 10px;
+  top: -320px;
+  /* top: -180px; */
+  color: rgb(39, 165, 87);
+  background-color: rgb(191, 238, 201);
+  border-left: 5px solid rgb(4, 107, 4);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 500px;
+  height: 85px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  animation: modal 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes modal {
+  form {
+    top: 0px;
+  }
+  to {
+    top: -200px;
+  }
+}
+.dashboard-closemod > .dashboard-green-icon {
+  font-size: 1.8rem;
+  color: rgb(113, 161, 98);
+  right: 20px;
+  /* align-items: center;
+  text-align: center; */
+  margin-top: 10px;
+  position: absolute;
+}
+.dashboard-closemod > .dashboard-green-icon:hover {
+  color: rgb(71, 182, 37);
+  cursor: pointer;
+}
+.dashboard-closemod > .dashboard-red-icon {
+  color: #ad3939;
+  right: 20px;
+  font-size: 1.8rem;
+  margin-top: 10px;
+  position: absolute;
+}
+.dashboard-closemod > .dashboard-red-icon:hover {
+  cursor: pointer;
+  color: rgb(221, 82, 48);
+}
+.dashboard-icon-modal {
+  text-align: center;
+  margin-top: 15px;
+  height: 28px;
+  width: 28px;
+  background-color: rgb(39, 165, 87);
+  color: white;
+  border-radius: 50%;
+  line-height: 29px;
+  margin-left: 20px;
+}
+.dashboard-modal-text {
+  margin-top: 13px;
+  margin-left: 18px;
+  /* color: #ad3939; */
+  font-size: 22px;
+}
+.dashboard-modal-text > p {
+  font-size: 15px;
+  color: rgb(97, 177, 127);
+}
+
+#dashboard-message-type {
+  color: rgb(39, 165, 87);
 }

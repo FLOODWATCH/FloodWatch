@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserCredService } from 'src/app/register-services/user-cred.service';
 import { userInterface } from 'src/app/user-interface';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faExclamation } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,19 +11,29 @@ import { userInterface } from 'src/app/user-interface';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private userObj: UserCredService) {}
-
+  constructor(private userObj: UserCredService) { }
+  faTimes = faTimes;
+  faExclamation = faExclamation;
+  faCheck = faCheck;
   phone: string;
   pass: string;
+  messageType: string;
+  modalMessage: string;
   theUser: userInterface;
 
   ngOnInit(): void {
-    // let confirmInfoDiv: HTMLDivElement =
-    //   document.querySelector('.confirm-info');
-    // confirmInfoDiv.style.display = 'none';
+    let confirmInfoDiv: HTMLDivElement =
+      document.querySelector('.confirm-info');
+    confirmInfoDiv.style.display = 'none';
     //////////////////////////////////////////////////////////////// MAKE IT SHOW!!!!!!!!
   }
 
+  // Modal Message related Functions
+  closeModalDashboard() {
+    const closeModal: HTMLDivElement =
+      document.querySelector('#dashboard-modal');
+    closeModal.style.display = 'none';
+  }
   reEnterSubmit() {
     this.userObj.getUserFromService().subscribe((u) => {
       this.theUser = u.find((a: any) => {
@@ -34,13 +47,13 @@ export class DashboardComponent implements OnInit {
         let profNameVar: HTMLHeadingElement =
           document.querySelector('#profileName');
         profNameVar.textContent = this.theUser.name;
-        let profEmailVar: HTMLHeadingElement =
+        let profEmailVar: HTMLParagraphElement =
           document.querySelector('#profileEmail');
         profEmailVar.textContent = this.theUser.email;
-        let profMobileVar: HTMLHeadingElement =
+        let profMobileVar: HTMLParagraphElement =
           document.querySelector('#profileMobile');
         profMobileVar.textContent = this.theUser.mobile;
-        let profAddressVar: HTMLHeadingElement =
+        let profAddressVar: HTMLParagraphElement =
           document.querySelector('#profileAddress');
         profAddressVar.textContent = this.theUser.address;
 
