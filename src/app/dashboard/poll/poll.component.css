@@ -106,3 +106,21 @@
 .poll-num {
   margin-top: 30px;
 }
+.poll-num span {
+  color: #2e89ff;
+  font-weight: bold;
+}
+
+.note p,
+li {
+  color: gray;
+  font-size: 15px;
+  line-height: 17px;
+}
+.note ul {
+  margin-left: 40px;
+}
+.note span {
+  font-weight: bold;
+  color: gray;
+}

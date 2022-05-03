@@ -1,14 +1,14 @@
 <div class="monthly-main-con">
   <!-- dito sa monthly-con mag ngFor -->
-  <div class="monthly-con">
+  <div class="monthly-con" *ngFor="let diagram of diagram.slice().reverse()">
     <div class="monthly-header">
-      <h2>Monthly Flood Analysis Diagram</h2>
+      <h2>
+        Month of {{ diagram.month.toUpperCase() }} 2022 - Flood Analysis Diagram
+      </h2>
     </div>
     <div class="monthly-diagram">
       <!-- this div below swould also got ngFor, and that's for fetching water level post LEVEL the belongs to specific month -->
 
-      <!-- ,
-            backgroundColor: level.wlColor -->
       <div
         *ngFor="let level of flUpdatesVariable.slice().reverse()"
         class="bar-con"
@@ -20,7 +20,7 @@
           class="bar"
         ></div>
         <p class="bar-info">
-          {{ level.wlMonth }}
+          {{ level.wlMonth.toUpperCase() }}
           <span>
             <p>{{ level.wlTime }}</p></span
           >
