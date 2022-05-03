@@ -37,6 +37,7 @@
   border-radius: 10px;
   transition: 0.2s;
   position: relative;
+  cursor: pointer;
 }
 
 .notif:hover {
