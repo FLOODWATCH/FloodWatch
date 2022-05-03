@@ -113,6 +113,8 @@
   border-radius: 50%;
   /* background-color: green; */
   background-color: #2e89ff;
+  background-image: url(src/assets/fl-avatar.png);
+  background-size: contain;
 }
 .post-profile .post-prof-name {
   margin-left: 8px;
@@ -144,10 +146,9 @@
   display: grid;
   grid-template-columns: auto auto;
   border-radius: 20px;
-  background-color:transparent;
+  background-color: transparent;
   box-sizing: border-box;
   line-height: 1;
-  
 }
 .img-box > .image-post {
   /* margin-top: 15px; */
@@ -367,7 +368,7 @@
   max-width: 70px;
   display: flex;
   justify-content: flex-end;
-  transition: 0.50s ease;
+  transition: 0.5s ease;
   /* opacity: 0.5; */
   /* position: relative; */
 }
@@ -380,7 +381,7 @@
   width: 60px;
   height: 60px;
   margin: 5px;
-  transition: 0.50s;
+  transition: 0.5s;
   /* z-index: 1; */
 }
 .close-img {
@@ -398,24 +399,23 @@
   left: 30%; */
   top: 30%;
   left: 30%;
-  transition: 0.50s ease;
+  transition: 0.5s ease;
   opacity: 0;
   /* animation: modal 0.25s;
   animation-fill-mode: forwards; */
 }
 .solo-img > .each-container {
   /* background-color: #4c3f91; */
-    position: relative;
+  position: relative;
 }
 
-.img-file ~ .close-img:hover  {
-    /* transform: scale(1.50); */
+.img-file ~ .close-img:hover {
+  /* transform: scale(1.50); */
   cursor: pointer;
   /* background-color: rgba(0, 0, 0, 0.519); */
   opacity: 1 !important;
 }
 /* Responsive Image Gallery */
-
 
 /* .img-file:not(:hover) {
   opacity: 0.5 !important;
