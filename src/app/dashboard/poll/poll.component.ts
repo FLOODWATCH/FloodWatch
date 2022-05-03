@@ -5,6 +5,7 @@ import { UserCredService } from 'src/app/register-services/user-cred.service';
 import { userInterface } from 'src/app/user-interface';
 import { HostListener } from '@angular/core';
 import { votersInterface } from 'src/app/voters-interface';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-poll',
@@ -16,6 +17,8 @@ export class PollComponent implements OnInit {
   userVarMod: userInterface[] = [];
   pollSafeVote: number;
   pollNotSafeVote: number;
+
+  faInfoCircle = faInfoCircle;
 
   constructor(
     private pollObj: PollService,

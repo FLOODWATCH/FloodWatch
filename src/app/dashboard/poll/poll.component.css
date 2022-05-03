@@ -124,3 +124,20 @@ li {
   font-weight: bold;
   color: gray;
 }
+
+.poll-info-circle {
+  color: #2e89ff;
+  font-size: 20px;
+  animation-name: pollInfoAnimation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pollInfoAnimation {
+  0% {
+    top: -10px;
+  }
+  100% {
+    top: 10px;
+  }
+}
