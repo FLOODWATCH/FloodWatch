@@ -43,7 +43,7 @@
   transform: scale(1.03);
 }
 .notif h3 {
-  margin-bottom: 5px;
+  margin: 7px 0 0 0;
 }
 .notif p {
   font-size: 13px;
@@ -52,7 +52,7 @@
 .time {
   position: absolute;
   top: 5px;
-  right: 5px;
+  right: 6px;
 }
 .time p {
   font-size: 10px;
