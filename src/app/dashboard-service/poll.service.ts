@@ -14,35 +14,82 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class PollService {
-  private pollUrl = 'http://localhost:5000/poll';
-  private votersUrl = 'http://localhost:5000/voters';
+  private pollUrl = 'http://localhost:5000/poll'; //JSON SERVER
+  private votersUrl = 'http://localhost:5000/voters'; //JSON SERVER
+
+  private FLpollUrl = 'http://localhost:8080/flpoll'; // SPRINGBOOT
+  private FLvotersUrl = 'http://localhost:8080/flvoters'; //SPRINGBOOT
   constructor(private http: HttpClient) {}
 
-  //POLL request
+  //JSON SERVER BELOW
 
+  // POLL request
+  // getPollsFromService(): Observable<pollInterface[]> {
+  //   return this.http.get<pollInterface[]>(this.pollUrl);
+  // }
+
+  // addVoteFromService(vote: pollInterface): Observable<pollInterface> {
+  //   return this.http.post<pollInterface>(this.pollUrl, vote, httpOptions);
+  // }
+
+  // //update poll
+  // goVotePollFromService(vote: pollInterface): Observable<pollInterface> {
+  //   const voteUrl = `${this.pollUrl}/${vote.id}`;
+  //   return this.http.put<pollInterface>(voteUrl, vote, httpOptions);
+  // }
+
+  // //VOTERS request
+  // getVotersFromService(): Observable<votersInterface[]> {
+  //   return this.http.get<votersInterface[]>(this.votersUrl);
+  // }
+  // addVotersFromService(voter: votersInterface): Observable<votersInterface> {
+  //   return this.http.post<votersInterface>(this.votersUrl, voter, httpOptions);
+  // }
+  // updateVoteFromService(vote: votersInterface): Observable<votersInterface> {
+  //   const votersUrl = `${this.votersUrl}/${vote.id}`;
+  //   return this.http.put<votersInterface>(votersUrl, vote, httpOptions);
+  // }
+
+  //SPRINGBOOT BELOW
+
+  //POLL request
   getPollsFromService(): Observable<pollInterface[]> {
-    return this.http.get<pollInterface[]>(this.pollUrl);
+    return this.http.get<pollInterface[]>(this.FLpollUrl);
   }
 
   addVoteFromService(vote: pollInterface): Observable<pollInterface> {
-    return this.http.post<pollInterface>(this.pollUrl, vote, httpOptions);
+    return this.http.post<pollInterface>(this.FLpollUrl, vote, httpOptions);
   }
 
   //update poll
+  // goVotePollFromService(vote: pollInterface): Observable<pollInterface> {
+  //   const voteUrl = `${this.FLpollUrl}/${vote.id}`;
+  //   return this.http.put<pollInterface>(voteUrl, vote, httpOptions);
+  // }
+  //---------------------------------------------------------------
   goVotePollFromService(vote: pollInterface): Observable<pollInterface> {
-    const voteUrl = `${this.pollUrl}/${vote.id}`;
+    const voteUrl = `${this.FLpollUrl}/${vote.id}?${'pollSafeVote'}=${
+      vote.pollSafeVote
+    }&${'pollNotSafeVote'}=${vote.pollNotSafeVote}&${'pollNoVote'}=${
+      vote.pollNoVote
+    }&${'pollTotalVoters'}=${vote.pollTotalVoters}`;
     return this.http.put<pollInterface>(voteUrl, vote, httpOptions);
   }
+  //---------------------------------------------------------------
 
   //VOTERS request
   getVotersFromService(): Observable<votersInterface[]> {
-    return this.http.get<votersInterface[]>(this.votersUrl);
+    return this.http.get<votersInterface[]>(this.FLvotersUrl);
   }
   addVotersFromService(voter: votersInterface): Observable<votersInterface> {
-    return this.http.post<votersInterface>(this.votersUrl, voter, httpOptions);
+    return this.http.post<votersInterface>(
+      this.FLvotersUrl,
+      voter,
+      httpOptions
+    );
   }
   updateVoteFromService(vote: votersInterface): Observable<votersInterface> {
-    const votersUrl = `${this.votersUrl}/${vote.id}`;
+    const votersUrl = `${this.FLvotersUrl}/${vote.id}`;
     return this.http.put<votersInterface>(votersUrl, vote, httpOptions);
   }
 }

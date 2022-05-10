@@ -11,10 +11,17 @@ export class FlupdatesService {
   private flupdatesUrl = 'http://localhost:5000/flwaterlevelpost'; //JSON Server
   // private flupdatesUrl =
   //   'https://floodwatchbackend.herokuapp.com/flwaterlevelpost'; //Springboot Heroku Server Try
+  private flWaterLevelPost = 'http://localhost:8080/flwaterlevelpost'; //undeployed springboot
 
   constructor(private http: HttpClient) {}
 
+  //json server || deployed BE but from personal repo (must change)
+  // getFLUpdatesFromService(): Observable<waterLevelPostInterface[]> {
+  //   return this.http.get<waterLevelPostInterface[]>(this.flupdatesUrl);
+  // }
+
+  //From undeployed springboot BE
   getFLUpdatesFromService(): Observable<waterLevelPostInterface[]> {
-    return this.http.get<waterLevelPostInterface[]>(this.flupdatesUrl);
+    return this.http.get<waterLevelPostInterface[]>(this.flWaterLevelPost);
   }
 }

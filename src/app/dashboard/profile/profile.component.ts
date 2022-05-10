@@ -18,10 +18,10 @@ export class ProfileComponent extends LoginComponent implements OnInit {
   phoneField: HTMLInputElement = document.querySelector('#phone');
   passField: HTMLInputElement = document.querySelector('#pass');
 
-  profileName: string = 'something went wrong';
-  profileEmail: string = 'something went wrong';
-  profileMobile: string = 'something went wrong';
-  profileAddress: string = 'something went wrong';
+  profileName: string = 'Flood B. Watch';
+  profileEmail: string = 'flood.watch@cvsu.edu.ph';
+  profileMobile: string = '09305193102';
+  profileAddress: string = 'Romblon Camarines Sur Del monte Ketsup';
 
   ngOnInit(): void {
     super.ngOnInit();

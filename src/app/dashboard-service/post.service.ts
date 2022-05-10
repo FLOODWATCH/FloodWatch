@@ -68,9 +68,17 @@ export class PostService {
   //   return this.http.delete<postInterface>(deleteUrl);
   // }
 
-  // updatePostFromPostService(postToBeUpdated: postInterface): Observable<postInterface> {
-  //   const updateUrl = `${this.flpostUrl}/${postToBeUpdated.id}?${"profTextPost"}=${postToBeUpdated.profTextPost}`;
-  //   return this.http.put<postInterface>(updateUrl, postToBeUpdated, httpOptions);
+  // updatePostFromPostService(
+  //   postToBeUpdated: postInterface
+  // ): Observable<postInterface> {
+  //   const updateUrl = `${this.flpostUrl}/${
+  //     postToBeUpdated.id
+  //   }?${'profTextPost'}=${postToBeUpdated.profTextPost}`;
+  //   return this.http.put<postInterface>(
+  //     updateUrl,
+  //     postToBeUpdated,
+  //     httpOptions
+  //   );
   // }
 
   //Using Spring boot as backend - END

@@ -11,7 +11,7 @@ import { faExclamation } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private userObj: UserCredService) { }
+  constructor(private userObj: UserCredService) {}
   faTimes = faTimes;
   faExclamation = faExclamation;
   faCheck = faCheck;
@@ -22,9 +22,9 @@ export class DashboardComponent implements OnInit {
   theUser: userInterface;
 
   ngOnInit(): void {
-    let confirmInfoDiv: HTMLDivElement =
-      document.querySelector('.confirm-info');
-    confirmInfoDiv.style.display = 'none';
+    // let confirmInfoDiv: HTMLDivElement =
+    //   document.querySelector('.confirm-info');
+    // confirmInfoDiv.style.display = 'none';
     //////////////////////////////////////////////////////////////// MAKE IT SHOW!!!!!!!!
   }
 
