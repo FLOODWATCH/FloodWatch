@@ -59,8 +59,75 @@
       <div class="bar-con">
         <div [ngStyle]="{ height: '50%' }" class="bar"></div>
       </div>
-      <!-- 
       </div> -->
+
+      <!-- below code is for level indicator COLOR -->
+      <div class="indicator level-one"></div>
+      <div class="indicator level-two"></div>
+      <div class="indicator level-three"></div>
+      <div class="indicator level-four"></div>
+    </div>
+  </div>
+
+  <!-- /////////////////////////////////////////////////////////////////////// -->
+  <div class="monthly-con" *ngFor="let diagram of diagram.slice().reverse()">
+    <div class="monthly-header">
+      <h2>Month of APRIL 2022 - Flood Analysis Diagram</h2>
+    </div>
+    <div class="monthly-diagram">
+      <!-- this div below swould also got ngFor, and that's for fetching water level post LEVEL the belongs to specific month -->
+
+      <!-- <div
+        *ngFor="let level of flUpdatesVariable.slice().reverse()"
+        class="bar-con"
+      >
+        <div
+          [ngStyle]="{
+            height: level.wlPercent + '%'
+          }"
+          class="bar"
+        ></div>
+        <p class="bar-info">
+          {{ level.wlMonth.toUpperCase() }}
+          <span>
+            <p>{{ level.wlTime }}</p></span
+          >
+        </p>
+      </div> -->
+
+      <div class="bar-con">
+        <div [ngStyle]="{ height: '50%' }" class="bar"></div>
+      </div>
+      <div class="bar-con">
+        <div [ngStyle]="{ height: '25%' }" class="bar"></div>
+      </div>
+      <div class="bar-con">
+        <div [ngStyle]="{ height: '75%' }" class="bar"></div>
+      </div>
+      <div class="bar-con">
+        <div [ngStyle]="{ height: '25%' }" class="bar"></div>
+      </div>
+      <div class="bar-con">
+        <div [ngStyle]="{ height: '50%' }" class="bar"></div>
+      </div>
+      <div class="bar-con">
+        <div [ngStyle]="{ height: '100%' }" class="bar"></div>
+      </div>
+      <div class="bar-con">
+        <div [ngStyle]="{ height: '50%' }" class="bar"></div>
+      </div>
+      <div class="bar-con">
+        <div [ngStyle]="{ height: '25%' }" class="bar"></div>
+      </div>
+      <div class="bar-con">
+        <div [ngStyle]="{ height: '75%' }" class="bar"></div>
+      </div>
+      <div class="bar-con">
+        <div [ngStyle]="{ height: '50%' }" class="bar"></div>
+      </div>
+      <div class="bar-con">
+        <div [ngStyle]="{ height: '50%' }" class="bar"></div>
+      </div>
 
       <!-- below code is for level indicator COLOR -->
       <div class="indicator level-one"></div>

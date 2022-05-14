@@ -14,7 +14,9 @@ const httpOptions = {
 })
 export class UserCredService {
   private userUrl = 'http://localhost:5000/user'; //from json-server
-  private fluserUrl = 'http://localhost:8080/fluser'; //from spring-boot
+  // private fluserUrl = 'http://localhost:8080/fluser'; //from spring-boot
+  private fluserUrl =
+    'https://floodwatch-software-backend.herokuapp.com/fluser'; //DEPLOYED
   constructor(private http: HttpClient) {}
 
   //Using JSON Server - START

@@ -195,7 +195,8 @@
 }
 .post-option-tab {
   width: 230px;
-  height: 210px;
+  height: 150px;
+  /* height: 210px; */
   /* background-color: #242526; */
   background-color: #1b1a1a;
   position: absolute;

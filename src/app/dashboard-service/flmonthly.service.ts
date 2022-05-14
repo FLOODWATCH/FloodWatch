@@ -13,7 +13,9 @@ const httpOptions = {
 })
 export class FlmonthlyService {
   private diagramApiUrl = 'http://localhost:5000/flmonthly';
-  private fldiagramApiUrl = 'http://localhost:8080/flmonthly';
+  //private fldiagramApiUrl = 'http://localhost:8080/flmonthly';
+  private fldiagramApiUrl =
+    'https://floodwatch-software-backend.herokuapp.com/flmonthly';
   constructor(private http: HttpClient) {}
 
   //FROM JSON SERVER BELOW

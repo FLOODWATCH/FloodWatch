@@ -11,7 +11,9 @@ export class FlupdatesService {
   private flupdatesUrl = 'http://localhost:5000/flwaterlevelpost'; //JSON Server
   // private flupdatesUrl =
   //   'https://floodwatchbackend.herokuapp.com/flwaterlevelpost'; //Springboot Heroku Server Try
-  private flWaterLevelPost = 'http://localhost:8080/flwaterlevelpost'; //undeployed springboot
+  //private flWaterLevelPost = 'http://localhost:8080/flwaterlevelpost'; //undeployed springboot
+  private flWaterLevelPost =
+    'https://floodwatch-software-backend.herokuapp.com/flwaterlevelpost'; //EEPLOYED springboot
 
   constructor(private http: HttpClient) {}
 

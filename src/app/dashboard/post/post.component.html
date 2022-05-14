@@ -77,7 +77,8 @@
       </div>
       <!-- Make Text Post -->
       <div>
-        <button (click)="OptionTab()" class="open-post-btn">+</button>
+        <button (click)="makeTextPost()" class="open-post-btn">+</button>
+        <!-- Did not include the option tab as it is redundant -->
         <div class="post-option-tab">
           <div>
             <fa-icon
@@ -90,9 +91,9 @@
             <div (click)="makeTextPost()" class="text-option">
               Create Text Post
             </div>
-            <div (click)="makeTextFilePost()" class="file-text-option">
+            <!-- <div (click)="makeTextFilePost()" class="file-text-option">
               Create File and Text Post
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

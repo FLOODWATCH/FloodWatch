@@ -17,8 +17,12 @@ export class PollService {
   private pollUrl = 'http://localhost:5000/poll'; //JSON SERVER
   private votersUrl = 'http://localhost:5000/voters'; //JSON SERVER
 
-  private FLpollUrl = 'http://localhost:8080/flpoll'; // SPRINGBOOT
-  private FLvotersUrl = 'http://localhost:8080/flvoters'; //SPRINGBOOT
+  //private FLpollUrl = 'http://localhost:8080/flpoll'; // SPRINGBOOT
+  private FLpollUrl =
+    'https://floodwatch-software-backend.herokuapp.com/flpoll'; // SPRINGBOOT DEPLOYED
+  //private FLvotersUrl = 'http://localhost:8080/flvoters'; //SPRINGBOOT
+  private FLvotersUrl =
+    'https://floodwatch-software-backend.herokuapp.com/flvoters'; //SPRINGBOOT DEPLOYED
   constructor(private http: HttpClient) {}
 
   //JSON SERVER BELOW
