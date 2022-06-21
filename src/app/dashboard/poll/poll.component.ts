@@ -5,6 +5,7 @@ import { UserCredService } from 'src/app/register-services/user-cred.service';
 import { userInterface } from 'src/app/user-interface';
 import { HostListener } from '@angular/core';
 import { votersInterface } from 'src/app/voters-interface';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-poll',
@@ -14,8 +15,11 @@ import { votersInterface } from 'src/app/voters-interface';
 export class PollComponent implements OnInit {
   pollVariable: pollInterface[] = [];
   userVarMod: userInterface[] = [];
+  votersVariable: votersInterface[] = [];
   pollSafeVote: number;
   pollNotSafeVote: number;
+
+  faInfoCircle = faInfoCircle;
 
   constructor(
     private pollObj: PollService,
@@ -26,9 +30,13 @@ export class PollComponent implements OnInit {
   thePoll: pollInterface;
 
   ngOnInit(): void {
-    this.pollObj.getPollsFromService().subscribe((p) => {
-      this.pollVariable = p;
-    });
+    this.pollObj
+      .getPollsFromService()
+      .subscribe((p) => (this.pollVariable = p));
+
+    this.pollObj
+      .getVotersFromService()
+      .subscribe((v) => (this.votersVariable = v));
 
     this.userCredObj
       .getUserFromService()
@@ -43,143 +51,142 @@ export class PollComponent implements OnInit {
     }
   }
 
-  votersVariable: votersInterface[] = [];
   theVoter: votersInterface;
   safeIncrement: any;
   // MY OLD ALGO FOR POLL -------------- start ---------------------------------------------------
-  safeVote(poll: pollInterface) {
-    let profEmailVar: HTMLParagraphElement =
-      document.querySelector('#profileEmail'); //this is from profile component
+  // safeVote(poll: pollInterface) {
+  //   let profEmailVar: HTMLParagraphElement =
+  //     document.querySelector('#profileEmail'); //this is from profile component
 
-    let vote = 'SAFE';
+  //   let vote = 'SAFE';
 
-    this.pollObj.getVotersFromService().subscribe((u) => {
-      this.theVoter = u.find((v: any) => {
-        return (
-          v.votersEmail === profEmailVar.textContent && v.votersVote === vote
-        );
-      });
-      if (this.theVoter) {
-        //already voted
+  //   this.pollObj.getVotersFromService().subscribe((u) => {
+  //     this.theVoter = u.find((v: any) => {
+  //       return (
+  //         v.votersEmail === profEmailVar.textContent && v.votersVote === vote
+  //       );
+  //     });
+  //     if (this.theVoter) {
+  //       //already voted
 
-        //update the vote (minus 1 on safe vote)
-        this.safeIncrement = `${(poll.pollSafeVote -= 1)}%`;
-        poll.pollTotalVoters = this.userVarMod.length;
-        poll.pollNoVote =
-          poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);
-        this.pollObj.goVotePollFromService(poll).subscribe();
-        //update the vote to null
-        this.theVoter.votersVote = '';
-        this.pollObj.updateVoteFromService(this.theVoter).subscribe();
-      } else {
-        //add vote (id d pa nakakavote)
-        //if the voter is not on database tjen add the voters email and vote to database
-        const newVoters: votersInterface = {
-          votersEmail: profEmailVar.textContent,
-          votersVote: 'SAFE', //because it's a safe function lol
-        };
-        this.pollObj
-          .addVotersFromService(newVoters)
-          .subscribe((v) => this.votersVariable.push(newVoters));
+  //       //update the vote (minus 1 on safe vote)
+  //       this.safeIncrement = `${(poll.pollSafeVote -= 1)}%`;
+  //       poll.pollTotalVoters = this.userVarMod.length;
+  //       poll.pollNoVote =
+  //         poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);
+  //       this.pollObj.goVotePollFromService(poll).subscribe();
+  //       //update the vote to null
+  //       this.theVoter.votersVote = '';
+  //       this.pollObj.updateVoteFromService(this.theVoter).subscribe();
+  //     } else {
+  //       //add vote (id d pa nakakavote)
+  //       //if the voter is not on database tjen add the voters email and vote to database
+  //       const newVoters: votersInterface = {
+  //         votersEmail: profEmailVar.textContent,
+  //         votersVote: 'SAFE', //because it's a safe function lol
+  //       };
+  //       this.pollObj
+  //         .addVotersFromService(newVoters)
+  //         .subscribe((v) => this.votersVariable.push(newVoters));
 
-        //Update the SAFE vote (plus 1 to the safe vote)
-        this.safeIncrement = `${(poll.pollSafeVote += 1)}%`;
-        poll.pollTotalVoters = this.userVarMod.length;
-        poll.pollNoVote =
-          poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);
-        this.pollObj.goVotePollFromService(poll).subscribe();
+  //       //Update the SAFE vote (plus 1 to the safe vote)
+  //       this.safeIncrement = `${(poll.pollSafeVote += 1)}%`;
+  //       poll.pollTotalVoters = this.userVarMod.length;
+  //       poll.pollNoVote =
+  //         poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);
+  //       this.pollObj.goVotePollFromService(poll).subscribe();
 
-        //removed your NOT SAFE VOTE if you wish to vote the SAFE VOTE
-        let nvote = 'NOT-SAFE';
-        this.pollObj.getVotersFromService().subscribe((u) => {
-          this.theVoter = u.find((v: any) => {
-            return (
-              v.votersEmail === profEmailVar.textContent &&
-              v.votersVote === nvote
-            );
-          });
-          if (this.theVoter) {
-            //update the vote (minus 1 on safe vote)
-            this.safeIncrement = `${(poll.pollNotSafeVote -= 1)}%`;
-            poll.pollTotalVoters = this.userVarMod.length;
-            poll.pollNoVote =
-              poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);
-            this.pollObj.goVotePollFromService(poll).subscribe();
-            //update the vote to null
-            this.theVoter.votersVote = '';
-            this.pollObj.updateVoteFromService(this.theVoter).subscribe();
-          }
-        });
-      }
-    });
-  }
+  //       //removed your NOT SAFE VOTE if you wish to vote the SAFE VOTE
+  //       let nvote = 'NOT-SAFE';
+  //       this.pollObj.getVotersFromService().subscribe((u) => {
+  //         this.theVoter = u.find((v: any) => {
+  //           return (
+  //             v.votersEmail === profEmailVar.textContent &&
+  //             v.votersVote === nvote
+  //           );
+  //         });
+  //         if (this.theVoter) {
+  //           //update the vote (minus 1 on safe vote)
+  //           this.safeIncrement = `${(poll.pollNotSafeVote -= 1)}%`;
+  //           poll.pollTotalVoters = this.userVarMod.length;
+  //           poll.pollNoVote =
+  //             poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);
+  //           this.pollObj.goVotePollFromService(poll).subscribe();
+  //           //update the vote to null
+  //           this.theVoter.votersVote = '';
+  //           this.pollObj.updateVoteFromService(this.theVoter).subscribe();
+  //         }
+  //       });
+  //     }
+  //   });
+  // }
 
-  notSafeVote(poll: pollInterface) {
-    let profEmailVar: HTMLParagraphElement =
-      document.querySelector('#profileEmail'); //this is from profile component
+  // notSafeVote(poll: pollInterface) {
+  //   let profEmailVar: HTMLParagraphElement =
+  //     document.querySelector('#profileEmail'); //this is from profile component
 
-    let nsvote = 'NOT-SAFE';
+  //   let nsvote = 'NOT-SAFE';
 
-    this.pollObj.getVotersFromService().subscribe((u) => {
-      this.theVoter = u.find((v: any) => {
-        return (
-          v.votersEmail === profEmailVar.textContent && v.votersVote === nsvote
-        );
-      });
-      if (this.theVoter) {
-        //already voted
-        // alert('You already voted as NOT SAFE, Strictly No double vote allowed');
-        //update the vote (minus 1 on not safe vote)
-        let notSafeIncrement = `${(poll.pollNotSafeVote -= 1)}%`;
-        poll.pollTotalVoters = this.userVarMod.length;
-        poll.pollNoVote =
-          poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);
-        this.pollObj.goVotePollFromService(poll).subscribe();
-        //update the vote to null
-        this.theVoter.votersVote = '';
-        this.pollObj.updateVoteFromService(this.theVoter).subscribe();
-      } else {
-        //add vote
-        //if the voter is not on database tjen add the voters email and vote to database
-        const newVoters: votersInterface = {
-          votersEmail: profEmailVar.textContent,
-          votersVote: 'NOT-SAFE', //because it's a not safe function lol
-        };
-        this.pollObj
-          .addVotersFromService(newVoters)
-          .subscribe((v) => this.votersVariable.push(newVoters));
+  //   this.pollObj.getVotersFromService().subscribe((u) => {
+  //     this.theVoter = u.find((v: any) => {
+  //       return (
+  //         v.votersEmail === profEmailVar.textContent && v.votersVote === nsvote
+  //       );
+  //     });
+  //     if (this.theVoter) {
+  //       //already voted
+  //       // alert('You already voted as NOT SAFE, Strictly No double vote allowed');
+  //       //update the vote (minus 1 on not safe vote)
+  //       let notSafeIncrement = `${(poll.pollNotSafeVote -= 1)}%`;
+  //       poll.pollTotalVoters = this.userVarMod.length;
+  //       poll.pollNoVote =
+  //         poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);
+  //       this.pollObj.goVotePollFromService(poll).subscribe();
+  //       //update the vote to null
+  //       this.theVoter.votersVote = '';
+  //       this.pollObj.updateVoteFromService(this.theVoter).subscribe();
+  //     } else {
+  //       //add vote
+  //       //if the voter is not on database tjen add the voters email and vote to database
+  //       const newVoters: votersInterface = {
+  //         votersEmail: profEmailVar.textContent,
+  //         votersVote: 'NOT-SAFE', //because it's a not safe function lol
+  //       };
+  //       this.pollObj
+  //         .addVotersFromService(newVoters)
+  //         .subscribe((v) => this.votersVariable.push(newVoters));
 
-        //Update the NOT SAFE vote (plus 1 to the not safe vote)
-        let notSafeIncrement = `${(poll.pollNotSafeVote += 1)}%`;
-        poll.pollTotalVoters = this.userVarMod.length;
-        poll.pollNoVote =
-          poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);
-        this.pollObj.goVotePollFromService(poll).subscribe();
+  //       //Update the NOT SAFE vote (plus 1 to the not safe vote)
+  //       let notSafeIncrement = `${(poll.pollNotSafeVote += 1)}%`;
+  //       poll.pollTotalVoters = this.userVarMod.length;
+  //       poll.pollNoVote =
+  //         poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);
+  //       this.pollObj.goVotePollFromService(poll).subscribe();
 
-        //removed your SAFE VOTE if you wish to vote the NOT SAFE VOTE
-        let svote = 'SAFE';
-        this.pollObj.getVotersFromService().subscribe((u) => {
-          this.theVoter = u.find((v: any) => {
-            return (
-              v.votersEmail === profEmailVar.textContent &&
-              v.votersVote === svote
-            );
-          });
-          if (this.theVoter) {
-            //update the vote (minus 1 on safe vote)
-            this.safeIncrement = `${(poll.pollSafeVote -= 1)}%`;
-            poll.pollTotalVoters = this.userVarMod.length;
-            poll.pollNoVote =
-              poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);
-            this.pollObj.goVotePollFromService(poll).subscribe();
-            //update the vote to null
-            this.theVoter.votersVote = '';
-            this.pollObj.updateVoteFromService(this.theVoter).subscribe();
-          }
-        });
-      }
-    });
-  }
+  //       //removed your SAFE VOTE if you wish to vote the NOT SAFE VOTE
+  //       let svote = 'SAFE';
+  //       this.pollObj.getVotersFromService().subscribe((u) => {
+  //         this.theVoter = u.find((v: any) => {
+  //           return (
+  //             v.votersEmail === profEmailVar.textContent &&
+  //             v.votersVote === svote
+  //           );
+  //         });
+  //         if (this.theVoter) {
+  //           //update the vote (minus 1 on safe vote)
+  //           this.safeIncrement = `${(poll.pollSafeVote -= 1)}%`;
+  //           poll.pollTotalVoters = this.userVarMod.length;
+  //           poll.pollNoVote =
+  //             poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);
+  //           this.pollObj.goVotePollFromService(poll).subscribe();
+  //           //update the vote to null
+  //           this.theVoter.votersVote = '';
+  //           this.pollObj.updateVoteFromService(this.theVoter).subscribe();
+  //         }
+  //       });
+  //     }
+  //   });
+  // }
   // MY OLD ALGO FOR POLL -------------- end
   //------------------------------------------------------------------------------------
   //------------------------------------------------------------------------------------
@@ -210,6 +217,8 @@ export class PollComponent implements OnInit {
 
         //PUT request on poll database (bawas sa SAFE sa UI)
         poll.pollSafeVote -= 1;
+        // poll.pollNotSafeVote = this.pollNotSafeVote; //NADAGDAG 5/9/2022
+        console.log(poll.pollNotSafeVote);
         poll.pollTotalVoters = this.userVarMod.length;
         poll.pollNoVote =
           poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);
@@ -245,6 +254,7 @@ export class PollComponent implements OnInit {
 
         //PUT request on poll database (dagdag sa SAFE sa UI)
         poll.pollSafeVote += 1;
+        // poll.pollNotSafeVote = poll.pollNotSafeVote; //NADAGDAG 5/9/2022
         poll.pollTotalVoters = this.userVarMod.length;
         poll.pollNoVote =
           poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);
@@ -277,6 +287,7 @@ export class PollComponent implements OnInit {
 
         //PUT request on poll database (bawas sa NOT-SAFE sa UI)
         poll.pollNotSafeVote -= 1;
+        //poll.pollSafeVote = poll.pollSafeVote; //NADAGDAG 5/9/2022
         poll.pollTotalVoters = this.userVarMod.length;
         poll.pollNoVote =
           poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);
@@ -312,6 +323,7 @@ export class PollComponent implements OnInit {
 
         //PUT request on poll database (dagdag sa NOT-SAFE sa UI)
         poll.pollNotSafeVote += 1;
+        //poll.pollSafeVote = poll.pollSafeVote; //NADAGDAG 5/9/2022
         poll.pollTotalVoters = this.userVarMod.length;
         poll.pollNoVote =
           poll.pollTotalVoters - (poll.pollSafeVote + poll.pollNotSafeVote);

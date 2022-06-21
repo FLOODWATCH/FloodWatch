@@ -106,3 +106,38 @@
 .poll-num {
   margin-top: 30px;
 }
+.poll-num span {
+  color: #2e89ff;
+  font-weight: bold;
+}
+
+.note p,
+li {
+  color: gray;
+  font-size: 15px;
+  line-height: 17px;
+}
+.note ul {
+  margin-left: 40px;
+}
+.note span {
+  font-weight: bold;
+  color: gray;
+}
+
+.poll-info-circle {
+  color: #2e89ff;
+  font-size: 20px;
+  animation-name: pollInfoAnimation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pollInfoAnimation {
+  0% {
+    top: -10px;
+  }
+  100% {
+    top: 10px;
+  }
+}

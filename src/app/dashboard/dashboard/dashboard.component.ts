@@ -11,7 +11,7 @@ import { faExclamation } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private userObj: UserCredService) { }
+  constructor(private userObj: UserCredService) {}
   faTimes = faTimes;
   faExclamation = faExclamation;
   faCheck = faCheck;

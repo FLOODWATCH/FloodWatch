@@ -14,26 +14,28 @@ const httpOptions = {
 })
 export class UserCredService {
   private userUrl = 'http://localhost:5000/user'; //from json-server
-  private fluserUrl = 'http://localhost:8080/fluser'; //from spring-boot
+  // private fluserUrl = 'http://localhost:8080/fluser'; //from spring-boot
+  private fluserUrl =
+    'https://floodwatch-software-backend.herokuapp.com/fluser'; //DEPLOYED
   constructor(private http: HttpClient) {}
 
   //Using JSON Server - START
-  getUserFromService(): Observable<userInterface[]> {
-    return this.http.get<userInterface[]>(this.userUrl);
-  }
-
-  addUserFromService(user: userInterface): Observable<userInterface> {
-    return this.http.post<userInterface>(this.userUrl, user, httpOptions);
-  }
-  //Using JSON Server - END
-
-  // Using Spring boot as backend - START (WILL UNCOMMENT THIS ONCE WE'VE ELIMINATE JSON SERVER FROM THE SYSTEM HAHAHA)
   // getUserFromService(): Observable<userInterface[]> {
-  //   return this.http.get<userInterface[]>(this.fluserUrl);
+  //   return this.http.get<userInterface[]>(this.userUrl);
   // }
 
   // addUserFromService(user: userInterface): Observable<userInterface> {
-  //   return this.http.post<userInterface>(this.fluserUrl, user, httpOptions);
+  //   return this.http.post<userInterface>(this.userUrl, user, httpOptions);
   // }
+  //Using JSON Server - END
+
+  // Using Spring boot as backend - START (WILL UNCOMMENT THIS ONCE WE'VE ELIMINATE JSON SERVER FROM THE SYSTEM HAHAHA)
+  getUserFromService(): Observable<userInterface[]> {
+    return this.http.get<userInterface[]>(this.fluserUrl);
+  }
+
+  addUserFromService(user: userInterface): Observable<userInterface> {
+    return this.http.post<userInterface>(this.fluserUrl, user, httpOptions);
+  }
   //Using Spring boot as backend - END
 }

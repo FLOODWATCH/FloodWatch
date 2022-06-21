@@ -1,10 +1,16 @@
 <div class="poll-con">
   <!-- Container of each Poll -->
   <div class="poll-list" *ngFor="let poll of pollVariable">
+    <!-- delete this -->
+    <!-- <p>SAFE VOTE: {{ poll.pollSafeVote }}</p>
+    <p>NOT SAFE VOTE: {{ poll.pollNotSafeVote }}</p>
+    <p>NO VOTE: {{ poll.pollNoVote }}</p>
+    <p>TOTAL VOTERS: {{ poll.pollTotalVoters }}</p> -->
+    <!-- delete this -->
     <div class="poll-info">
       <div class="poll-name">
         <h3>
-          Date Poll
+          Let's Vote!
           <span>{{ poll.pollDate }}</span>
         </h3>
       </div>
@@ -40,6 +46,12 @@
 
         <div class="poll-num">
           <div>
+            <p>
+              As of now, we have {{ poll.pollTotalVoters }} active FloodWatch
+              users
+            </p>
+          </div>
+          <div>
             Safe:
             <span>{{ (poll.pollSafeVote / poll.pollTotalVoters) * 100 }}%</span>
           </div>
@@ -62,6 +74,43 @@
             > -->
           </div>
         </div>
+      </div>
+      <div>
+        <fa-icon class="poll-info-circle" [icon]="faInfoCircle"></fa-icon>
+      </div>
+      <div class="note">
+        <p>
+          <span>Note: </span>
+          <br />
+          <span>Safe Vote</span> Means there are nothing to worry about if the
+          person votes Safe
+          <br />
+        </p>
+        <p><span>Not Safe Vote</span> indicates either of the following:</p>
+        <ul>
+          <li>The Water Level does not go down</li>
+          <li>Damage Properties</li>
+          <li>
+            Insufficient Supply. it can be either Food, First aid kit, etc
+          </li>
+          <li>Etc that is related to the listed aspect above</li>
+        </ul>
+        <p>
+          <span>Person Who Doesn't Mark or Vote</span> hence
+          <span>No Vote</span>
+        </p>
+        <ul>
+          <li>Either no time or can be consider as Safe of Not Safe</li>
+          <li>
+            But they will have its own percentage, since the number of people
+            that have an access to the FloodWatch web app i known
+          </li>
+        </ul>
+        <p>
+          Also Take note that the poll is only visible for 24 hours, and it only
+          appears 24 hours after the FloodWatch Hardware detects an increase in
+          the Water Level
+        </p>
       </div>
     </div>
   </div>
